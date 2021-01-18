@@ -1,0 +1,314 @@
+@font-face {
+	font-family:National-Bold;
+	src:url(../../fonts/font-gn/National-Bold.otf);
+}
+body, html, *
+{
+	padding: 0px;
+	margin: 0px;
+	-webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale;
+}
+body, html {
+	width: 100%;
+	height: 100%;
+}
+* {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+h1, h2, h3, h4, h5, h6, i
+{
+	font-weight: normal;
+	font-style: normal;
+}
+body.block
+{
+	overflow:hidden;
+}
+
+/* ------------------------------------------------------------- */
+/* ********************* CONTAINER GENERAL ********************* */
+/* ------------------------------------------------------------- */
+
+main
+{
+	position: relative;
+	width: 100%;
+	overflow:hidden;
+}
+
+/* ----------------------------------------------------------------- */
+/* ********************* END CONTAINER GENERAL ********************* */
+/* ----------------------------------------------------------------- */
+
+
+/* ----------------------------------------------------- */
+/* ********************* VARIABLES ********************* */
+/* ----------------------------------------------------- */
+
+/*==============================
+=            COLORS            =
+==============================*/
+
+	/*----------  MAIN COLORS  ----------*/
+	$colorMain_1: #1C2D4F;
+	$colorMain_2: #9495A0;
+	$colorMain_3: #937BF3;
+	$colorMain_4: #E3667A;
+	$colorMain_5: #35C850;
+	$colorMain_6: #F8CC6A;
+
+
+/*=====  End of COLORS  ======*/
+
+
+/*=============================
+=            FONTS            =
+=============================*/
+
+	$font_1: Font;
+	$font_2: Font;
+
+/*=====  End of FONTS  ======*/
+
+
+/*=================================
+=            TEXT SIZE            =
+=================================*/
+
+	/*----------  H1  ----------*/
+		/*----------  DESKTOP  ----------*/
+		$h1_textsize_desktop: 54px;
+		$h1_lineheight_desktop: 64px;
+
+
+	/*----------  H2  ----------*/
+		/*----------  DESKTOP  ----------*/
+		$h2_textsize_desktop: 32px;
+		$h2_lineheight_desktop: 58px;
+
+
+	/*----------  H3  ----------*/
+		/*----------  DESKTOP  ----------*/
+		$h3_textsize_desktop: 28px;
+		$h3_lineheight_desktop: 40px;
+
+
+	/*----------  H4  ----------*/
+		/*----------  DESKTOP  ----------*/
+		$h4_textsize_desktop: 26px;
+		$h4_lineheight_desktop: 33px;
+
+
+	/*----------  H5  ----------*/
+		/*----------  DESKTOP  ----------*/
+		$h5_textsize_desktop: 18px;
+		$h5_lineheight_desktop: 22px;
+
+
+	/*----------  PARAGRAPH BIG  ----------*/
+		/*----------  DESKTOP  ----------*/
+		$paragraphBig_textsize_desktop: 18px;
+		$paragraphBig_lineheight_desktop: 28px;
+
+
+	/*----------  PARAGRAPH MDIUM  ----------*/
+		/*----------  DESKTOP  ----------*/
+		$paragraphMedium_textsize_desktop: 16px;
+		$paragraphMedium_lineheight_desktop: 24px;
+
+
+	/*----------  PARAGRAPH SMALL  ----------*/
+		/*----------  DESKTOP  ----------*/
+		$paragraphSmall_textsize_desktop: 14px;
+		$paragraphSmall_lineheight_desktop: 24px;
+
+
+	/*----------  LINK  ----------*/
+		$link_textsize_desktop: 14px;
+		$link_lineheight_desktop: 16px;
+
+/*=====  End of TEXT SIZE  ======*/
+
+
+/*============================
+=            GRID            =
+============================*/
+
+	$grid_desktop_1: 1200px;
+	$grid_desktop_2: 1100px;
+	$grid_desktop_3: 1000px;
+	$grid_desktop_4: 900px;
+
+	$grid_tablet: 100%;
+	$grid_mobile: 100%;
+
+/*=====  End of GRID  ======*/
+
+
+/*===================================
+=            BREAK POINT            =
+===================================*/
+
+	$breakPoint_tablet: 1250px;
+	$breakPoint_mobile: 700px;
+
+
+/*=====  End of BREAK POINT  ======*/
+
+/* --------------------------------------------------------- */
+/* ********************* END VARIABLES ********************* */
+/* --------------------------------------------------------- */
+
+/* ------------------------------------------------- */
+/* ********************* MIXIN ********************* */
+/* ------------------------------------------------- */
+
+	/*----------  FUNCTION  ----------*/
+	/*
+	@mixin rgba-background($hexcolor, $opacity) {
+	  background-color: rgba($hexcolor, $opacity); 
+	}*/
+
+	/*----------  HEADING  ----------*/
+
+		/*----------  H1  ----------*/
+		@mixin styleH1{
+			font-family: $font_1;
+		  	color: $colorMain_1;
+
+			@media screen and (min-width: $breakPoint_tablet){
+				font-size: $h1_textsize_desktop;
+				line-height: $h1_lineheight_desktop;
+			}
+			@media screen and (min-width: $breakPoint_mobile) and (max-width: $breakPoint_tablet){}
+			@media screen and (max-width: $breakPoint_mobile){}	
+		}
+
+		/*----------  H2  ----------*/
+		@mixin styleH2{
+			font-family: $font_1;
+		  	color: $colorMain_1;
+			font-size: $h2_textsize_desktop;
+			line-height: $h2_lineheight_desktop;
+		}
+
+		/*----------  H3  ----------*/
+		@mixin styleH3{
+			font-family: $font_1;
+		  	color: $colorMain_1;
+			font-size: $h3_textsize_desktop;
+			line-height: $h3_lineheight_desktop;
+		}
+
+		/*----------  H4  ----------*/
+		@mixin styleH4{
+			font-family: $font_1;
+		  	color: $colorMain_1;
+			font-size: $h4_textsize_desktop;
+			line-height: $h4_lineheight_desktop;
+		}
+
+		/*----------  H5  ----------*/
+		@mixin styleH5{
+			font-family: $font_1;
+		  	color: $colorMain_1;
+			font-size: $h5_textsize_desktop;
+			line-height: $h5_lineheight_desktop;
+		}
+
+
+		/*----------  PARAGRAPH BIG  ----------*/
+		@mixin styleParagraphBig{
+			font-family: $font_1;
+		  	color: $colorMain_1;
+			font-size: $paragraphBig_textsize_desktop;
+			line-height: $paragraphBig_lineheight_desktop;
+		}
+
+		/*----------  PARAGRAPH MEDIUM  ----------*/
+		@mixin styleParagraphMedium{
+			font-family: $font_1;
+		  	color: $colorMain_1;
+			font-size: $paragraphMedium_textsize_desktop;
+			line-height: $paragraphMedium_lineheight_desktop;
+		}
+
+		/*----------  PARAGRAPH SMALL  ----------*/
+		@mixin styleParagraphSmall{
+			font-family: $font_1;
+		  	color: $colorMain_2;
+			font-size: $paragraphSmall_textsize_desktop;
+			line-height: $paragraphSmall_lineheight_desktop;
+		}
+
+
+		/*----------  BUTTON  ----------*/
+		@mixin button{
+		  	padding: 11px 15px 11px 15px;
+		  	border-radius: 4px;
+		  	background-color: $colorMain_4;
+			.btn-text{
+				font-family: $font_1;
+				font-size: $button_textsize_desktop;
+				line-height: $button_lineheight_desktop;
+			}
+		}
+
+
+		/*----------  GRID  ----------*/
+
+			/*----------  COMMON  ----------*/
+			@mixin styleGrid-common{
+				margin-right: auto;
+				margin-left: auto;
+				@media screen and (min-width: $breakPoint_mobile) and (max-width: $breakPoint_tablet){
+					width: $grid_tablet;
+					padding-right: 50px;
+					padding-left: 50px;
+				}
+				@media screen and (max-width: $breakPoint_mobile){
+					width: $grid_mobile;
+					padding-right: 25px;
+					padding-left: 25px;
+				}
+			}
+
+			/*----------  SIZE 1  ----------*/
+			@mixin styleGrid1{
+				@include styleGrid-common;
+				@media screen and (min-width: $breakPoint_tablet){
+					width: $grid_desktop_1;
+				}
+			}
+
+			/*----------  SIZE 2  ----------*/
+			@mixin styleGrid2{
+				@include styleGrid-common;
+				@media screen and (min-width: $breakPoint_tablet){
+					width: $grid_desktop_2;
+				}
+			}
+
+			/*----------  SIZE 3  ----------*/
+			@mixin styleGrid3{
+				@include styleGrid-common;
+				@media screen and (min-width: $breakPoint_tablet){
+					width: $grid_desktop_3;
+				}
+			}
+
+			/*----------  SIZE 4  ----------*/
+			@mixin styleGrid4{
+				@include styleGrid-common;
+				@media screen and (min-width: $breakPoint_tablet){
+					width: $grid_desktop_4;
+				}
+			}
+
+
+
+/* ----------------------------------------------------- */
+/* ********************* END MIXIN ********************* */
+/* ----------------------------------------------------- */

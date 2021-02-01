@@ -3,6 +3,7 @@ header{
 	top: 0px;
 	left: 0px;
 	width: 100%;
+	background-color: $colorMain_2;
 
 	z-index: 1;
 	.wrapper{
@@ -40,5 +41,9 @@ header{
 		.start{
 			@include styleButton("5", "right" );
 		}
+	}
+
+	&.style-scroll{
+		
 	}
 }

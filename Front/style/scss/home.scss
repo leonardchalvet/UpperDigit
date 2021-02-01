@@ -45,6 +45,7 @@
 				border-radius: 36px;
 				height: 73px;
 				padding: 8px 8px 8px 32px;
+				transition: border-radius 0.25s ease;
 				.search{
 					position: relative;
 					width: 18px;
@@ -155,7 +156,7 @@
 				border-radius: 0px 0px 36px 36px;
 				background-color: #FFF;
 				border-top: 1px solid rgba($colorMain_4, 0.2);
-				transition: all 0.25s ease;
+				
 				ul{
 					padding: 24px 40px 24px 40px;
 					list-style: none;
@@ -208,6 +209,7 @@
 				}
 
 				&.style-show{
+					transition: all 0.25s ease;
 					visibility: visible;
 					opacity: 1;
 				}

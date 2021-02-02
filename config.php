@@ -9,14 +9,14 @@
 /*
  * Change this for the URL of your repository
  */
-define('PRISMIC_URL', 'https://your-repo-name.prismic.io/api/v2');
+define('PRISMIC_URL', 'https://upperdigit.prismic.io/api/v2');
 define('PRISMIC_TOKEN', null);
 
 /*
  * Your site metadata
  */
-define('SITE_TITLE', 'Quickstart prismic.io');
-define('SITE_DESCRIPTION', 'This is the PHP Quickstart project for prismic.io');
+define('SITE_TITLE', 'upperdigit');
+define('SITE_DESCRIPTION', 'upperdigit');
 
 /*
  * Set to true to display error details

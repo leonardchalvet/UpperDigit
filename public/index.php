@@ -1,7 +1,6 @@
 <?php
 
 require_once '../vendor/autoload.php';
-require_once '../app/LinkResolver.php';
 require_once '../app/includes/PrismicHelper.php';
 require_once '../config.php';
 

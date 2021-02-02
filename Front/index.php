@@ -54,7 +54,6 @@
 										</svg>
 									</div>
 								</div>
-								
 							</div>
 							<div class="dropdown">
 								<div class="container-placeholder">
@@ -92,7 +91,6 @@
 										</li>
 									</ul>
 								</div>
-								
 							</div>
 						</div>
 					</div>
@@ -164,50 +162,46 @@
 							<li>
 								<img src="img/home/section-problem/icn-cross.svg" alt="">
 								<div class="text">
-									<h2>
+									<h3>
 										Le recours à un expert ? 
-									</h2>
+									</h3>
 									<p>
 										Difficulté de trouver le bon interlocuteur, délai d’attente, coût, complexité de la réponse
 									</p>
 								</div>
-								
 							</li>
 							<li>
 								<img src="img/home/section-problem/icn-cross.svg" alt="">
 								<div class="text">
-									<h2>
+									<h3>
 										Consulter la documentation officielle ? 
-									</h2>
+									</h3>
 									<p>
 										Difficulté de trouver le bon interlocuteur, délai d’attente, coût, complexité de la réponse
 									</p>
 								</div>
-								
 							</li>
 							<li>
 								<img src="img/home/section-problem/icn-cross.svg" alt="">
 								<div class="text">
-									<h2>
+									<h3>
 										Consulter un forum ? 
-									</h2>
+									</h3>
 									<p>
 										Fiabilité de l’information, délai de réponse, opposabilité de la réponse trouvée, 
 									</p>
 								</div>
-								
 							</li>
 							<li>
 								<img src="img/home/section-problem/icn-cross.svg" alt="">
 								<div class="text">
-									<h2>
+									<h3>
 										En parler à un ami ?
-									</h2>
+									</h3>
 									<p>
 										Conseils inadaptés, confidentialité, fiabilité
 									</p>
 								</div>
-								
 							</li>
 						</ul>
 					</div>
@@ -223,13 +217,12 @@
 				</div>
 			</section>
 
-
 			<section class="section-ftr">
 				<div class="wrapper">
 					<div class="container-title">
-						<h1>
+						<h2>
 							Un site unique pour répondre à toutes vos questions <em>fiscales !</em>
-						</h1>
+						</h2>
 						<div class="container-text">
 							<p>
 								A travers près de 10.000 questions/réponses certifiées par nos experts, MesQuestions délivre une réponse adaptée et instantanée à toutes les questions que vous vous posez.
@@ -275,7 +268,6 @@
 							<div class="container-el">
 								<div class="el active" data-video="video-planifier">
 									<div class="head">
-										
 										<h3>
 											Faites vos propres recherches
 										</h3>
@@ -284,12 +276,10 @@
 										<p>
 											Élaborez un planning conforme à l’ensemble de vos règles métiers, de la réglementation en vigueur et de vos objectifs. Élaborez un planning conforme à l’ensemble de vos règles métiers, de la réglementation en vigueur et de vos objectifs.
 										</p>
-									
 									</div>
 								</div>
 								<div class="el" data-video="video-simuler">
 									<div class="head">
-										
 										<h3>
 											Nos experts à votre écoute
 										</h3>
@@ -302,7 +292,6 @@
 								</div>
 								<div class="el" data-video="video-ordonnancer">
 									<div class="head">
-										
 										<h3>
 											Des fonctionnalités multiples
 										</h3>

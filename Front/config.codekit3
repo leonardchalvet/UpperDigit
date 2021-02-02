@@ -344,6 +344,17 @@
 		"sC": 0,
 		"tS": 0
 		},
+	"/script/minify/common-header-min.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/script/minify/common-header-min-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
 	"/script/minify/common-min.js": {
 		"bF": 0,
 		"ft": 64,

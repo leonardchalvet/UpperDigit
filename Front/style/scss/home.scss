@@ -313,7 +313,7 @@
 				}
 				.text{
 					flex: 1;
-					h2{
+					h3{
 						@include styleH4;
 					}
 					p{
@@ -351,7 +351,7 @@
 		flex-flow: row wrap;
 		align-items: center;
 		justify-content: space-between;
-		h1{
+		h2{
 			width: 490px;
 			text-align: right;
 			@include styleH2;

@@ -165,6 +165,22 @@
 							margin-bottom: 18px;
 						}
 
+						em {
+							position: relative;
+							z-index: 1;
+							&:before {
+								content: " ";
+								position: absolute;
+								z-index: -1;
+								top: -1px;
+								left: -1px;
+								width: calc(100% + 2px);
+								height: calc(100% + 2px);
+								border-radius: 3px;
+								background-color: #E8F0F6;
+							}
+						}
+
 						a{
 							position: relative;
 							text-decoration: none;

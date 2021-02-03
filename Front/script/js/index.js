@@ -1,13 +1,16 @@
 // @codekit-prepend 'common.js'
 
 $(window).on('load', function() {
+	/*
 	$('.section-search .container-search .container-input .input input').focusin(function(){
 		$('.section-search .container-search .container-input .input').addClass('style-search');
 		$('.section-search .container-search .container-input .dropdown').addClass('style-show');
+		
 		if (!$('.section-search .container-search .container-result').hasClass('style-show')) {
 			$('.section-search .container-search .container-placeholder').addClass('style-show');
 		}
 	})
+	*/
 
 	$('.section-search .container-search .container-input .input input').focusout(function(){
 		if ($(this).val() === "") {
@@ -20,26 +23,50 @@ $(window).on('load', function() {
 		$('.section-search .container-search .container-input .input input').focus();
 	})
 
-	$('.section-search .container-search .container-input .input .container-action .cross').click(function(){
-		$('.section-search .container-search .container-input .input input').val('');
+	function closeSearch() {
 		$('.section-search .container-search .container-input .input').removeClass('style-search');
 		$('.section-search .container-search .container-input .dropdown').removeClass('style-show');
 
 		$('.section-search .container-search .container-result').removeClass('style-show');
-		$('.section-search .container-search .container-placeholder').addClass('style-show');
+		//$('.section-search .container-search .container-placeholder').addClass('style-show');
+	}
+
+	$('.section-search .container-search .container-input .input .container-action .cross').click(function(){
+		$('.section-search .container-search .container-input .input input').val('');
+		closeSearch();
 	})
 
-	$('.section-search .container-search .container-input .input input').on('keyup', function() {
+	/* ALGOLIA */
+	const client = algoliasearch('XPXU1DOA36', 'dbfeccb756f9c49a7d852aece7784c44');
+	const index = client.initIndex('question_reponse');
 
-		if (this.value.length > 1) {
-			$('.section-search .container-search .container-placeholder').removeClass('style-show');
+	$(".section-search .container-search .container-input .input input").on("keyup", function() {
+		let value = $(this).val().toLowerCase();
+		if(value.length > 0) {
+
+			$('.section-search .container-search .container-input .input').addClass('style-search');
+			$('.section-search .container-search .container-input .dropdown').addClass('style-show');
+			//$('.section-search .container-search .container-placeholder').removeClass('style-show');
 			$('.section-search .container-search .container-result').addClass('style-show');
 
-		} else {
+			index.search(value, { highlightPreTag: '<em>' }).then(({ hits }) => {
+				let arrayLi = "";
+				$(hits).each(function(index) {
+					if(index < 4) 
+						arrayLi += "<li>" + hits[index]._highlightResult.question.value + "</li>";
+				});
+				$('.section-search .container-search .container-input .dropdown .container-result ul li').remove();
+				$('.section-search .container-search .container-input .dropdown .container-result ul').append(arrayLi);
+			});
+		}
+		else {
+			$('.section-search .container-search .container-input .input').removeClass('style-search');
+			$('.section-search .container-search .container-input .dropdown').removeClass('style-show');
 			$('.section-search .container-search .container-result').removeClass('style-show');
-			$('.section-search .container-search .container-placeholder').addClass('style-show');
+			//$('.section-search .container-search .container-placeholder').addClass('style-show');
 		}
 	});
+	/* END ALGOLIA */
 })
 
 

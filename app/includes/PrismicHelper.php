@@ -9,12 +9,10 @@ class PrismicHelper
 {
   private $api = null;
   private $app;
-  public $linkResolver;
 
   public function __construct($app)
   {
     $this->app = $app;
-    $this->linkResolver = new PrismicLinkResolver();
   }
 
   public function get_api()

@@ -1,0 +1,49 @@
+header{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	background-color: $colorMain_2;
+
+	z-index: 1;
+	.wrapper{
+		@include styleGrid1;
+		height: 80px;
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.logo{
+		img{
+			height: 32px;
+		}
+	}
+	.container-action{
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+		.signin{
+			margin-right: 24px;
+			text-decoration: none;
+			svg{
+				width: 14px;
+				stroke: #FFF;
+				fill: none;
+			}
+			.text{
+				@include styleLink("1");
+				.link-text{
+					color: #FFF;
+				}
+			}
+		}
+		.start{
+			@include styleButton("5", "right" );
+		}
+	}
+
+	&.style-scroll{
+		
+	}
+}

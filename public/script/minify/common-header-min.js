@@ -1,0 +1,1 @@
+$window=$(window),$window.scroll((function(){$window.scrollTop()>=1?$(header).addClass("style-scroll"):$(header).removeClass("style-scroll")}));

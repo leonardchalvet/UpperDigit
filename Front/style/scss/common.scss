@@ -47,7 +47,6 @@ main
 {
 	position: relative;
 	width: 100%;
-	overflow:hidden;
 }
 
 /* ----------------------------------------------------------------- */
@@ -394,6 +393,10 @@ main
 				}
 			} @else if $style == "3" {
 				background-color: #FFF;
+				border: 1px solid $colorMain_3;
+				.btn-text{
+					color: $colorMain_3;
+				}
 			} @else if $style == "4" {
 				background-color: $colorMain_1;
 				.btn-text{
@@ -428,7 +431,8 @@ main
 				.btn-arrow{
 					display: none;
 				}
-			} 
+			}
+
 		}
 
 		/*----------  LINK  ----------*/
@@ -524,12 +528,19 @@ main
 /* ********************* END MIXIN ********************* */
 /* ----------------------------------------------------- */
 
+
+
 /* -------------------------------------------------- */
 /* ********************* IMPORT ********************* */
 /* -------------------------------------------------- */
 
+
 @import 'header.scss';
 @import 'footer.scss';
+
+
+/* COMMON SECTION */
+@import 'common-section-start.scss';
 
 /* ------------------------------------------------------ */
 /* ********************* END IMPORT ********************* */

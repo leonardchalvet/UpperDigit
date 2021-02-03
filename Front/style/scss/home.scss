@@ -647,37 +647,7 @@
 	}
 }
 
-.section-start{
-	padding: 120px 0px 100px 0px;
-	.wrapper{
-		@include styleGrid4;
-		display: flex;
-		flex-flow: row wrap;
-		align-items: center;
-		justify-content: space-between;
-	}
-	.container-text{
-		width: 500px;
-		h2{
-			@include styleH2;
-			em{
-				@include styleHilight;
-				&:after{
-					bottom: -38px;
-					content:url(../../img/common/shape-hilight/obj-3.svg);
-				}
-			}
-		}
-		p{
-			@include styleParagraphNormal;
-		}
-	}
-	.container-btn{
-		.btn{
-			@include styleButton("1", "right" );
-		}
-	}
-}
+@include styleCommon_SectionStart("1");
 
 /*====================================
 =            END PAGE HOME           =

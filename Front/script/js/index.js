@@ -30,14 +30,12 @@ $(window).on('load', function() {
 	})
 
 	$('.section-search .container-search .container-input .input input').on('keyup', function() {
-		console.log('salut1')
+
 		if (this.value.length > 1) {
-			console.log('salut2')
 			$('.section-search .container-search .container-placeholder').removeClass('style-show');
 			$('.section-search .container-search .container-result').addClass('style-show');
 
 		} else {
-			console.log('salut3')
 			$('.section-search .container-search .container-result').removeClass('style-show');
 			$('.section-search .container-search .container-placeholder').addClass('style-show');
 		}

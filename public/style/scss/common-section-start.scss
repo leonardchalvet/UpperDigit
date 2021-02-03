@@ -1,0 +1,56 @@
+.common-section-start{
+	padding: 120px 0px 100px 0px;
+	.wrapper{
+		@include styleGrid4;
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.container-text{
+		width: 500px;
+		h2{
+			@include styleH2;
+			em{
+				@include styleHilight;
+				&:after{
+					bottom: -38px;
+					content:url(../../img/common/shape-hilight/obj-3.svg);
+				}
+			}
+		}
+		p{
+			margin-top: 10px;
+			@include styleParagraphNormal;
+		}
+	}
+}
+
+
+@mixin styleCommon_SectionStart($style){
+	.common-section-start{
+		@if $style == "1" {
+			.container-btn{
+				.btn{
+					@include styleButton("1", "right" );
+				}
+			}
+		} @else if $style == "2" {
+			background-color: $colorMain_2;
+			.container-text{
+				h2{
+					color: #FFF;
+				}
+				p{
+					color: #FFF;
+				}
+			}
+			.container-btn{
+				.btn{
+					@include styleButton("5", "right")
+				}
+			}
+		}
+	}
+	
+}

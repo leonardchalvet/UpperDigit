@@ -8,39 +8,40 @@ $footer = $WPGLOBAL['footer']->data;
 	<div class="wrapper">
 		
 		<div class="container-text">
-			<a href="" class="logo">
-				<img src="/img/common/logo.svg" alt="">
+			<a href="<?= checkUrl($footer->logo_link); ?>" class="logo">
+				<img src="<?= $footer->logo_img->url; ?>" alt="<?= $footer->logo_img->alt; ?>">
 			</a>
 			<p>
-				La fiscalité n’est plus un sujet pour vous.
+				<?= RichText::asText($footer->logo_text); ?>
 			</p>
 		</div>
 
 		<div class="container-link">
 			<div class="title">
-				Liens
+				<?= RichText::asText($footer->links_title); ?>
 			</div>
 			<ul>
-				<li><a href="">S’abonner</a></li>
-				<li><a href="">S’abonner</a></li>
+				<?php foreach ($footer->links_all as $el) { ?>
+					<li><a href="<?= checkUrl($el->link); ?>"><?= RichText::asText($el->text); ?></a></li>
+				<?php } ?>
 			</ul>
 		</div>
 
 		<div class="container-link">
 			<div class="title">
-				Nos réseaux
+				<?= RichText::asText($footer->sn_title); ?>
 			</div>
 			<ul>
-				<li><a href="">S’abonner</a></li>
-				<li><a href="">S’abonner</a></li>
-				<li><a href="">S’abonner</a></li>
+				<?php foreach ($footer->sn_all as $el) { ?>
+					<li><a href="<?= checkUrl($el->link); ?>"><?= RichText::asText($el->text); ?></a></li>
+				<?php } ?>
 			</ul>
 		</div>
 
 	</div>
 
 	<div class="foot">
-		<p>©2020 MesQuestions. Tout droits réservés</p>
+		<p><?= RichText::asText($footer->foot_text); ?></p>
 	</div>
 
 </footer>

@@ -17,6 +17,8 @@ $document = $WPGLOBAL['document']->data;
 
     <script src="https://player.vimeo.com/api/player.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js"></script>
+
   </head>
   
   <body>
@@ -57,6 +59,7 @@ $document = $WPGLOBAL['document']->data;
                 </div>
               </div>
               <div class="dropdown">
+                <!--
                 <div class="container-placeholder">
                   <ul>
                     <li>
@@ -69,14 +72,9 @@ $document = $WPGLOBAL['document']->data;
                     <?php } ?>
                   </ul>
                 </div>
+                -->
                 <div class="container-result">
-                  <ul>
-                    <?php for(;$i<4;$i++) { ?>
-                    <li>
-                      <a href="">Wait algolia</a>
-                    </li>
-                    <?php } ?>
-                  </ul>
+                  <ul></ul>
                 </div>
               </div>
             </div>

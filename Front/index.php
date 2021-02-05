@@ -62,32 +62,32 @@
 											<div class="title">Questions récurentes</div>
 										</li>
 										<li>
-											<a href="">Comment faire sa comptabilité ?</a>
+											<div class="answer" href="">Comment faire sa comptabilité ?</div>
 										</li>
 										<li>
-											<a href="">Comment faire sa comptabilité ?</a>
+											<div class="answer" href="">Comment faire sa comptabilité ?</div>
 										</li>
 										<li>
-											<a href="">Comment faire sa comptabilité ?</a>
+											<div class="answer" href="">Comment faire sa comptabilité ?</div>
 										</li>
 										<li>
-											<a href="">Comment faire sa comptabilité ?</a>
+											<div class="answer" href="">Comment faire sa comptabilité ?</div>
 										</li>
 									</ul>
 								</div>
 								<div class="container-result">
 									<ul>
 										<li>
-											<a href="">Comment faire sa comptabilité ?</a>
+											<div class="answer" href="">Comment faire sa comptabilité ?</div>
 										</li>
 										<li>
-											<a href="">Comment faire sa comptabilité ?</a>
+											<div class="answer" href="">Comment faire sa comptabilité ?</div>
 										</li>
 										<li>
-											<a href="">Comment faire sa comptabilité ?</a>
+											<div class="answer" href="">Comment faire sa comptabilité ?</div>
 										</li>
 										<li>
-											<a href="">Comment faire sa comptabilité ?</a>
+											<div class="answer" href="">Comment faire sa comptabilité ?</div>
 										</li>
 									</ul>
 								</div>
@@ -193,7 +193,7 @@
 								</div>
 							</li>
 							<li>
-								<img src="img/home/section-problem/icn-cross.svg" alt="">
+								<img src="img/home/section-problem/icn-check.svg" alt="">
 								<div class="text">
 									<h3>
 										En parler à un ami ?
@@ -206,7 +206,6 @@
 						</ul>
 					</div>
 					<div class="container-btn">
-						<p>La solution ? MesQuestions.fr</p>
 						<a class="btn">
 							<div class="btn-text">Tester dès maintenant</div>
 							<svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16" >
@@ -264,6 +263,7 @@
 						</div>
 						<div class="container-text">
 							<div class="container-line">
+								<div class="line"></div>
 							</div>
 							<div class="container-el">
 								<div class="el active" data-video="video-planifier">

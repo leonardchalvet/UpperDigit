@@ -9,6 +9,14 @@
 	],
 "creatorBuild": "33081",
 "files": {
+	"/answer.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/answer.php",
+		"oF": 0
+		},
 	"/common-footer.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -23,6 +31,14 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/common-header.php",
+		"oF": 0
+		},
+	"/common-section-start.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/common-section-start.php",
 		"oF": 0
 		},
 	"/fonts/Castoro-Regular.ttf": {
@@ -144,6 +160,16 @@
 		"oAP": "/img/header/icn-user.svg",
 		"oF": 1,
 		"opt": 1,
+		"plM": 4010962575359,
+		"prP": 0
+		},
+	"/img/home/section-problem/icn-check.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/img/home/section-problem/icn-check.svg",
+		"oF": 0,
+		"opt": 0,
 		"plM": 4010962575359,
 		"prP": 0
 		},
@@ -300,6 +326,17 @@
 		"oAP": "/index.php",
 		"oF": 0
 		},
+	"/script/js/answer.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/script/minify/answer-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
 	"/script/js/common-header.js": {
 		"bF": 0,
 		"ft": 64,
@@ -344,6 +381,17 @@
 		"sC": 0,
 		"tS": 0
 		},
+	"/script/minify/answer-min.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/script/minify/answer-min-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
 	"/script/minify/common-header-min.js": {
 		"bF": 0,
 		"ft": 64,
@@ -377,6 +425,16 @@
 		"sC": 0,
 		"tS": 0
 		},
+	"/style/css/answer.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/style/css/answer-min.css",
+		"oF": 0,
+		"oS": 3
+		},
 	"/style/css/home.css": {
 		"aP": 1,
 		"bl": 0,
@@ -394,6 +452,32 @@
 		"oA": 0,
 		"oAP": "/style/css/home.css.map",
 		"oF": 0
+		},
+	"/style/scss/answer.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"ec": 1,
+		"ft": 4,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/style/css/answer.css",
+		"oF": 0,
+		"oS": 3,
+		"sct": 1
+		},
+	"/style/scss/common-section-start.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"ec": 1,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/style/css/common-section-start.css",
+		"oF": 0,
+		"oS": 3,
+		"sct": 1
 		},
 	"/style/scss/common.scss": {
 		"aP": 1,

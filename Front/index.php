@@ -13,6 +13,8 @@
 
 		<script src="https://player.vimeo.com/api/player.js"></script>
 
+		<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js"></script>
+
 	</head>
 	
 	<body>
@@ -31,30 +33,33 @@
 
 					<div class="container-search">
 						<div class="container-input">
-							<div class="input">
-								<div class="search">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" >
-										<use xlink:href="img/common/icn-search.svg#content"></use>
-									</svg>
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" >
-										<use xlink:href="img/common/icn-search.svg#content"></use>
-									</svg>
-								</div>
-								<input type="text" placeholder="Recherchez gratuitement une information">
-								<div class="container-action">
-									<button>
-										<span class="btn-text">Rechercher</span>
-										<svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16" >
-											<use xlink:href="img/common/icn-arrow.svg#content"></use>
-										</svg>
-									</button>
-									<div class="cross">
+							<form action="" method="POST">
+								<div class="input">
+									<div class="search">
 										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" >
-											<use xlink:href="img/common/icn-cross.svg#content"></use>
+											<use xlink:href="img/common/icn-search.svg#content"></use>
+										</svg>
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" >
+											<use xlink:href="img/common/icn-search.svg#content"></use>
 										</svg>
 									</div>
+									<input name="question" type="text" placeholder="Recherchez gratuitement une information">
+									<input name="answer" type="text" style="display: none;">
+									<div class="container-action">
+										<button>
+											<span class="btn-text">Rechercher</span>
+											<svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16" >
+												<use xlink:href="img/common/icn-arrow.svg#content"></use>
+											</svg>
+										</button>
+										<div class="cross">
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" >
+												<use xlink:href="img/common/icn-cross.svg#content"></use>
+											</svg>
+										</div>
+									</div>
 								</div>
-							</div>
+							</form>
 							<div class="dropdown">
 								<div class="container-placeholder">
 									<ul>

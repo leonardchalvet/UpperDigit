@@ -34,30 +34,33 @@ $document = $WPGLOBAL['document']->data;
           </div>
            <div class="container-search">
             <div class="container-input">
-              <div class="input">
-                <div class="search">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" >
-                    <use xlink:href="/img/common/icn-search.svg#content"></use>
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" >
-                    <use xlink:href="/img/common/icn-search.svg#content"></use>
-                  </svg>
-                </div>
-                <input type="text" placeholder="<?= RichText::asText($document->search_placeholder); ?>">
-                <div class="container-action">
-                  <button>
-                    <span class="btn-text"><?= RichText::asText($document->search_btntext); ?></span>
-                    <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16" >
-                      <use xlink:href="/img/common/icn-arrow.svg#content"></use>
-                    </svg>
-                  </button>
-                  <div class="cross">
+            <form action="/fr/answer" method="POST">
+                <div class="input">
+                  <div class="search">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" >
-                      <use xlink:href="/img/common/icn-cross.svg#content"></use>
+                      <use xlink:href="/img/common/icn-search.svg#content"></use>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" >
+                      <use xlink:href="/img/common/icn-search.svg#content"></use>
                     </svg>
                   </div>
+                  <input name="question" type="text" placeholder="<?= RichText::asText($document->search_placeholder); ?>">
+                  <input name="answer" type="text" style="display: none;">
+                  <div class="container-action">
+                    <button>
+                      <span class="btn-text"><?= RichText::asText($document->search_btntext); ?></span>
+                      <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16" >
+                        <use xlink:href="/img/common/icn-arrow.svg#content"></use>
+                      </svg>
+                    </button>
+                    <div class="cross">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" >
+                        <use xlink:href="/img/common/icn-cross.svg#content"></use>
+                      </svg>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </form>
               <div class="dropdown">
                 <!--
                 <div class="container-placeholder">
@@ -166,6 +169,7 @@ $document = $WPGLOBAL['document']->data;
             </div>
             <div class="container-text">
               <div class="container-line">
+                <div class="line"></div>
               </div>
               <div class="container-el">
                 <?php $i=1; foreach ($document->feature_alle as $el) { ?>

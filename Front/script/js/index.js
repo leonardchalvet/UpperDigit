@@ -37,8 +37,8 @@ $(window).on('load', function() {
 	})
 
 	/* ALGOLIA */
-	//const client = algoliasearch('XPXU1DOA36', 'dbfeccb756f9c49a7d852aece7784c44');
-	//const index = client.initIndex('question_reponse');
+	const client = algoliasearch('XPXU1DOA36', 'dbfeccb756f9c49a7d852aece7784c44');
+	const index = client.initIndex('question_reponse');
 
 	$(".section-search .container-search .container-input .input input").on("keyup", function() {
 		let value = $(this).val().toLowerCase();
@@ -53,7 +53,7 @@ $(window).on('load', function() {
 				let arrayLi = "";
 				$(hits).each(function(index) {
 					if(index < 4) 
-						arrayLi += "<li>" + hits[index]._highlightResult.question.value + "</li>";
+						arrayLi += '<li><div class="answer">' + hits[index]._highlightResult.question.value + "</div></li>";
 				});
 				$('.section-search .container-search .container-input .dropdown .container-result ul li').remove();
 				$('.section-search .container-search .container-input .dropdown .container-result ul').append(arrayLi);

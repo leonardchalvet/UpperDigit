@@ -165,23 +165,9 @@
 							margin-bottom: 18px;
 						}
 
-						em {
-							position: relative;
-							z-index: 1;
-							&:before {
-								content: " ";
-								position: absolute;
-								z-index: -1;
-								top: -1px;
-								left: -1px;
-								width: calc(100% + 2px);
-								height: calc(100% + 2px);
-								border-radius: 3px;
-								background-color: #E8F0F6;
-							}
-						}
+						
 
-						a{
+						.answer{
 							position: relative;
 							text-decoration: none;
 							padding-left: 20px;
@@ -196,6 +182,26 @@
 								width: 4px;
 								border-radius: 4px;
 								background-color: $colorMain_3;
+							}
+
+							em {
+								position: relative;
+								z-index: 1;
+								&:before {
+									content: " ";
+									position: absolute;
+									z-index: -1;
+									top: -1px;
+									left: -1px;
+									width: calc(100% + 2px);
+									height: calc(100% + 2px);
+									border-radius: 3px;
+									background-color: $colorMain_6;
+								}
+							}
+
+							&:hover{
+								text-decoration: none;
 							}
 						}
 						.title{
@@ -343,11 +349,6 @@
 	.container-btn{
 		margin-top: 70px;
 		text-align: center;
-		p{
-			@include styleParagraphNormal;
-			font-family: $font_2_bold;
-			color: $colorMain_3;
-		}
 		.btn{
 			margin-top: 16px;
 			@include styleButton("1", "right" );
@@ -356,7 +357,7 @@
 }
 
 .section-ftr{
-	padding-bottom: 120px;
+	padding-bottom: 220px;
 	.wrapper{
 		@include styleGrid1;
 		padding-top: 120px;
@@ -380,7 +381,7 @@
 			}
 		}
 		.container-text{
-			width: 390px;
+			width: 420px;
 			p{
 				@include styleParagraphBig;
 			}
@@ -409,7 +410,7 @@
 		}
 	}
 	.container-ftr{
-		margin-top: 80px;
+		margin-top: 130px;
 		display: flex;
 		flex-flow: row wrap;
 		justify-content: space-between;
@@ -419,14 +420,22 @@
 			position: relative;
 			padding-left: 60px;
 			.container-line{
+				overflow: hidden;
 				position: absolute;
 				left: 0px;
 				top: 50%;
 				height: calc(100% + 200px);
 				transform: translateY(-50%);
-				width: 2px;
+				width: 1px;
 				background-color: rgba($colorMain_3, 0.1);
-				
+				.line{
+					position: relative;
+					height: 100%;
+					width: 100%;
+					background-color: $colorMain_3;
+					transition-property: transform;
+					transition-timing-function: linear;
+				}
 			}
 			.container-el{
 				width: 100%;
@@ -462,7 +471,7 @@
 						align-items: center;
 						justify-content: space-between;
 						p{
-							@include styleParagraphSmall;
+							@include styleParagraphNormal;
 							display: -webkit-box;
 							-webkit-line-clamp: 2;
 							-webkit-box-orient: vertical;

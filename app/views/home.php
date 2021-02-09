@@ -114,9 +114,13 @@ $document = $WPGLOBAL['document']->data;
               <img src="<?= $document->problem_image->url; ?>" alt="<?= $document->problem_image->alt; ?>">
             </div>
             <ul>
-              <?php foreach ($document->why_all as $el) { ?>
+              <?php foreach ($document->problem_all as $el) { ?>
                 <li>
-                  <img src="/img/home/section-problem/icn-cross.svg" alt="">
+                  <?php if(!$el->cross_or_check) { ?>
+                    <img src="/img/home/section-problem/icn-cross.svg" alt="">
+                  <?php } else { ?>
+                    <img src="/img/home/section-problem/icn-check.svg" alt="">
+                  <?php } ?>
                   <div class="text">
                     <?= RichText::asHtml($el->title); ?>
                     <?= RichText::asHtml($el->text); ?>
@@ -126,7 +130,6 @@ $document = $WPGLOBAL['document']->data;
             </ul>
           </div>
           <div class="container-btn">
-            <?= RichText::asHtml($document->problem_textabtn); ?>
             <a class="btn" href="<?= checkUrl($document->problem_btnlink); ?>">
               <div class="btn-text"><?= RichText::asText($document->problem_btntext); ?></div>
               <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16" >

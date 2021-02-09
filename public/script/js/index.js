@@ -53,10 +53,11 @@ $(window).on('load', function() {
 				let arrayLi = "";
 				$(hits).each(function(index) {
 					if(index < 4) 
-						arrayLi += '<li><div class="answer">' + hits[index]._highlightResult.question.value + "</div></li>";
+						arrayLi += '<li><div class="answer" data-answer="' + hits[index]._highlightResult.reponse.value + '">' + hits[index]._highlightResult.question.value + "</div></li>";
 				});
 				$('.section-search .container-search .container-input .dropdown .container-result ul li').remove();
 				$('.section-search .container-search .container-input .dropdown .container-result ul').append(arrayLi);
+				updateClickAnswer();
 			});
 		}
 		else {
@@ -66,9 +67,18 @@ $(window).on('load', function() {
 			//$('.section-search .container-search .container-placeholder').addClass('style-show');
 		}
 	});
+
+	function updateClickAnswer() {
+		$('.section-search .container-search .container-input .dropdown ul li .answer').click(function(){
+			$('.section-search .container-search .container-input .input input[name="question"]').val($(this).text());
+			$('.section-search .container-search .container-input .input input[name="answer"]').val($(this).attr('data-answer'));
+
+			$('.section-search form button').click();
+		});
+	}
+
 	/* END ALGOLIA */
 })
-
 
 
 function sectionFtrCaroussel(Delay, Section, El, Video, Progress){

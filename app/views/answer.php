@@ -1,6 +1,14 @@
 <?php 
 use Prismic\Dom\RichText;
 $document = $WPGLOBAL['document']->data;
+
+$question = $_POST['question'];
+$answer = $_POST['answer'];
+
+$test = $_POST['test'];
+
+print_r($test);
+
 ?>
 <html>
   <head>
@@ -27,7 +35,7 @@ $document = $WPGLOBAL['document']->data;
         <div class="lightbox lightbox-1">
           <div class="cross">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" >
-              <use xlink:href="img/common/icn-cross.svg#content"></use>
+              <use xlink:href="/img/common/icn-cross.svg#content"></use>
             </svg>
           </div>
           <h3>Ces informations vous ont-elles étés utiles ?</h3>
@@ -49,7 +57,7 @@ $document = $WPGLOBAL['document']->data;
         <div class="lightbox lightbox-2">
           <div class="cross">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" >
-              <use xlink:href="img/common/icn-cross.svg#content"></use>
+              <use xlink:href="/img/common/icn-cross.svg#content"></use>
             </svg>
           </div>
           <h3>Merci de votre confiance !</h3>
@@ -62,7 +70,7 @@ $document = $WPGLOBAL['document']->data;
             <div class="btn">
               <div class="btn-text">Abonnez-vous dès maintenant</div>
               <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16" >
-                <use xlink:href="img/common/icn-arrow.svg#content"></use>
+                <use xlink:href="/img/common/icn-arrow.svg#content"></use>
               </svg>
             </div>
           </div>
@@ -79,22 +87,22 @@ $document = $WPGLOBAL['document']->data;
               <div class="input">
                 <div class="search">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" >
-                    <use xlink:href="img/common/icn-search.svg#content"></use>
+                    <use xlink:href="/img/common/icn-search.svg#content"></use>
                   </svg>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" >
-                    <use xlink:href="img/common/icn-search.svg#content"></use>
+                    <use xlink:href="/img/common/icn-search.svg#content"></use>
                   </svg>
                 </div>
                 <input type="text" placeholder="Posez une autre question">
                 <div class="container-action">
                   <button>
                     <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16" >
-                      <use xlink:href="img/common/icn-arrow.svg#content"></use>
+                      <use xlink:href="/img/common/icn-arrow.svg#content"></use>
                     </svg>
                   </button>
                   <div class="cross">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" >
-                      <use xlink:href="img/common/icn-cross.svg#content"></use>
+                      <use xlink:href="/img/common/icn-cross.svg#content"></use>
                     </svg>
                   </div>
                 </div>
@@ -145,13 +153,9 @@ $document = $WPGLOBAL['document']->data;
         <div class="wrapper">
           <div class="container-answer">
             <div class="answer">
-              <h2>Ou peut-on trouver le numéro intracommunautaire ?</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo eaque, placeat, neque facere consequatur ipsum et id, dolorem necessitatibus hic, dolore minus tenetur commodi eveniet in corrupti dolorum adipisci aut?
-              </p>
-              <p class="blur-answer">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu volutpat odio facilisis mauris sit amet massa vitae tortor condimentum lacinia quis vel eros donec ac odio tempor orci dapibus ultrices in iaculis nunc sed augue lacus, viverra vitae congue eu, consequat ac felis donec et odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus
-              </p>
+              <h2><?php echo($question); ?></h2>
+              <p><?php echo($answer); ?></p>
+              <p class="blur-answer"></p>
             </div>
             <div class="container-informations">
               <h3>Ces informations vous ont-elles étés utiles ?</h3>

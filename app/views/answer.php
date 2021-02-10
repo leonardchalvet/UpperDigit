@@ -5,10 +5,6 @@ $document = $WPGLOBAL['document']->data;
 $question = $_POST['question'];
 $answer = $_POST['answer'];
 
-$test = $_POST['test'];
-
-print_r($test);
-
 ?>
 <html>
   <head>
@@ -93,7 +89,7 @@ print_r($test);
                     <use xlink:href="/img/common/icn-search.svg#content"></use>
                   </svg>
                 </div>
-                <input type="text" placeholder="Posez une autre question">
+                <input type="text" placeholder="<?= RichText::asText($document->answer_placeholder); ?>">
                 <div class="container-action">
                   <button>
                     <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16" >
@@ -158,21 +154,19 @@ print_r($test);
               <p class="blur-answer"></p>
             </div>
             <div class="container-informations">
-              <h3>Ces informations vous ont-elles étés utiles ?</h3>
+              <?= RichText::asHtml($document->answer_question); ?>
               <div class="container-action">
                 <div class="btn">
-                  <div class="btn-text">Oui</div>
+                  <div class="btn-text"><?= RichText::asText($document->answer_btnyes); ?></div>
                 </div>
                 <div class="btn">
-                  <div class="btn-text">Non</div>
+                  <div class="btn-text"><?= RichText::asText($document->answer_btnno); ?></div>
                 </div>
               </div>
             </div>
             <div class="resp">
-              <h4>Disclaimer sur la responsabilité</h4>
-              <p>
-                Phasellus quis orci nunc. Sed ut ullamcorper tortor. Cras laoreet aliquet nisi, at vehicula turpis consectetur sit amet. Sed ut sapien ipsum. Curabitur sagittis lobortis nulla, ut ultrices justo mollis sed. Donec vitae ullamcorper nisl, ut varius nulla. Nullam quam ipsum, tempor ac sodales vitae, accumsan tincidunt augue. 
-              </p>
+              <?= RichText::asHtml($document->answer_title); ?>
+              <?= RichText::asHtml($document->answer_text); ?>
             </div>
           </div>
           <div class="container-questions">

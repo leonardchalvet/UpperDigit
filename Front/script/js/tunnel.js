@@ -37,7 +37,11 @@ $('.step-2 .btn-next').click(function(){
 
 
 
-/* STEP 4 */
+
+
+
+
+
 
 
 function nav(){

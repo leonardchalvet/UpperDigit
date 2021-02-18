@@ -19,7 +19,7 @@
 
 		<main>
 
-			<div class="container-lightbox">
+			<div class="container-lightbox style-show">
 				<div class="background"></div>
 				<div class="lightbox">
 					<div class="cross">

@@ -1,0 +1,41 @@
+@import 'common.scss';
+
+/*===============================
+=            PAGE 404           =
+===============================*/
+
+.section-404{
+	background-color: $colorMain_2;
+	min-height: 100vh;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	.wrapper{
+		width: 680px;
+		margin: auto;
+		text-align: center;
+	}
+	.illu{
+		width: 320px;
+	}
+	h1{
+		margin-top: 45px;
+		@include styleH1;
+		color: #FFF;
+	}
+	p{
+		margin-top: 8px;
+		@include styleParagraphBig;
+		color: $colorMain_5;
+	}
+	.container-btn{
+		margin-top: 24px;
+		.btn{
+			@include styleButton("4", "right");
+		}
+	}
+}
+
+/*===================================
+=            END PAGE 404           =
+===================================*/

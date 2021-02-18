@@ -19,7 +19,29 @@
 	
 	<body>
 
+		<div class="container-cookies style-show">
+			<div class="cdr">
+				<p>
+					🍪  En poursuivant votre navigation sur le site, vous acceptez l’utilisation de cookies destinés à améliorer la performance de ce site, à en adapter les fonctionnalités (Plus d’informations)
+				</p>
+				<div class="container-btn">
+					<button class="btn">
+						<span class="btn-text">Refuser</span>
+					</button>
+
+					<button class="btn">
+						<span class="btn-text">Accepter</span>
+						<svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16" >
+							<use xlink:href="img/common/icn-arrow.svg#content"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</div>
+
 		<?php include('common-header.php') ?>
+
+		
 
 		<main>
 

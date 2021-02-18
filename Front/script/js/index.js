@@ -1,5 +1,11 @@
 // @codekit-prepend 'common.js'
 
+
+$('.container-cookies .btn').click(function(){
+	$('.container-cookies').removeClass('style-show');
+})
+
+
 $(window).on('load', function() {
 	/*
 	$('.section-search .container-search .container-input .input input').focusin(function(){

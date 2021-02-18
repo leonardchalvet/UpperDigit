@@ -514,6 +514,7 @@ main
 			text-decoration: none;
 			.link-text{
 				font-family: $font_2_bold;
+				color: $colorMain_3;
 			}
 			@if $size == "1" {
 				.link-text{

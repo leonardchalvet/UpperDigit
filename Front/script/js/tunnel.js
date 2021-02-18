@@ -63,9 +63,8 @@ function nav(){
 		$('.header .container-tab .tab:nth-child(' + index + ')').addClass('style-active');
 		$('.container-step .step:nth-child(' + index + ')').addClass('style-show');
 	}
+
 	init();
-
-
 
 	$('.btn-next').click(function(){
 		if (!$(this).hasClass('style-disable')) {

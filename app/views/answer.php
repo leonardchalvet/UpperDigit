@@ -170,7 +170,7 @@ $answer = $_POST['answer'];
             </div>
           </div>
           <div class="container-questions">
-            <h2>Questions similaires</h2>
+            <h2><?= RichText::asHtml($document->answer_questionr); ?></h2>
             <ul>
               <li>
                 <a href="">

@@ -30,13 +30,13 @@
 						<p>
 							Connectez-vous afin d’accéder à toutes vos fonctionnalités
 						</p>
-						<form action="">
+						<form onSubmit="return false;">
 							<div class="input">
-								<input type="text" placeholder="Email">
+								<input type="email" placeholder="Email">
 								<div class="error">Error</div>
 							</div>
 							<div class="input">
-								<input type="text" placeholder="Mot de passe*">
+								<input type="password" placeholder="Mot de passe*">
 								<div class="error">Error</div>
 							</div>
 							<div class="password-forg">

@@ -1,0 +1,608 @@
+@import 'common.scss';
+
+
+/*==================================
+=            PAGE TUNNEL           =
+==================================*/
+
+
+
+.section-tunnel{
+	.wrapper{
+		display: flex;
+		flex-flow: row wrap;
+		height: 100%;
+		.sidebar{
+			width: 340px;
+			background-color: $colorMain_2;
+			padding-top: 65px;
+			.logo{
+				display: block;
+				width: 220px;
+				margin: auto;
+			}
+			.container-illu{
+				position: relative;
+				width: 100%;
+				height: 240px;
+				overflow: hidden;
+				margin-top: 145px;
+				img{
+					transition: all 500ms cubic-bezier(0.545, 0.000, 0.190, 1.000); 
+					position: absolute;
+					top: 0px;
+					left: 50%;
+					&.style-hide-right{
+						transform: translateX(150%);
+						opacity: 0;
+					}
+					&.style-show{
+						transform: translateX(-50%);
+						opacity: 1;
+					}
+					&.style-hide-left{
+						transform: translateX(-200%);
+						opacity: 0;
+					}
+				}
+			}
+			p{
+				margin-top: 45px;
+				padding: 0px 50px 0px 50px;
+				@include styleParagraphNormal;
+				color: $colorMain_5;
+			}
+		}
+		.content{
+			flex: 1;
+			padding: 0px 63px 0px 63px;
+			.header{
+				width: 100%;
+				transition: all 500ms cubic-bezier(0.520, 0.000, 0.220, 1.000);
+				margin: auto;
+				position: relative;
+				height: 62px;
+				border-bottom: 1px solid rgba($colorMain_3, 0.2);
+				.container-tab{
+					height: 100%;
+					display: flex;
+					flex-flow: row wrap;
+					justify-content: space-between;
+					.tab{
+						display: flex;
+						flex-flow: row wrap;
+						align-items: center;
+						.num{
+							height: 30px;
+							width: 30px;
+							border-radius: 15px;
+							position: relative;
+							border: 1px solid $colorMain_4;
+							margin-right: 16px;
+							span{
+								position: absolute;
+								top: 50%;
+								left: 0px;
+								width: 100%;
+								text-align: center;
+								transform: translateY(-50%);
+								@include styleParagraphSmall;
+							}
+						}
+						.text{
+							@include styleParagraphNormal;
+							color: $colorMain_4;
+						}
+
+						&.style-active{
+							.num{
+								border-color: $colorMain_3;
+								span{
+									color: $colorMain_3;
+								}
+							}
+							.text{
+								color: $colorMain_3;
+							}
+						}
+					}
+				}
+
+				.container-line{
+					position: absolute;
+					bottom: -1px;
+					left: 0px;
+					width: 100%;
+					height: 2px;
+					overflow: hidden;
+					.line{
+						width: 100%;
+						height: 100%;
+						background-color: $colorMain_1;
+						transform: translateX(-100%);
+
+						@for $i from 1 to 4 {
+							&.style-active-#{$i}{
+								transform: translateX(calc((-100%) + ((100% / 4) * #{$i} )));
+							}
+							
+						}
+					}
+				}
+
+				&.style-hide{
+					transform: translateY(-100%);
+				}
+			}
+			.container-step{
+				height: calc(100% - 62px);
+				width: 100%;
+				
+				position: relative;
+				.step{
+					position: absolute;
+					top: 0px;
+					left: 0px;
+					height: 100%;
+					width: 100%;
+					visibility: hidden;
+					opacity: 0;
+					padding: 0px 0px 87px 0px;
+					.content-step{
+						width: 100%;
+						height: 100%;
+						overflow: auto;
+					}
+					&.style-show{
+						transition: all 0.5s ease;
+						opacity: 1;
+						visibility: visible;
+					}
+
+					.input{
+						position: relative;
+						width: 100%;
+						margin-top: 16px;
+						display: flex;
+						flex-flow: row wrap;
+						align-items: center;
+						input{
+							padding: 0px 25px 0px 25px;
+							width: 100%;
+							height: 50px;
+							border-radius: 70px;
+							border: 1px solid $colorMain_5;
+							outline: none;
+							transition: all 0.25s ease;
+
+							@include styleParagraphSmall;
+							&::placeholder{
+								color: $colorMain_4;
+							}
+							&:focus{
+								border-color: $colorMain_4;
+							}
+						}
+						.error{
+							visibility: hidden;
+							position: absolute;
+							right: 24px;
+							top: 50%;
+							transform: translateY(-50%);
+							@include styleParagraphTiny;
+							color: $colorMain_8;
+						}
+
+						&.style-error{
+							input{
+								border-color: $colorMain_8;
+							}
+							.error{
+								visibility: visible;
+							}
+						}
+					}
+
+					.container-nav{
+						width: 100%;
+						position: absolute;
+						bottom: 16px;
+						padding: 0px 63px 0px 63px;
+						margin-top: 52px;
+						padding-top: 13px;
+						border-top: 1px solid $colorMain_5;
+						display: flex;
+						flex-flow: row wrap;
+						justify-content: space-between;
+						.btn-prev{
+							@include styleButton("3", "left" );
+						}
+						.btn-next{
+							@include styleButton("4", "right" );
+						}
+					}
+				}
+
+				.step-1{
+					.content-step{
+						padding-top: 40px;
+					}
+					.container-text{
+						text-align: center;
+						h2{
+							@include styleH2;
+						}
+						p{
+							margin-top: 8px;
+							@include styleParagraphNormal;
+						}
+					}
+
+					.container-el{
+						margin-top: 50px;
+						display: flex;
+						flex-flow: row wrap;
+						justify-content: space-between;
+						.el{
+							position: relative;
+							text-align: center;
+							border: 1px solid $colorMain_5;
+							border-radius: 24px;
+							padding: 32px;
+							width: 310px;
+							transition: all 0.25s ease;
+							.bdg{
+								position: absolute;
+								top: 0px;
+								left: 50%;
+								transform: translate(-50%, -50%);
+								background-color: $colorMain_2;
+								padding: 8px 16px 8px 16px;
+								border-radius: 20px;
+								span{
+									@include styleParagraphSmall;
+									color: #FFF;
+								}
+							}
+							.title{
+								text-align: center;
+								@include styleH4;
+								
+							}
+							.price{
+								margin-top: 16px;
+								span{
+									&:nth-child(1){
+										@include styleH1;
+									}
+									&:nth-child(2){
+										@include styleParagraphBig;
+										color: $colorMain_3;
+									}
+									
+								}
+							}
+							.desc{
+								@include styleParagraphSmall;
+							}
+							.container-btn{
+								margin-top: 16px;
+								.btn{
+									@include styleButton("3", "none" );
+								}
+							}
+							ul{
+								margin-top: 24px;
+								list-style: none;
+								li{
+									position: relative;
+									padding-left: 34px;
+									&:not(:last-child){
+										margin-bottom: 16px;
+									}
+									.icn{
+										position: absolute;
+										left: 0px;
+										top: 3px;
+										width: 18px;
+									}
+									.text{
+										@include styleParagraphNormal;
+									}
+								}
+							}
+
+							&.style-active{
+								border-color: $colorMain_1;
+								background-color: $colorMain_7;
+								.container-btn{
+									.btn{
+										background-color: $colorMain_3;
+										.btn-text{
+											color: #FFF;
+										}
+									}
+								}
+							}
+						}
+					}
+
+
+				}
+				.step-2{
+					.content-step{
+						padding-top: 40px;
+					}
+					.container-title{
+						h2{
+							@include styleH2;
+						}
+						p{
+							margin-top: 8px;
+							@include styleParagraphNormal;
+						}
+					}
+					.container-form{
+						margin-top: 40px;
+						form{
+							.container-col{
+								display: flex;
+								flex-flow: row wrap;
+								align-items: flex-start;
+								justify-content: space-between;
+								.col{
+									width: 390px;
+									display: flex;
+									flex-flow: row wrap;
+									justify-content: space-between;
+									margin-bottom: 48px;
+									.title{
+										@include styleH5;
+										margin-bottom: 24px;
+									}
+									
+
+									.checkbox{
+										display: flex;
+										flex-flow: row wrap;
+										align-items: flex-start;
+										input{
+											width: 12px;
+											height: 12px;
+											margin-right: 12px;
+											margin-top: 5px;
+										}
+										.text{
+											flex: 1;
+											@include styleParagraphSmall;
+											a{
+												color: $colorMain_4;
+											}
+										}
+									}
+
+									&:nth-child(1){
+										.input{
+											&:nth-child(6),
+											&:nth-child(7){
+												width: calc(50% - 12px);
+											}
+										}
+									}
+									&:nth-child(2){
+										.checkbox{
+											&:nth-child(5){
+												margin-top: 60px;
+											}
+											&:nth-child(6){
+												margin-top: 16px;
+											}
+										}
+									}
+									&:nth-child(3){
+										display: none;
+										.input{
+											&:nth-child(6),
+											&:nth-child(7){
+												width: calc(50% - 12px);
+											}
+										}
+
+										&.style-show{
+											display: flex;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				.step-3{
+					.content-step{
+						padding-top: 40px;
+					}
+					.container-title{
+						h2{
+							@include styleH2;
+						}
+						p{
+							margin-top: 8px;
+							@include styleParagraphNormal;
+						}
+					}
+					.container-col{
+						margin-top: 40px;
+						display: flex;
+						flex-flow: row wrap;
+						justify-content: space-between;
+						.col-pay{
+							width: 390px;
+							.title{
+								@include styleH5;
+								margin-bottom: 16px;
+							}
+							.container-services{
+								display: flex;
+								flex-flow: row wrap;
+								justify-content: space-between;
+								.service{
+									cursor: pointer;
+									border: 1px solid $colorMain_5;
+									width: 190px;
+									height: 50px;
+									border-radius: 68px;
+									position: relative;
+									img{
+										height: 18px;
+										position: absolute;
+										top: 50%;
+										left: 50%;
+										transform: translate(-50%, -50%);
+									}
+								}
+							}
+							.container-sep{
+								margin: 18px 0px 18px 0px;
+								display: flex;
+								flex-flow: row wrap;
+								align-items: center;
+								.line{
+									flex: 1;
+									height: 1px;
+									background-color: $colorMain_5;
+								}
+								.text{
+									margin: 0px 18px 0px 18px;
+									@include styleParagraphSmall;
+								}
+							}
+
+							.container-cb{
+								display: flex;
+								flex-flow: row wrap;
+								align-items: center;
+								justify-content: center;
+								img{
+									width: 45px;
+									&:not(:last-child){
+										margin-right: 8px;
+									}
+								}
+							}
+
+							.container-input{
+								display: flex;
+								flex-flow: row wrap;
+								justify-content: space-between;
+								.input{
+									&:nth-child(3),
+									&:nth-child(4){
+										width: calc(50% - 12px);
+									}
+								}
+							}
+						}
+
+						.col-recap{
+							width: 390px;
+							.title{
+								@include styleH5;
+								margin-bottom: 24px;
+							}
+							.container-recap{
+								border: 1px solid $colorMain_5;
+								border-radius: 24px;
+								padding: 24px;
+								.infos{
+									display: flex;
+									flex-flow: row wrap;
+									justify-content: space-between;
+									align-items: center;
+									padding-bottom: 16px;
+									border-bottom: 1px solid $colorMain_5;
+									.container-name{
+										display: flex;
+										flex-flow: row wrap;
+										align-items: center;
+										
+										flex: 1;
+										margin-right: 10px;
+										.name-1{
+											@include styleParagraphSmall;
+											text-transform: capitalize;
+										}
+										.name-2{
+											margin-left: 5px;
+											@include styleParagraphSmall;
+											text-transform: uppercase;
+										}
+									}
+									.abonnement{
+										
+										@include styleParagraphSmall;
+										color: $colorMain_1;
+									}
+								}
+
+								.container-price{
+									margin-top: 16px;
+									display: flex;
+									flex-flow: row wrap;
+									.text{
+										@include styleH5;
+										flex: 1;
+									}
+									.price{
+										@include styleH5;
+									}
+								}
+								.container-text{
+									margin-top: 16px;
+									p{
+										@include styleParagraphTiny;
+									}
+								}
+							}
+						}
+					}
+				}
+				.step-4{
+					display: flex;
+					flex-flow: row wrap;
+					align-items: center;
+					.content-step{
+						height: initial;
+						text-align: center;
+						.icn{
+							width: 80px;
+							margin: auto;
+							img{
+								width: 100%;
+							}
+						}
+						h2{
+							margin-top: 24px;
+							@include styleH2;
+						}
+						p{
+							margin-top: 8px;
+							@include styleParagraphNormal;
+						}
+						.container-btn{
+							margin-top: 24px;
+							.btn{
+								@include styleButton("4", "right" );
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+/*======================================
+=            END PAGE TUNNEL           =
+======================================*/

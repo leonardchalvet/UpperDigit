@@ -421,6 +421,18 @@ main
 				.btn-text{
 					color: $colorMain_3;
 				}
+				.btn-arrow{
+					stroke: $colorMain_3;
+				}
+				&:hover{
+					background-color: $colorMain_3;
+					.btn-text{
+						color: #FFF;
+					}
+					.btn-arrow{
+						stroke: #FFF;
+					}
+				}
 			} @else if $style == "4" {
 				background-color: $colorMain_1;
 				.btn-text{
@@ -457,21 +469,41 @@ main
 				}
 			}
 
+
+
 			@if $arrow == "right" {
 				.btn-arrow{
 					order: 2;
 					margin-left: 12px;
 				}
+				.btn-text{
+					order: 1;
+				}
 				
 			} @else if $arrow == "left" {
 				.btn-arrow{
+					transform: rotate(180deg);
 					order: 1;
 					margin-right: 12px;
+				}
+				.btn-text{
+					order: 2;
 				}
 				
 			} @else if $arrow == "none" {
 				.btn-arrow{
 					display: none;
+				}
+			}
+
+			&.style-disable{
+				cursor: not-allowed;
+				background-color: $colorMain_5;
+				.btn-text{
+					color: $colorMain_3;
+				}
+				.btn-arrow{
+					stroke: $colorMain_3;
 				}
 			}
 
@@ -482,6 +514,7 @@ main
 			text-decoration: none;
 			.link-text{
 				font-family: $font_2_bold;
+				color: $colorMain_3;
 			}
 			@if $size == "1" {
 				.link-text{

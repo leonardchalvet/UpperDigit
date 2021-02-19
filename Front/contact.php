@@ -19,7 +19,7 @@
 
 		<main>
 
-			<div class="container-lightbox style-show">
+			<div class="container-lightbox">
 				<div class="background"></div>
 				<div class="lightbox">
 					<div class="cross">
@@ -52,13 +52,13 @@
 						<p>
 							Vous avez une question ? N’hésitez pas à nous écrire pour plus d’informations
 						</p>
-						<form action="">
+						<form onSubmit="return false;">
 							<div class="input">
 								<input type="text" placeholder="Nom*">
 								<div class="error">Error</div>
 							</div>
 							<div class="input">
-								<input type="text" placeholder="Email*">
+								<input type="email" placeholder="Email*">
 								<div class="error">Error</div>
 							</div>
 							<div class="textarea">

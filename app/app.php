@@ -194,8 +194,8 @@ function renderPage($request, $response, $args, $app, $prismic) {
     //PART 4 - Call current page
     $document = NULL;
     $nType = 0;
-    $arrayTypes = [ 'home', 'answer', 'cgu', 'signin', 'contact', 'p404' ]; // UPDATE NAME OF CUSTOM TYPE HERE (only if exist in CONTENT)
-    $arrayView  = [ 'home', 'answer', 'cgu', 'signin', 'contact', 'p404' ]; // NAME IN "VIEWS" FOLDER, ALWAYS SAME POSITION BETWEEN "arrayTypes" & "arrayView"
+    $arrayTypes = [ 'home', 'answer', 'cgu', 'signin', 'contact', 'form', 'p404' ]; // UPDATE NAME OF CUSTOM TYPE HERE (only if exist in CONTENT)
+    $arrayView  = [ 'home', 'answer', 'cgu', 'signin', 'contact', 'form', 'p404' ]; // NAME IN "VIEWS" FOLDER, ALWAYS SAME POSITION BETWEEN "arrayTypes" & "arrayView"
     foreach ($arrayTypes as $type) {
         $document = $api->getByUID($type, $args['uid'], $options);
 

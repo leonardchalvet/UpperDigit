@@ -254,7 +254,7 @@
 									</div>
 
 									<div class="container-form">
-										<form action="">
+										<form onSubmit="return false;">
 											<div class="container-col">
 												<div class="col">
 													<div class="title">
@@ -401,20 +401,22 @@
 													<img src="img/tunnel/cb-plaholder-2.png" alt="">
 												</div>
 											</div>
-											<div class="container-input">
-												<div class="input">
-													<input type="text" placeholder="Titulaire de la carte*">
+											<form onSubmit="return false;">
+												<div class="container-input">
+													<div class="input">
+														<input type="text" placeholder="Titulaire de la carte*">
+													</div>
+													<div class="input">
+														<input type="text" placeholder="Numéro de carte*">
+													</div>
+													<div class="input">
+														<input type="text" placeholder="MM/AA*">
+													</div>
+													<div class="input">
+														<input type="text" placeholder="CVV*">
+													</div>
 												</div>
-												<div class="input">
-													<input type="text" placeholder="Numéro de carte*">
-												</div>
-												<div class="input">
-													<input type="text" placeholder="MM/AA*">
-												</div>
-												<div class="input">
-													<input type="text" placeholder="CVV*">
-												</div>
-											</div>
+											</form>
 										</div>
 										<div class="col-recap">
 											<div class="title">Récapitualitf de votre commande</div>

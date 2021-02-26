@@ -71,9 +71,6 @@
 	$('.step-2 .btn-next').click(function(){
 		
 		let stateForm = false;
-		if(stateForm) {
-			return true;
-		}
 
 		let returnF = true;
 		$('.step-2 form').find('input').each(function(){
@@ -133,9 +130,6 @@
 	$('.step-3 .btn-next').click(function(){
 
 		let stateForm = false;
-		if(stateForm) {
-			return true;
-		}
 
 		let returnF = true;
 		$('.step-3 form').find('input').each(function(){

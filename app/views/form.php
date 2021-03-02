@@ -136,11 +136,11 @@ $document = $WPGLOBAL['document']->data;
                             <?= RichText::asText($document->informations_lc_title); ?>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="<?= RichText::asText($document->informations_lc_lastname); ?>">
+                            <input required name="lastname" type="text" placeholder="<?= RichText::asText($document->informations_lc_lastname); ?>">
                             <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="<?= RichText::asText($document->informations_lc_firstname); ?>">
+                            <input required name="firstname" type="text" placeholder="<?= RichText::asText($document->informations_lc_firstname); ?>">
                             <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
@@ -268,8 +268,8 @@ $document = $WPGLOBAL['document']->data;
                       <div class="container-cb">
                         <div class="container-img">
                           <?php foreach ($document->payment_lc_logos as $l) { ?>
-                          <img src="<?= $l->img->url; ?>" alt="<?= $l->img->alt; ?>">
-                        <?php } ?>
+                            <img src="<?= $l->img->url; ?>" alt="<?= $l->img->alt; ?>">
+                          <?php } ?>
                         </div>
                       </div>
                       <form onSubmit="return false;">

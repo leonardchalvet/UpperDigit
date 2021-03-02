@@ -125,95 +125,95 @@ $document = $WPGLOBAL['document']->data;
               <div class="step step-2">
                 <div class="content-step">
                   <div class="container-title">
-                    <h2>Créez votre compte.</h2>
-                    <p>Afin de mieux se connaîre, veuillez remplir les champs ci-dessous</p>
+                    <h2><?= RichText::asText($document->informations_title); ?></h2>
+                    <p><?= RichText::asText($document->informations_text); ?></p>
                   </div>
                   <div class="container-form">
                     <form onSubmit="return false;">
                       <div class="container-col">
                         <div class="col">
                           <div class="title">
-                            Informations personnelles
+                            <?= RichText::asText($document->informations_lc_title); ?>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="Nom*">
-                            <div class="error">Error</div>
+                            <input required type="text" placeholder="<?= RichText::asText($document->informations_lc_lastname); ?>">
+                            <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="Prénom*">
-                            <div class="error">Error</div>
+                            <input required type="text" placeholder="<?= RichText::asText($document->informations_lc_firstname); ?>">
+                            <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="Téléphone*">
-                            <div class="error">Error</div>
+                            <input required type="text" placeholder="<?= RichText::asText($document->informations_lc_phone); ?>">
+                            <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="Adresse postale*">
-                            <div class="error">Error</div>
+                            <input required type="text" placeholder="<?= RichText::asText($document->informations_lc_adress); ?>">
+                            <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="Code Postal*">
-                            <div class="error">Error</div>
+                            <input required type="text" placeholder="<?= RichText::asText($document->informations_lc_zipcode); ?>">
+                            <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="Pays/Région*">
-                            <div class="error">Error</div>
+                            <input required type="text" placeholder="<?= RichText::asText($document->informations_lc_country); ?>">
+                            <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                         </div>
                         <div class="col">
                           <div class="title">
-                            Sécurité
+                            <?= RichText::asText($document->informations_rc_title); ?>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="Votre adresse mail*">
-                            <div class="error">Error</div>
+                            <input required type="email" placeholder="<?= RichText::asText($document->informations_rc_mail); ?>">
+                            <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="Mot de passe* ">
-                            <div class="error">Error</div>
+                            <input required type="text" placeholder="<?= RichText::asText($document->informations_rc_password); ?>">
+                            <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="Confimez votre mot de passe*">
-                            <div class="error">Error</div>
+                            <input required type="text" placeholder="<?= RichText::asText($document->informations_rc_confirmepassword); ?>">
+                            <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="checkbox">
                             <input required type="checkbox">
                             <div class="text">
-                              J'ai lu et j'accepte les <a href="">Conditions Générales d'Utilisations.</a>
+                              <?= RichText::asHtml($document->informations_rc_checkboxcgu); ?>
                             </div>
                           </div>
                           <div class="checkbox">
                             <input type="checkbox">
                             <div class="text">
-                              Je souhaite être informé des actualités, publications et offres de MesQuestions.fr
+                              <?= RichText::asText($document->informations_rc_checkboxinform); ?>
                             </div>
                           </div>
                         </div>
                         <div class="col">
-                          <div class="title">Informations professionnelles</div>
+                          <div class="title"><?= RichText::asText($document->informations_pc_title); ?></div>
                           <div class="input">
-                            <input required type="text" placeholder="Nom de votre société*">
-                            <div class="error">Error</div>
+                            <input required type="text" placeholder="<?= RichText::asText($document->informations_pc_company); ?>">
+                            <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="Numéro de SIRET*">
-                            <div class="error">Error</div>
+                            <input required type="text" placeholder="<?= RichText::asText($document->informations_pc_siret); ?>">
+                            <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="Siège social*">
-                            <div class="error">Error</div>
+                            <input required type="text" placeholder="<?= RichText::asText($document->informations_pc_headoffice); ?>">
+                            <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="Adresse professionnelle*">
-                            <div class="error">Error</div>
+                            <input required type="text" placeholder="<?= RichText::asText($document->informations_pc_adress); ?>">
+                            <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="Code Postal*">
-                            <div class="error">Error</div>
+                            <input required type="text" placeholder="<?= RichText::asText($document->informations_pc_zipcode); ?>">
+                            <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="Pays*">
-                            <div class="error">Error</div>
+                            <input required type="text" placeholder="<?= RichText::asText($document->informations_pc_country); ?>">
+                            <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                         </div>
                       </div>
@@ -223,7 +223,7 @@ $document = $WPGLOBAL['document']->data;
                 <div class="container-nav">
                   <div class="btn btn-prev">
                     <div class="btn-text">
-                      Quitter
+                      <?= RichText::asText($document->informations_btntextr); ?>
                     </div>
                     <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16" >
                       <use xlink:href="/img/common/icn-arrow.svg#content"></use>
@@ -231,7 +231,7 @@ $document = $WPGLOBAL['document']->data;
                   </div>
                   <div class="btn btn-next style-disable">
                     <div class="btn-text">
-                      Continuer
+                      <?= RichText::asText($document->informations_btntextn); ?>
                     </div>
                     <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16" >
                       <use xlink:href="/img/common/icn-arrow.svg#content"></use>
@@ -243,13 +243,14 @@ $document = $WPGLOBAL['document']->data;
               <div class="step step-3">
                 <div class="content-step">
                   <div class="container-title">
-                    <h2>Procédez au paiement.</h2>
-                    <p>Veuillez remplir les champs ci-dessous afin de procéder au paiement.</p>
+                    <h2><?= RichText::asText($document->payment_title); ?></h2>
+                    <p><?= RichText::asText($document->payment_text); ?></p>
                   </div>
                   <div class="container-col">
                     <div class="col-pay">
-                      <div class="title">Informations de paiement</div>
+                      <div class="title"><?= RichText::asText($document->payment_lt_title); ?></div>
                       <div class="container-services">
+                        <!-- VOIR AVEC STRIPE -->
                         <div class="service">
                           <img src="/img/tunnel/gg-pay.svg" alt="">
                         </div>
@@ -260,58 +261,55 @@ $document = $WPGLOBAL['document']->data;
                       <div class="container-sep">
                         <div class="line"></div>
                         <div class="text">
-                          Ou payer par carte bancaire
+                          <?= RichText::asText($document->payment_lc_subtitle); ?>
                         </div>
                         <div class="line"></div>
                       </div>
                       <div class="container-cb">
                         <div class="container-img">
-                          <img src="/img/tunnel/cb-plaholder-1.png" alt="">
-                          <img src="/img/tunnel/cb-plaholder-2.png" alt="">
+                          <?php foreach ($document->payment_lc_logos as $l) { ?>
+                          <img src="<?= $l->img->url; ?>" alt="<?= $l->img->alt; ?>">
+                        <?php } ?>
                         </div>
                       </div>
                       <form onSubmit="return false;">
                         <div class="container-input">
                           <div class="input">
-                            <input type="text" placeholder="Titulaire de la carte*">
+                            <input type="text" placeholder="<?= RichText::asText($document->payment_lc_name); ?>">
                           </div>
                           <div class="input">
-                            <input type="text" placeholder="Numéro de carte*">
+                            <input type="text" placeholder="<?= RichText::asText($document->payment_lc_number); ?>">
                           </div>
                           <div class="input">
-                            <input type="text" placeholder="MM/AA*">
+                            <input type="text" placeholder="<?= RichText::asText($document->payment_lc_date); ?>">
                           </div>
                           <div class="input">
-                            <input type="text" placeholder="CVV*">
+                            <input type="text" placeholder="<?= RichText::asText($document->payment_lc_cvv); ?>">
                           </div>
                         </div>
                       </form>
                     </div>
                     <div class="col-recap">
-                      <div class="title">Récapitualitf de votre commande</div>
+                      <div class="title"><?= RichText::asText($document->payment_rc_title); ?></div>
                       <div class="container-recap">
                         <div class="infos">
                           <div class="container-name">
-                            <div class="name-1">Léonard</div>
-                            <div class="name-2">
-                            Chalvet
-                            </div>
+                            <div class="name-1"></div>
+                            <div class="name-2"></div>
                           </div>
                           <div class="abonnement">
-                            Abonnement Particulier
+                            <?= RichText::asText($document->payment_rc_subscription); ?>
                           </div>
                         </div>
                         <div class="container-price">
                           <div class="text">
-                            Montant total à payer
+                            <?= RichText::asText($document->payment_rc_amount); ?>
                           </div>
-                          <div class="price">
-                            32€/mois
-                          </div>
+                          <div class="price"></div>
                         </div>
                         <div class="container-text">
                           <p>
-                            En poursuivant, vous acceptez nos conditions d’abonnement. Votre abonnement sera automatiquement renouvelé et votre mode de paiement enregistré sera facturé, à moins que vous ne résiliez votre abonnement à tout moment avant le prochain cycle de facturation.
+                            <?= RichText::asText($document->payment_rc_text); ?>
                           </p>
                         </div>
                       </div>
@@ -321,7 +319,7 @@ $document = $WPGLOBAL['document']->data;
                 <div class="container-nav">
                   <div class="btn btn-prev">
                     <div class="btn-text">
-                      Retour
+                      <?= RichText::asText($document->payment_btntextr); ?>
                     </div>
                     <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16" >
                       <use xlink:href="/img/common/icn-arrow.svg#content"></use>
@@ -329,7 +327,7 @@ $document = $WPGLOBAL['document']->data;
                   </div>
                   <div class="btn btn-next">
                     <div class="btn-text">
-                      Payer et confirmer
+                      <?= RichText::asText($document->payment_btntextn); ?>
                     </div>
                     <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16" >
                       <use xlink:href="/img/common/icn-arrow.svg#content"></use>
@@ -344,14 +342,14 @@ $document = $WPGLOBAL['document']->data;
                     <img src="/img/tunnel/icn-check.svg" alt="">
                   </div>
                   <h2>
-                    Paiement validé.
+                    <?= RichText::asText($document->validation_title); ?>
                   </h2>
                   <p>
-                    Accédez désormais à votre compte MesQuestions.fr
+                    <?= RichText::asText($document->validation_text); ?>
                   </p>
                   <div class="container-btn">
-                    <a href="" class="btn">
-                      <span class="btn-text">Accéder à votre compte</span>
+                    <a href="<?= checkUrl($document->validation_btnlink); ?>" class="btn">
+                      <span class="btn-text"><?= RichText::asText($document->validation_btntext); ?></span>
                       <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16" >
                         <use xlink:href="/img/common/icn-arrow.svg#content"></use>
                       </svg>

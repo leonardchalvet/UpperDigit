@@ -261,11 +261,11 @@
 														Informations personnelles
 													</div>
 													<div class="input">
-														<input required type="text" placeholder="Nom*">
+														<input required name="lastname" type="text" placeholder="Nom*" value="DIJOIOZZIDZIO">
 														<div class="error">Error</div>
 													</div>
 													<div class="input">
-														<input required type="text" placeholder="Prénom*">
+														<input required name="firstname" type="text" placeholder="Prénom*" value="dzajozdaoijdzaoijadzpoj">
 														<div class="error">Error</div>
 													</div>
 													<div class="input">
@@ -424,22 +424,18 @@
 											<div class="container-recap">
 												<div class="infos">
 													<div class="container-name">
-														<div class="name-1">Léonard</div>
-														<div class="name-2">
-														Chalvet
-														</div>
+														<div class="name-1"></div>
+														<div class="name-2"></div>
 													</div>
 													<div class="abonnement">
-														Abonnement Particulier
+														Abonnement
 													</div>
 												</div>
 												<div class="container-price">
 													<div class="text">
 														Montant total à payer
 													</div>
-													<div class="price">
-														32€/mois
-													</div>
+													<div class="price"></div>
 												</div>
 												<div class="container-text">
 													<p>

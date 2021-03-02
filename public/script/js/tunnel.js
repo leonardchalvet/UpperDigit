@@ -67,41 +67,43 @@
 /* END STEP 1 */
 
 /* STEP 2 */
-
+	
+	let subTextSave = $('.step-3 .col-recap .abonnement').text();
 	$('.step-2 .btn-next').click(function(){
-		
-		let stateForm = false;
 
+		let stateForm = false;
 		let returnF = true;
 		$('.step-2 form').find('input').each(function(){
 
-			if($(this).attr('type') == "checkbox") {
-				if($(this).is(':checked')) {
-					$(this).parent().removeClass('style-error');
-				}
-				else {
-					returnF = false;
-					$(this).parent().addClass('style-error');
-				}
-			}
-			else {
-
-				if( isEmpty($(this)) ) {
-					returnF = false;
-					$(this).parent().addClass('style-error');
-				}
-				else {
-					$(this).parent().removeClass('style-error');
-				}
-
-				if($(this).attr("name") == 'email') {
-					let returnV = verifEmail($(this));
-					if(!returnV) {
+			if( $(this).parent().parent().index() !== 2 
+				|| ( $(this).parent().parent().index() === 2 && $(this).parent().parent().hasClass('style-show') ) ) {
+				if($(this).attr('type') == "checkbox") {
+					if($(this).is(':checked')) {
+						$(this).parent().removeClass('style-error');
+					}
+					else {
 						returnF = false;
 						$(this).parent().addClass('style-error');
 					}
 				}
+				else {
 
+					if( isEmpty($(this)) ) {
+						returnF = false;
+						$(this).parent().addClass('style-error');
+					}
+					else {
+						$(this).parent().removeClass('style-error');
+					}
+
+					if($(this).attr("name") == 'email') {
+						let returnV = verifEmail($(this));
+						if(!returnV) {
+							returnF = false;
+							$(this).parent().addClass('style-error');
+						}
+					}
+				}
 			}
 		});
 
@@ -111,6 +113,11 @@
 				index++;
 				direction = 'style-hide-left';
 				refresh();
+
+				$('.step-3 .col-recap .name-1').text($('.step-2 input[name=firstname]').val());
+				$('.step-3 .col-recap .name-2').text($('.step-2 input[name=lastname]').val());
+				$('.step-3 .col-recap .abonnement').text(subTextSave + " " + $('.step-1 .el.style-active .title').text());
+				$('.step-3 .col-recap .price').text($('.step-1 .el.style-active .price span:nth-child(1)').text() + " " + $('.step-1 .el.style-active .price span:nth-child(2)').text());
 			}, 250)
 		}
 	});

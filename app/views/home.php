@@ -23,6 +23,8 @@ $document = $WPGLOBAL['document']->data;
   
   <body>
 
+    <?php include('common-lightbox.php') ?>
+
     <?php include('common-header.php') ?>
 
     <main>
@@ -44,7 +46,7 @@ $document = $WPGLOBAL['document']->data;
                       <use xlink:href="/img/common/icn-search.svg#content"></use>
                     </svg>
                   </div>
-                  <input name="question" type="text" placeholder="<?= RichText::asText($document->search_placeholder); ?>">
+                  <input name="question" type="text" placeholder="<?= RichText::asText($document->search_placeholder); ?>" autocomplete="off">
                   <input name="answer" type="text" style="display: none;">
                   <div class="container-action">
                     <button>
@@ -62,20 +64,13 @@ $document = $WPGLOBAL['document']->data;
                 </div>
               </form>
               <div class="dropdown">
-                <!--
                 <div class="container-placeholder">
                   <ul>
                     <li>
-                      <div class="title">Wait algolia</div>
+                      <div class="title"><?= RichText::asText($document->search_titlequestion); ?></div>
                     </li>
-                    <?php for(;$i<4;$i++) { ?>
-                    <li>
-                      <a href="">Wait algolia</a>
-                    </li>
-                    <?php } ?>
                   </ul>
                 </div>
-                -->
                 <div class="container-result">
                   <ul></ul>
                 </div>

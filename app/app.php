@@ -147,15 +147,16 @@ $app->get('/{uid}/', function ($request, $response, $args) use ($app, $prismic) 
     else {
 
         //PART 3 - Call Header & Footer & Lightbox
-        $header   = $api->getByUID('header',   'header',  $options);
-        $footer   = $api->getByUID('footer' ,  'footer',  $options);
+        $header   = $api->getByUID('header',   'header',   $options);
+        $lightbox = $api->getByUID('lightbox', 'lightbox', $options);
+        $footer   = $api->getByUID('footer' ,  'footer',   $options);
 
         //PART 4 - Call Home
         $document = $api->query(Predicates::at('document.type', 'home'), $options);
         $document = $document->results[0];
         
         //PART 5 - Render the page
-        render($app, 'home', array('document' => $document, 'header' => $header, 'footer' => $footer ));
+        render($app, 'home', array('document' => $document, 'header' => $header, 'footer' => $footer, 'lightbox' => $lightbox ));
     }    
 });
 
@@ -188,8 +189,9 @@ function renderPage($request, $response, $args, $app, $prismic) {
     }
 
     //PART 3 - Call Header & Footer & Lightbox
-    $header   = $api->getByUID('header' ,  'header',  $options);
-    $footer   = $api->getByUID('footer' ,  'footer',  $options);
+    $header   = $api->getByUID('header' ,  'header',   $options);
+    $lightbox = $api->getByUID('lightbox', 'lightbox', $options);
+    $footer   = $api->getByUID('footer' ,  'footer',   $options);
 
     //PART 4 - Call current page
     $document = NULL;
@@ -211,7 +213,7 @@ function renderPage($request, $response, $args, $app, $prismic) {
 
     //PART 5 - Call good view
     if($document != NULL) {
-        render($app, $arrayView[$nType-1], array('document' => $document, 'header' => $header, 'footer' => $footer));
+        render($app, $arrayView[$nType-1], array('document' => $document, 'header' => $header, 'footer' => $footer, 'lightbox' => $lightbox ));
     }
     else {
       header('Location: /'.$args['lg'].'/404');

@@ -19,7 +19,7 @@
 	
 	<body>
 
-		<div class="container-cookies style-show">
+		<div class="container-cookies">
 			<div class="cdr">
 				<p>
 					🍪  En poursuivant votre navigation sur le site, vous acceptez l’utilisation de cookies destinés à améliorer la performance de ce site, à en adapter les fonctionnalités (Plus d’informations)
@@ -65,7 +65,7 @@
 											<use xlink:href="img/common/icn-search.svg#content"></use>
 										</svg>
 									</div>
-									<input name="question" type="text" placeholder="Recherchez gratuitement une information">
+									<input name="question" type="text" placeholder="Recherchez gratuitement une information" autocomplete="off">
 									<input name="answer" type="text" style="display: none;">
 									<div class="container-action">
 										<button>

@@ -19,9 +19,13 @@ $answer = $_POST['answer'];
 
     <link rel="stylesheet" type="text/css" href="/style/css/answer.css">
 
+    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js"></script>
+
   </head>
   
   <body>
+
+    <?php include('common-lightbox.php') ?>
 
     <?php include('common-header.php') ?>
 
@@ -34,21 +38,17 @@ $answer = $_POST['answer'];
               <use xlink:href="/img/common/icn-cross.svg#content"></use>
             </svg>
           </div>
-          <h3>Ces informations vous ont-elles étés utiles ?</h3>
-          <p class="desc">
-            Dans l’optique d’améliorer notre service et nos réponses, veuillez répondre à notre enquête de satifaction afin d’améliorer no
-          </p>
+          <h3><?= RichText::asText($document->lightbox1_title); ?></h3>
+          <?= RichText::asHtml($document->lightbox1_text); ?>
           <div class="container-action">
             <div class="btn">
-              <div class="btn-text">Oui</div>
+              <div class="btn-text"><?= RichText::asText($document->lightbox1_yes); ?></div>
             </div>
             <div class="btn">
-              <div class="btn-text">Non</div>
+              <div class="btn-text"><?= RichText::asText($document->lightbox1_no); ?></div>
             </div>
           </div>
-          <p class="text">
-            Merci de votre réponse et de votre visite. À bientôt !
-          </p>
+          <?= RichText::asHtml($document->lightbox1_textunder); ?>
         </div>
         <div class="lightbox lightbox-2">
           <div class="cross">
@@ -56,23 +56,17 @@ $answer = $_POST['answer'];
               <use xlink:href="/img/common/icn-cross.svg#content"></use>
             </svg>
           </div>
-          <h3>Merci de votre confiance !</h3>
-          <p class="desc">
-            Vous avez atteint le nombre de recherches gratuites.<br>
-            <br>
-            Pour continuer l'expérience, nous vous invitons à vous créer un compte afin de pouvoir continuer à poser vos questions 
-          </p>
+          <h3><?= RichText::asText($document->lightbox2_title); ?></h3>
+          <?= RichText::asHtml($document->lightbox2_text); ?>
           <div class="container-btn">
-            <div class="btn">
-              <div class="btn-text">Abonnez-vous dès maintenant</div>
+            <a class="btn" href="<?= checkUrl($document->lightbox2_btnlink); ?>">
+              <div class="btn-text"><?= RichText::asText($document->lightbox2_btntext); ?></div>
               <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16" >
                 <use xlink:href="/img/common/icn-arrow.svg#content"></use>
               </svg>
-            </div>
+            </a>
           </div>
-          <p class="text">
-            Vous êtes déjà inscrit ? <a href="">Connectez-vous</a>
-          </p>
+          <?= RichText::asHtml($document->lightbox2_textunder); ?>
         </div>
       </div>
 
@@ -80,64 +74,40 @@ $answer = $_POST['answer'];
         <div class="wrapper">
           <div class="container-search">
             <div class="container-input">
-              <div class="input">
-                <div class="search">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" >
-                    <use xlink:href="/img/common/icn-search.svg#content"></use>
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" >
-                    <use xlink:href="/img/common/icn-search.svg#content"></use>
-                  </svg>
-                </div>
-                <input type="text" placeholder="<?= RichText::asText($document->answer_placeholder); ?>">
-                <div class="container-action">
-                  <button>
-                    <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16" >
-                      <use xlink:href="/img/common/icn-arrow.svg#content"></use>
-                    </svg>
-                  </button>
-                  <div class="cross">
+              <form action="<?php echo getUrl(); ?>" method="POST">
+                <div class="input">
+                  <div class="search">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" >
-                      <use xlink:href="/img/common/icn-cross.svg#content"></use>
+                      <use xlink:href="/img/common/icn-search.svg#content"></use>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" >
+                      <use xlink:href="/img/common/icn-search.svg#content"></use>
                     </svg>
                   </div>
+                  <input name="question" type="text" placeholder="<?= RichText::asText($document->answer_placeholder); ?>" autocomplete="off">
+                  <input name="answer" type="text" style="display: none;">
+                  <div class="container-action">
+                    <button>
+                      <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16" >
+                        <use xlink:href="/img/common/icn-arrow.svg#content"></use>
+                      </svg>
+                    </button>
+                    <div class="cross">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" >
+                        <use xlink:href="/img/common/icn-cross.svg#content"></use>
+                      </svg>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </form>
               <div class="dropdown">
                 <div class="container-placeholder">
                   <ul>
-                    <li>
-                      <div class="title">Questions récurentes</div>
-                    </li>
-                    <li>
-                      <a href="">Comment faire sa comptabilité ?</a>
-                    </li>
-                    <li>
-                      <a href="">Comment faire sa comptabilité ?</a>
-                    </li>
-                    <li>
-                      <a href="">Comment faire sa comptabilité ?</a>
-                    </li>
-                    <li>
-                      <a href="">Comment faire sa comptabilité ?</a>
-                    </li>
+                    <li><div class="title"><?= RichText::asText($document->answer_titlequestion); ?></div></li>
                   </ul>
                 </div>
                 <div class="container-result">
-                  <ul>
-                    <li>
-                      <a href="">Comment faire sa comptabilité ?</a>
-                    </li>
-                    <li>
-                      <a href="">Comment faire sa comptabilité ?</a>
-                    </li>
-                    <li>
-                      <a href="">Comment faire sa comptabilité ?</a>
-                    </li>
-                    <li>
-                      <a href="">Comment faire sa comptabilité ?</a>
-                    </li>
-                  </ul>
+                  <ul></ul>
                 </div>
               </div>
             </div>

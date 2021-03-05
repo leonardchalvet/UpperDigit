@@ -19,6 +19,8 @@ $document = $WPGLOBAL['document']->data;
   
   <body>
 
+    <?php include('common-lightbox.php') ?>
+
     <?php include('common-header.php') ?>
 
     <main>

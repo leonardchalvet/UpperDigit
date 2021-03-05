@@ -860,6 +860,20 @@
       "pg" : 0,
       "sct" : 1
     },
+    "\/style\/scss\/common-cookies.scss" : {
+      "aP" : 1,
+      "bl" : 0,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 0,
+      "oA" : 1,
+      "oAP" : "\/style\/css\/common-cookies.css",
+      "oF" : 0,
+      "oS" : 3,
+      "pg" : 0,
+      "sct" : 1
+    },
     "\/style\/scss\/common-section-start.scss" : {
       "aP" : 1,
       "bl" : 0,

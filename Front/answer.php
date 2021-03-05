@@ -22,15 +22,15 @@
 		<main>
 
 
-			<div class="container-lightbox">
-				<div class="lightbox lightbox-1">
+			<div class="container-lightbox style-show">
+				<div class="lightbox lightbox-1 style-show">
 					<div class="cross">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" >
 							<use xlink:href="img/common/icn-cross.svg#content"></use>
 						</svg>
 					</div>
 					<h3>Ces informations vous ont-elles étés utiles ?</h3>
-					<p class="desc">
+					<p>
 						Dans l’optique d’améliorer notre service et nos réponses, veuillez répondre à notre enquête de satifaction afin d’améliorer no
 					</p>
 					<div class="container-action">
@@ -41,7 +41,7 @@
 							<div class="btn-text">Non</div>
 						</div>
 					</div>
-					<p class="text">
+					<p>
 						Merci de votre réponse et de votre visite. À bientôt !
 					</p>
 				</div>

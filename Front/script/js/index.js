@@ -3,11 +3,25 @@
 
 $(window).on('load', function() {
 
-	$('.section-search .container-search .container-input .input input').focusout(function(){
-		if ($(this).val() === "") {
-			$('.section-search .container-search .container-input .input').removeClass('style-search');
-			$('.section-search .container-search .container-input .dropdown').removeClass('style-show');
+	let clickOutOfInput = true;
+	$(document).click(function(){
+		if (!$(event.target).closest('.section-search .container-search .container-input .dropdown').length) {
+			clickOutOfInput = false;
 		}
+		else {
+			clickOutOfInput = true;
+		}
+	});
+
+	$('.section-search .container-search .container-input .input input').focusout(function(){
+		let thisI = $(this);
+		setTimeout(function(){
+			if (thisI.val() === "" && !clickOutOfInput) {
+				clickOutOfInput = true;
+				$('.section-search .container-search .container-input .input').removeClass('style-search');
+				$('.section-search .container-search .container-input .dropdown').removeClass('style-show');	
+			}
+		}, 50);
 	})
 
 	$('.section-search .container-search .container-input .input .container-action button').click(function(){

@@ -53,7 +53,7 @@
 			@include styleH3;
 			text-align: center;
 		}
-		.desc{
+		h3 + p {
 			margin-top: 8px;
 			@include styleParagraphNormal;
 		}
@@ -70,7 +70,7 @@
 				}
 			}
 		}
-		.text{
+		.container-action + p {
 			text-align: center;
 			@include styleParagraphSmall;
 		}
@@ -80,7 +80,7 @@
 			@include styleH3;
 			text-align: center;
 		}
-		.desc{
+		h3 + p {
 			margin-top: 8px;
 			@include styleParagraphNormal;
 		}
@@ -93,7 +93,7 @@
 				@include styleButton("1", "right");
 			}
 		}
-		.text{
+		.container-btn + p {
 			margin-top: 14px;
 			text-align: center;
 			@include styleParagraphSmall;

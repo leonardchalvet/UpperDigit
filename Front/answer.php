@@ -155,7 +155,7 @@
 				<div class="wrapper">
 					<div class="container-answer">
 						<div class="answer">
-							<h2>Ou peut-on trouver le numéro intracommunautaire ?</h2>
+							<h2>Quelles sont les différentes méthodes d'amortissement autorisées ?</h2>
 							<p>
 								Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo eaque, placeat, neque facere consequatur ipsum et id, dolorem necessitatibus hic, dolore minus tenetur commodi eveniet in corrupti dolorum adipisci aut?
 							</p>
@@ -185,20 +185,16 @@
 						<h2>Questions similaires</h2>
 						<ul>
 							<li>
-								<a href="">
-									<span class="link-text">Quel est le but de la comptabilité ?</span>
-									
-								</a>
+								<a><span class="link-text"></span></a>
+								<form method="POST"></form>
 							</li>
 							<li>
-								<a href="">
-									<span class="link-text">Quel est le but de la comptabilité ?</span>
-								</a>
+								<a><span class="link-text"></span></a>
+								<form method="POST"></form>
 							</li>
 							<li>
-								<a href="">
-									<span class="link-text">Quel est le but de la comptabilité ?</span>
-								</a>
+								<a><span class="link-text"></span></a>
+								<form method="POST"></form>
 							</li>
 						</ul>
 					</div>	

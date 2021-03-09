@@ -2,8 +2,15 @@
 use Prismic\Dom\RichText;
 $document = $WPGLOBAL['document']->data;
 
-$question = $_POST['question'];
-$answer = $_POST['answer'];
+$question = isset($_POST['question'])  ?  $_POST['question'] : null ;
+$answer = isset($_POST['answer'])  ?  $_POST['answer'] : null ;
+
+if($question == null) {
+  header('Location: ' . getUrl() );
+  exit();
+}
+
+$urlt = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 ?>
 <html>
@@ -74,7 +81,7 @@ $answer = $_POST['answer'];
         <div class="wrapper">
           <div class="container-search">
             <div class="container-input">
-              <form action="<?php echo getUrl(); ?>" method="POST">
+              <form action="<?php echo $urlt; ?>" method="POST">
                 <div class="input">
                   <div class="search">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" >
@@ -142,22 +149,14 @@ $answer = $_POST['answer'];
           <div class="container-questions">
             <h2><?= RichText::asHtml($document->answer_questionr); ?></h2>
             <ul>
+              <?php for($i;$i<3;$i++) { ?>
               <li>
-                <a href="">
-                  <span class="link-text">Quel est le but de la comptabilité ?</span>
-                  
+                <a>
+                  <span class="link-text"></span>
                 </a>
+                <form action="<?php echo $urlt; ?>" method="POST"></form>
               </li>
-              <li>
-                <a href="">
-                  <span class="link-text">Quel est le but de la comptabilité ?</span>
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <span class="link-text">Quel est le but de la comptabilité ?</span>
-                </a>
-              </li>
+              <?php } ?>
             </ul>
           </div>  
         </div>

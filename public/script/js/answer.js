@@ -107,7 +107,20 @@ $(window).on('load', function() {
 	$('.container-lightbox .lightbox .cross').click(function(){
 		$('.container-lightbox .lightbox').removeClass('style-show');
 		$('.container-lightbox').removeClass('style-show');
-	})
+	});
+
+	index.search(' ', { similarQuery: $('.section-answer .container-answer .answer h2').text(), highlightPreTag: '<em>', hitsPerPage: 4 }).then(({ hits }) => {
+		$(hits).each(function(index) {
+			if(index !== 0) {
+				$('.section-answer .container-questions ul li:nth-child('+(index)+') .link-text').text(hits[index].question);
+				$('.section-answer .container-questions ul li:nth-child('+(index)+') form').html('<input name="question" type="text" value="' + hits[index].question + '"/><input name="answer" type="text" value="' + hits[index].reponse + '"/>');
+			}
+		});
+	});
+
+	$('.section-answer .container-questions ul li').click(function(){
+		$(this).find('form').submit();
+	});
 
 	/* END ALGOLIA */
 });

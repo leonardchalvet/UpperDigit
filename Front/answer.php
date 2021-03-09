@@ -22,8 +22,8 @@
 		<main>
 
 
-			<div class="container-lightbox style-show">
-				<div class="lightbox lightbox-1 style-show">
+			<div class="container-lightbox">
+				<div class="lightbox lightbox-1">
 					<div class="cross">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" >
 							<use xlink:href="img/common/icn-cross.svg#content"></use>
@@ -157,9 +157,7 @@
 						<div class="answer">
 							<h2>Quelles sont les différentes méthodes d'amortissement autorisées ?</h2>
 							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo eaque, placeat, neque facere consequatur ipsum et id, dolorem necessitatibus hic, dolore minus tenetur commodi eveniet in corrupti dolorum adipisci aut?
-							</p>
-							<p class="blur-answer">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo eaque, placeat, neque facere consequatur ipsum et id, dolorem necessitatibus hic, dolore minus tenetur commodi eveniet in corrupti dolorum adipisci aut?<br/>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu volutpat odio facilisis mauris sit amet massa vitae tortor condimentum lacinia quis vel eros donec ac odio tempor orci dapibus ultrices in iaculis nunc sed augue lacus, viverra vitae congue eu, consequat ac felis donec et odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus
 							</p>
 						</div>

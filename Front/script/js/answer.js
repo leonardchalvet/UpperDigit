@@ -104,11 +104,6 @@ $(window).on('load', function() {
 		});
 	}
 
-	$('.container-lightbox .lightbox .cross').click(function(){
-		$('.container-lightbox .lightbox').removeClass('style-show');
-		$('.container-lightbox').removeClass('style-show');
-	});
-
 	index.search(' ', { similarQuery: $('.section-answer .container-answer .answer h2').text(), highlightPreTag: '<em>', hitsPerPage: 4 }).then(({ hits }) => {
 		$(hits).each(function(index) {
 			if(index !== 0) {
@@ -123,4 +118,48 @@ $(window).on('load', function() {
 	});
 
 	/* END ALGOLIA */
+
+	/* LIGHTBOX */
+
+	$('.container-lightbox .lightbox .cross').click(function(){
+		$('.container-lightbox .lightbox').removeClass('style-show');
+		$('.container-lightbox').removeClass('style-show');
+	});
+
+	$(document).click(function(){
+		if (!$(event.target).closest('.container-lightbox .lightbox').length) {
+			$('.container-lightbox .lightbox .cross').click();
+		}
+	});
+
+	function showLg1() {
+		setTimeout(function(){
+			$('.container-lightbox').addClass('style-show');
+			$('.container-lightbox .lightbox-1').addClass('style-show');
+		}, 10000);
+	}
+
+	if(!getCookie('answer')) {
+		setCookie('answer', "1");
+		showLg1();
+	}
+	else {
+		let answerCookie = getCookieAndValue('answer');
+		if(answerCookie[1] == "1") {
+			setCookie('answer', "2");
+		}
+		else if(answerCookie[1] == "2") {
+			setCookie('answer', "3");
+		} else if(answerCookie[1] == "3") {
+			$('.container-lightbox').addClass('style-show');
+			$('.container-lightbox .lightbox-2').addClass('style-show');
+			$('.section-answer .container-answer').addClass('style-blur');
+		}
+
+		if(answerCookie[1] != "3") {
+			showLg1();
+		}
+	}
+
+	/* END LIGHTBOX */
 });

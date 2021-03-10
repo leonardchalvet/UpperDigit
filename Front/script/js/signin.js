@@ -30,8 +30,8 @@ $('.section-signin form button').on('click', function() {
 			data : form.serialize(),
 			success : function(code, statut){
 				if(code == 'true') {
-					alert('Connexion effectué, dashboard en préparation');
 					$('.section-signin form .input').removeClass('style-error');
+					alert('Connexion effectué, dashboard en préparation');
 				} else {
 					alert('Mauvais identifiant');
 					$('.section-signin form .input').addClass('style-error');

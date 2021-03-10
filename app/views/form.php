@@ -171,11 +171,11 @@ $document = $WPGLOBAL['document']->data;
                             <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="<?= RichText::asText($document->informations_rc_password); ?>">
+                            <input required name="password-1" type="password" placeholder="<?= RichText::asText($document->informations_rc_password); ?>">
                             <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="<?= RichText::asText($document->informations_rc_confirmepassword); ?>">
+                            <input required name="password-2" type="password" placeholder="<?= RichText::asText($document->informations_rc_confirmepassword); ?>">
                             <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="checkbox">

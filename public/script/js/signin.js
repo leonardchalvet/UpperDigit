@@ -25,11 +25,17 @@ $('.section-signin form button').on('click', function() {
 	if(returnF) {
 		let form = $(this).parent().parent();
 		$.ajax({
-			url : '/sendMail/signin.php',
+			url : '/php/signin.php',
 			type : 'POST',
 			data : form.serialize(),
 			success : function(code, statut){
-				// ENVOYER VERS LA DASHBOARD
+				if(code == 'true') {
+					alert('Connexion effectué, dashboard en préparation');
+					$('.section-signin form .input').removeClass('style-error');
+				} else {
+					alert('Mauvais identifiant');
+					$('.section-signin form .input').addClass('style-error');
+				}
 			}
 		});
 	}

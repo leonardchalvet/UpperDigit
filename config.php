@@ -22,3 +22,12 @@ define('SITE_DESCRIPTION', 'upperdigit');
  * Set to true to display error details
  */
 define('DISPLAY_ERROR_DETAILS', true);
+
+
+/*
+ * DB LOCAL
+ */
+define("DB_HOST","localhost");
+define("DB_BASE","upperdigit");
+define("BD_USER","root");
+define("BD_PASSWORD","root");

@@ -86,8 +86,16 @@
 						$(this).parent().addClass('style-error');
 					}
 				}
-				else {
-
+				else if($(this).attr('type') == "password" ) {
+					let password1 = $('.step-2 form input[name=password-1]').val(),
+					 	password2 = $('.step-2 form input[name=password-2]').val();
+					if( password1 != password2 || password1.length <= 0|| password2.length <= 0 ) {
+						$(this).parent().addClass('style-error');
+					}
+					else {
+						$(this).parent().removeClass('style-error');
+					}
+				} else {
 					if( isEmpty($(this)) ) {
 						returnF = false;
 						$(this).parent().addClass('style-error');

@@ -295,11 +295,11 @@
 														<div class="error">Error</div>
 													</div>
 													<div class="input">
-														<input required type="text" placeholder="Mot de passe* ">
+														<input required name="password-1" type="password" placeholder="Mot de passe* ">
 														<div class="error">Error</div>
 													</div>
 													<div class="input">
-														<input required type="text" placeholder="Confimez votre mot de passe*">
+														<input required name="password-2" type="password" placeholder="Confimez votre mot de passe*">
 														<div class="error">Error</div>
 													</div>
 

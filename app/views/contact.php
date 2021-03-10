@@ -5,6 +5,8 @@ $document = $WPGLOBAL['document']->data;
 <html>
   <head>
 
+    <?php include('common-noindex.php') ?>
+
     <title><?= RichText::asText($document->global_title); ?></title>
 
     <meta name="description" content="<?= RichText::asText($document->global_description); ?>" />

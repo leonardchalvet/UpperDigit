@@ -5,6 +5,8 @@ $document = $WPGLOBAL['document']->data;
 <html>
   <head>
 
+    <?php include('common-noindex.php') ?>
+
     <title><?= RichText::asText($document->global_title); ?></title>
 
     <meta name="description" content="<?= RichText::asText($document->global_description); ?>" />
@@ -36,7 +38,7 @@ $document = $WPGLOBAL['document']->data;
                 <?= RichText::asText($document->content_btntext); ?>
               </div>
               <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16" >
-                <use xlink:href="img/common/icn-arrow.svg#content"></use>
+                <use xlink:href="/img/common/icn-arrow.svg#content"></use>
               </svg>
             </a>
           </div>

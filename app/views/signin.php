@@ -5,6 +5,8 @@ $document = $WPGLOBAL['document']->data;
 <html>
   <head>
 
+    <?php include('common-noindex.php') ?>
+
     <title><?= RichText::asText($document->global_title); ?></title>
 
     <meta name="description" content="<?= RichText::asText($document->global_description); ?>" />
@@ -35,11 +37,11 @@ $document = $WPGLOBAL['document']->data;
             <?= RichText::asHtml($document->content_text); ?>
             <form onSubmit="return false;">
               <div class="input">
-                <input type="email" placeholder="<?= RichText::asText($document->content_email); ?>">
+                <input type="email" name="email" placeholder="<?= RichText::asText($document->content_email); ?>">
                 <div class="error"><?= RichText::asText($document->content_error); ?></div>
               </div>
               <div class="input">
-                <input type="password" placeholder="<?= RichText::asText($document->content_password); ?>">
+                <input type="password" name="password" placeholder="<?= RichText::asText($document->content_password); ?>">
                 <div class="error"><?= RichText::asText($document->content_error); ?></div>
               </div>
               <div class="password-forg">

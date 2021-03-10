@@ -16,6 +16,8 @@ $urlt = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "htt
 <html>
   <head>
 
+    <?php include('common-noindex.php') ?>
+
     <title><?= RichText::asText($document->global_title); ?></title>
 
     <meta name="description" content="<?= RichText::asText($document->global_description); ?>" />

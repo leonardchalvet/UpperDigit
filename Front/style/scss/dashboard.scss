@@ -1,0 +1,251 @@
+@import 'common.scss';
+
+
+/*=====================================
+=            PAGE DASHBOARD           =
+=====================================*/
+
+
+.section-dashboard{
+	padding-top: 150px;
+	.wrapper{
+		@include styleGrid1;
+		display: flex;
+		flex-flow: row wrap;
+		align-items: flex-start;
+	}
+	.container-sidebar{
+		width: 202px;
+		margin-right: 100px;
+		.title{
+			@include styleH4;
+		}
+		.container-tab{
+			margin-top: 24px;
+			list-style: none;
+			.tab{
+				cursor: pointer;
+				
+				border-radius: 4px;
+				padding: 11px 24px 11px 24px;
+				transition: all 0.25s ease;
+				&:not(:last-child){
+					margin-bottom: 6px;
+				}
+				span{
+					@include styleParagraphNormal;
+					color: $colorMain_3;
+				}
+
+				&:hover,
+				&.style-active{
+					background-color: $colorMain_6;
+				}
+			}
+		}
+	}
+	.container-informations{
+		flex: 1;
+		section{
+			.head{
+				display: flex;
+				flex-flow: row wrap;
+				align-items: center;
+				justify-content: space-between;
+				border-bottom: 1px solid $colorMain_5;
+				padding-bottom: 24px;
+				.title{
+					flex: 1;
+					@include styleH3;
+				}
+				.container-btn{
+					.btn{
+						&:nth-child(1){
+							@include styleButton("3", "none" );
+						}
+						&:nth-child(2){
+							@include styleButton("4", "none" );
+						}
+					}
+				}
+			}
+			&:not(:last-child){
+				margin-bottom: 76px;
+			}
+			
+		}
+		.section-informations{
+			.container-content{
+				.content-save{
+					.container-el{
+						.el{
+							padding-top: 25px;
+							&:not(:last-child){
+								padding-bottom: 25px;
+								border-bottom: 1px solid $colorMain_5;
+							}
+							
+							ul{
+								list-style: none;
+								li{
+									display: flex;
+									flex-flow: row wrap;
+									&:not(:last-child){
+										margin-bottom: 9px;
+									}
+									.title{
+										min-width: 200px;
+										@include styleParagraphSmall;
+									}
+									.text{
+										@include styleParagraphNormal;
+										color: $colorMain_3;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			.content-edit{
+				.container-el{
+					.el{
+						padding: 48px 0px 48px 0px;
+						&:not(:last-child){
+							border-bottom: 1px solid $colorMain_5;
+						}
+						.title{
+							@include styleH5;
+							margin-bottom: 24px;
+						}
+						.container-input{
+							display: flex;
+							flex-flow: row wrap;
+							justify-content: space-between;
+							.input{
+								position: relative;
+								width: 100%;
+								margin-top: 16px;
+								display: flex;
+								flex-flow: row wrap;
+								align-items: center;
+								input{
+									padding: 0px 25px 0px 25px;
+									width: 100%;
+									height: 50px;
+									border-radius: 70px;
+									border: 1px solid $colorMain_5;
+									outline: none;
+									transition: all 0.25s ease;
+
+									@include styleParagraphSmall;
+									&::placeholder{
+										color: $colorMain_4;
+									}
+									&:focus{
+										border-color: $colorMain_4;
+									}
+								}
+								.error{
+									visibility: hidden;
+									position: absolute;
+									right: 24px;
+									top: 50%;
+									transform: translateY(-50%);
+									@include styleParagraphTiny;
+									color: $colorMain_8;
+								}
+
+								&.style-error{
+									input{
+										border-color: $colorMain_8;
+									}
+									.error{
+										visibility: visible;
+									}
+								}
+							}
+							.wrap-input{
+								width: calc(50% - 7px);
+							}
+						}
+
+						&[data-info='perso']{
+							.wrap-input{
+								&:nth-child(5){
+									display: flex;
+									flex-flow: row wrap;
+									justify-content: space-between;
+									.input{
+										width: calc(50% - 8px);
+									}
+								}
+							}
+						}
+						&[data-info='securite']{
+							
+						}
+						&[data-info='paiement']{
+							.wrap-input{
+								&:nth-child(3){
+									display: flex;
+									flex-flow: row wrap;
+									justify-content: space-between;
+									.input{
+										width: calc(50% - 8px);
+									}
+								}
+							}
+							
+						}
+						&[data-info='pro']{
+							.wrap-input{
+								&:nth-child(5){
+									display: flex;
+									flex-flow: row wrap;
+									justify-content: space-between;
+									.input{
+										width: calc(50% - 8px);
+									}
+								}
+							}
+							
+						}
+					}
+				}
+			}
+		}
+		.section-bill{
+			padding-bottom: 120px;
+			ul{
+				li{
+					padding: 16px 0px 16px 0px;
+					display: flex;
+					flex-flow: row wrap;
+					align-items: center;
+					justify-content: space-between;
+					border-bottom: 1px solid $colorMain_5;
+					.num{
+						@include styleParagraphSmall;
+					}
+					.month{
+						@include styleParagraphNormal;
+						color: $colorMain_3;
+					}
+					.date{
+						@include styleParagraphNormal;
+						color: $colorMain_3;
+					}
+					.link{
+						@include styleLink("1")
+					}
+				}
+			}
+		}
+	}
+}
+
+
+/*=========================================
+=            END PAGE DASHBOARD           =
+=========================================*/

@@ -7,7 +7,7 @@
       "uuidString" : "630F0CCA-450C-45BD-9CC2-71A131CB134E"
     }
   ],
-  "creatorBuild" : "34018",
+  "creatorBuild" : "34081",
   "files" : {
     "\/404.php" : {
       "cB" : 0,
@@ -63,6 +63,14 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/contact.php",
+      "oF" : 0
+    },
+    "\/dashboard.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/dashboard.php",
       "oF" : 0
     },
     "\/fonts\/Castoro-Regular.ttf" : {
@@ -575,6 +583,17 @@
       "sC" : 0,
       "tS" : 0
     },
+    "\/script\/js\/dashboard.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/script\/minify\/dashboard-min.js",
+      "oF" : 0,
+      "sC" : 0,
+      "tS" : 0
+    },
     "\/script\/js\/index.js" : {
       "bF" : 0,
       "ft" : 64,
@@ -685,6 +704,17 @@
       "sC" : 0,
       "tS" : 0
     },
+    "\/script\/minify\/dashboard-min.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/script\/minify\/dashboard-min-min.js",
+      "oF" : 0,
+      "sC" : 0,
+      "tS" : 0
+    },
     "\/script\/minify\/index-min.js" : {
       "bF" : 0,
       "ft" : 64,
@@ -774,6 +804,18 @@
       "oF" : 0,
       "pg" : 0
     },
+    "\/style\/css\/dashboard.css" : {
+      "aP" : 1,
+      "bl" : 0,
+      "ci" : 0,
+      "co" : 0,
+      "ft" : 16,
+      "ma" : 0,
+      "oA" : 0,
+      "oAP" : "\/style\/css\/dashboard-min.css",
+      "oF" : 0,
+      "pg" : 0
+    },
     "\/style\/css\/home.css" : {
       "aP" : 1,
       "bl" : 0,
@@ -860,20 +902,6 @@
       "pg" : 0,
       "sct" : 1
     },
-    "\/style\/scss\/common-cookies.scss" : {
-      "aP" : 1,
-      "bl" : 0,
-      "dP" : 10,
-      "ec" : 1,
-      "ft" : 4,
-      "ma" : 0,
-      "oA" : 1,
-      "oAP" : "\/style\/css\/common-cookies.css",
-      "oF" : 0,
-      "oS" : 3,
-      "pg" : 0,
-      "sct" : 1
-    },
     "\/style\/scss\/common-section-start.scss" : {
       "aP" : 1,
       "bl" : 0,
@@ -911,6 +939,20 @@
       "ma" : 0,
       "oA" : 0,
       "oAP" : "\/style\/css\/contact.css",
+      "oF" : 0,
+      "oS" : 3,
+      "pg" : 0,
+      "sct" : 1
+    },
+    "\/style\/scss\/dashboard.scss" : {
+      "aP" : 1,
+      "bl" : 0,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 0,
+      "oA" : 0,
+      "oAP" : "\/style\/css\/dashboard.css",
       "oF" : 0,
       "oS" : 3,
       "pg" : 0,
@@ -3038,21 +3080,21 @@
 
       ],
       "contentEntries" : [
-        "!(node_modules)\/**\/*.html",
-        "!(node_modules)\/**\/*.htm",
-        "!(node_modules)\/**\/*.shtml",
-        "!(node_modules)\/**\/*.xhtml",
-        "!(node_modules)\/**\/*.php",
-        "!(node_modules)\/**\/*.js",
-        "!(node_modules)\/**\/*.ts",
-        "!(node_modules)\/**\/*.coffee",
-        "!(node_modules)\/**\/*.erb",
-        "!(node_modules)\/**\/*.pug",
-        "!(node_modules)\/**\/*.jade",
-        "!(node_modules)\/**\/*.slim",
-        "!(node_modules)\/**\/*.haml",
-        "!(node_modules)\/**\/*.md",
-        "!(node_modules)\/**\/*.kit"
+        "**\/*.html",
+        "**\/*.htm",
+        "**\/*.shtml",
+        "**\/*.xhtml",
+        "**\/*.php",
+        "**\/*.js",
+        "**\/*.ts",
+        "**\/*.coffee",
+        "**\/*.erb",
+        "**\/*.pug",
+        "**\/*.jade",
+        "**\/*.slim",
+        "**\/*.haml",
+        "**\/*.md",
+        "**\/*.kit"
       ],
       "removeFontFace" : 0,
       "removeKeyframes" : 0,

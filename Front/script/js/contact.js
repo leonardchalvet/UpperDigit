@@ -32,11 +32,16 @@ $('.section-contact form button').on('click', function() {
 	if(returnF) {
 		let form = $(this).parent().parent();
 		$.ajax({
-			url : '/sendMail/contact.php',
+			url : '/php/contact.php',
 			type : 'POST',
 			data : form.serialize(),
 			success : function(code, statut){
-				$('.container-lightbox').addClass('style-show')
+				if(code == 'true') {
+					$('.section-contact form .input, .section-contact form .textarea').removeClass('style-error');
+					$('.container-lightbox').addClass('style-show')
+				} else {
+					$('.section-contact form .input, .section-contact form .textarea').addClass('style-error');
+				}
 			}
 		});
 	}

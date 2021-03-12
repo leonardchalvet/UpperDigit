@@ -89,7 +89,7 @@
 										<p>Devenez membre de MesQuestions.fr et accédez au savoir en un clic.</p>
 									</div>
 									<div class="container-el">
-										<div class="el" data-subscription="1">
+										<div class="el" data-subscription="1" data-stripe="ID-1">
 											<div class="title">Particulier</div>
 											<div class="price">
 												<span>32€</span>
@@ -132,7 +132,7 @@
 												</li>
 											</ul>
 										</div>
-										<div class="el" data-subscription="2">
+										<div class="el" data-subscription="2" data-stripe="ID-2">
 											<div class="bdg">
 												<span>Populaire</span>
 											</div>
@@ -178,7 +178,7 @@
 												</li>
 											</ul>
 										</div>
-										<div class="el" data-subscription="3">
+										<div class="el" data-subscription="3" data-stripe="ID-3">
 											<div class="title">Particulier</div>
 											<div class="price">
 												<span>32€</span>
@@ -261,27 +261,27 @@
 														Informations personnelles
 													</div>
 													<div class="input">
-														<input required name="lastname" type="text" placeholder="Nom*" value="DIJOIOZZIDZIO">
+														<input required name="lastname" type="text" placeholder="Nom*" value="Lastname">
 														<div class="error">Error</div>
 													</div>
 													<div class="input">
-														<input required name="firstname" type="text" placeholder="Prénom*" value="dzajozdaoijdzaoijadzpoj">
+														<input required name="firstname" type="text" placeholder="Prénom*" value="Firstname">
 														<div class="error">Error</div>
 													</div>
 													<div class="input">
-														<input required type="text" placeholder="Téléphone*">
+														<input required type="text" placeholder="Téléphone*" value="Téléphone">
 														<div class="error">Error</div>
 													</div>
 													<div class="input">
-														<input required type="text" placeholder="Adresse postale*">
+														<input required type="text" placeholder="Adresse postale*" value="Adresse">
 														<div class="error">Error</div>
 													</div>
 													<div class="input">
-														<input required type="text" placeholder="Code Postal*">
+														<input required type="text" placeholder="Code Postal*" value="Code postal">
 														<div class="error">Error</div>
 													</div>
 													<div class="input">
-														<input required type="text" placeholder="Pays/Région*">
+														<input required type="text" placeholder="Pays/Région*" value="Pays">
 														<div class="error">Error</div>
 													</div>
 												</div>
@@ -291,26 +291,26 @@
 														Sécurité
 													</div>
 													<div class="input">
-														<input required type="text" placeholder="Votre adresse mail*">
+														<input required type="text" placeholder="Votre adresse mail*" value="Mail">
 														<div class="error">Error</div>
 													</div>
 													<div class="input">
-														<input required name="password-1" type="password" placeholder="Mot de passe* ">
+														<input required name="password-1" type="password" placeholder="Mot de passe*" value="mdp">
 														<div class="error">Error</div>
 													</div>
 													<div class="input">
-														<input required name="password-2" type="password" placeholder="Confimez votre mot de passe*">
+														<input required name="password-2" type="password" placeholder="Confimez votre mot de passe*" value="mdp">
 														<div class="error">Error</div>
 													</div>
 
 													<div class="checkbox">
-														<input required type="checkbox">
+														<input required type="checkbox" checked>
 														<div class="text">
 															J'ai lu et j'accepte les <a href="">Conditions Générales d'Utilisations.</a>
 														</div>
 													</div>
 													<div class="checkbox">
-														<input type="checkbox">
+														<input type="checkbox" checked>
 														<div class="text">
 															Je souhaite être informé des actualités, publications et offres de MesQuestions.fr
 														</div>
@@ -402,6 +402,7 @@
 												</div>
 											</div>
 											<form onSubmit="return false;">
+												<div class="container-steps"></div>
 												<div class="container-input">
 													<div class="input">
 														<input type="text" placeholder="Titulaire de la carte*">

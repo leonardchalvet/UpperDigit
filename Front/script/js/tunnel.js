@@ -71,7 +71,6 @@
 	let subTextSave = $('.step-3 .col-recap .abonnement').text();
 	$('.step-2 .btn-next').click(function(){
 
-		let stateForm = false;
 		let returnF = true;
 		$('.step-2 form').find('input').each(function(){
 
@@ -116,7 +115,6 @@
 		});
 
 		if(returnF) {
-			stateForm = true;
 			setTimeout(function(){
 				index++;
 				direction = 'style-hide-left';
@@ -126,6 +124,28 @@
 				$('.step-3 .col-recap .name-2').text($('.step-2 input[name=lastname]').val());
 				$('.step-3 .col-recap .abonnement').text(subTextSave + " " + $('.step-1 .el.style-active .title').text());
 				$('.step-3 .col-recap .price').text($('.step-1 .el.style-active .price span:nth-child(1)').text() + " " + $('.step-1 .el.style-active .price span:nth-child(2)').text());
+
+				/* ADD INPUT */
+
+				let input = document.createElement("input");
+				input.setAttribute("type", "text");
+				input.setAttribute("name", "id_stripe");
+				input.setAttribute("value",$('.step-1 .el.style-active').attr('data-stripe'));
+				$('.step-3 .container-steps').append(input);
+
+				$('.step-2 form').find('input').each(function(){
+					if( $(this).parent().parent().index() !== 2 
+						|| ( $(this).parent().parent().index() === 2 && $(this).parent().parent().hasClass('style-show') ) ) {
+
+						let input = document.createElement("input");
+						input.setAttribute("name", $(this).attr("name"));
+						input.setAttribute("value", $(this).val());
+						$('.step-3 .container-steps').append(input);
+
+					}
+				});
+				/* END ADD INPUT */
+
 			}, 250)
 		}
 	});
@@ -144,8 +164,6 @@
 
 	$('.step-3 .btn-next').click(function(){
 
-		let stateForm = false;
-
 		let returnF = true;
 		$('.step-3 form').find('input').each(function(){
 
@@ -160,12 +178,25 @@
 		});
 
 		if(returnF) {
-			stateForm = true;
 			setTimeout(function(){
-				$('.section-tunnel .header').addClass('style-hide');
-				index++;
-				direction = 'style-hide-left';
-				refresh();
+				let form = $('.step-3 form');
+				$.ajax({
+					url : '/php/form.php',
+					type : 'POST',
+					data : form.serialize(),
+					success : function(code, statut){
+						console.log(code, statut);
+						if(code == 'true') {
+							$('.section-tunnel .header').addClass('style-hide');
+							index++;
+							direction = 'style-hide-left';
+							refresh();
+						} else {
+							/* AJOUTER UNE ERREUR */
+							alert('Probleme');
+						}
+					}
+				});
 			}, 250)
 		}
 	});
@@ -175,6 +206,8 @@
 			index--;
 			direction = 'style-hide-right';
 			refresh();
+
+			$('.step-3 .container-steps input').remove();
 		}
 	});
 

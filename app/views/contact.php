@@ -59,15 +59,15 @@ $document = $WPGLOBAL['document']->data;
             <?= RichText::asHtml($document->content_text); ?>
             <form onSubmit="return false;">
               <div class="input">
-                <input type="text" placeholder="<?= RichText::asText($document->content_name); ?>">
+                <input type="text" name="name" placeholder="<?= RichText::asText($document->content_name); ?>">
                 <div class="error"><?= RichText::asText($document->content_error); ?></div>
               </div>
               <div class="input">
-                <input type="text" placeholder="<?= RichText::asText($document->content_email); ?>">
+                <input type="text" name="email" placeholder="<?= RichText::asText($document->content_email); ?>">
                 <div class="error"><?= RichText::asText($document->content_error); ?></div>
               </div>
               <div class="textarea">
-                <textarea placeholder="<?= RichText::asText($document->content_message); ?>"></textarea>
+                <textarea name="message" placeholder="<?= RichText::asText($document->content_message); ?>"></textarea>
                 <div class="error"><?= RichText::asText($document->content_error); ?></div>
               </div>
               <div class="container-btn">

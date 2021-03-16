@@ -15,6 +15,9 @@ $document = $WPGLOBAL['document']->data;
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+
     <link rel="stylesheet" type="text/css" href="/style/css/tunnel.css">
 
   </head>
@@ -68,7 +71,7 @@ $document = $WPGLOBAL['document']->data;
                   </div>
                   <div class="container-el">
                     <?php $i=1; foreach ($document->body as $slice) { ?>
-                      <div class="el" data-subscription="<?php echo $i; ?>">
+                      <div class="el" data-subscription="<?php echo $i; ?>" data-stripe="ID-<?php echo $i; ?>">
                         <?php if(strlen($slice->primary->tag[0]->text) > 0) { ?>
                           <div class="bdg">
                             <span><?= RichText::asText($slice->primary->tag); ?></span>
@@ -148,19 +151,19 @@ $document = $WPGLOBAL['document']->data;
                             <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="<?= RichText::asText($document->informations_lc_phone); ?>">
+                            <input required name="phone" type="text" placeholder="<?= RichText::asText($document->informations_lc_phone); ?>">
                             <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="<?= RichText::asText($document->informations_lc_adress); ?>">
+                            <input required name="adress" type="text" placeholder="<?= RichText::asText($document->informations_lc_adress); ?>">
                             <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="<?= RichText::asText($document->informations_lc_zipcode); ?>">
+                            <input required name="zipcode" type="text" placeholder="<?= RichText::asText($document->informations_lc_zipcode); ?>">
                             <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="<?= RichText::asText($document->informations_lc_country); ?>">
+                            <input required name="country" type="text" placeholder="<?= RichText::asText($document->informations_lc_country); ?>">
                             <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                         </div>
@@ -169,7 +172,7 @@ $document = $WPGLOBAL['document']->data;
                             <?= RichText::asText($document->informations_rc_title); ?>
                           </div>
                           <div class="input">
-                            <input required type="email" placeholder="<?= RichText::asText($document->informations_rc_mail); ?>">
+                            <input required name="mail" type="email" placeholder="<?= RichText::asText($document->informations_rc_mail); ?>">
                             <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
@@ -181,13 +184,13 @@ $document = $WPGLOBAL['document']->data;
                             <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="checkbox">
-                            <input required type="checkbox">
+                            <input required name="cgu" type="checkbox">
                             <div class="text">
                               <?= RichText::asHtml($document->informations_rc_checkboxcgu); ?>
                             </div>
                           </div>
                           <div class="checkbox">
-                            <input type="checkbox">
+                            <input type="checkbox" name="inform">
                             <div class="text">
                               <?= RichText::asText($document->informations_rc_checkboxinform); ?>
                             </div>
@@ -196,27 +199,27 @@ $document = $WPGLOBAL['document']->data;
                         <div class="col">
                           <div class="title"><?= RichText::asText($document->informations_pc_title); ?></div>
                           <div class="input">
-                            <input required type="text" placeholder="<?= RichText::asText($document->informations_pc_company); ?>">
+                            <input required name="company" type="text" placeholder="<?= RichText::asText($document->informations_pc_company); ?>">
                             <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="<?= RichText::asText($document->informations_pc_siret); ?>">
+                            <input required name="siret" type="text" placeholder="<?= RichText::asText($document->informations_pc_siret); ?>">
                             <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="<?= RichText::asText($document->informations_pc_headoffice); ?>">
+                            <input required name="headoffice" type="text" placeholder="<?= RichText::asText($document->informations_pc_headoffice); ?>">
                             <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="<?= RichText::asText($document->informations_pc_adress); ?>">
+                            <input required name="pc_adress" type="text" placeholder="<?= RichText::asText($document->informations_pc_adress); ?>">
                             <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="<?= RichText::asText($document->informations_pc_zipcode); ?>">
+                            <input required naùe="pc_zipcode" type="text" placeholder="<?= RichText::asText($document->informations_pc_zipcode); ?>">
                             <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required type="text" placeholder="<?= RichText::asText($document->informations_pc_country); ?>">
+                            <input required name="pc_country" type="text" placeholder="<?= RichText::asText($document->informations_pc_country); ?>">
                             <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                         </div>
@@ -277,6 +280,7 @@ $document = $WPGLOBAL['document']->data;
                         </div>
                       </div>
                       <form onSubmit="return false;">
+                        <div class="container-steps"></div>
                         <div class="container-input">
                           <div class="input">
                             <input type="text" placeholder="<?= RichText::asText($document->payment_lc_name); ?>">

@@ -18,8 +18,6 @@ $pc_adress  = isset($_POST['pc_adress'])   ?  trim($_POST['pc_adress'])  : null 
 $pc_zipcode = isset($_POST['pc_zipcode'])  ?  trim($_POST['pc_zipcode']) : null ;
 $pc_country = isset($_POST['pc_country'])  ?  trim($_POST['pc_country']) : null ;
 
-print_r($_POST);
-
 if( $id_stripe != null
 	&& $lastname != null
 	&& $firstname != null
@@ -30,14 +28,18 @@ if( $id_stripe != null
 	&& $mail != null
 	&& $password != null
 	&& $cgu != null
-	&& $inform != null
+	&& $inform != null ) {
+
+	/*
 	&& $company != null
 	&& $siret != null
 	&& $headoffice != null
 	&& $pc_adress != null
 	&& $pc_zipcode != null
-	&& $pc_country != null ) {
+	&& $pc_country != null */
 
-	echo $id_stripe . ' : ' . $lastname . ' : ' . $firstname . ' : ' . $phone . ' : ' . $adress . ' : ' . $zipcode . ' : ' . $country . ' : ' . $mail . ' : ' . $password . ' : ' . $cgu . ' : ' . $inform . ' : ' . $company . ' : ' . $siret . ' : ' . $headoffice . ' : ' . $pc_adress . ' : ' . $pc_zipcode . ' : ' . $pc_country;
+	echo 'true';
+
+	//echo $id_stripe . ' : ' . $lastname . ' : ' . $firstname . ' : ' . $phone . ' : ' . $adress . ' : ' . $zipcode . ' : ' . $country . ' : ' . $mail . ' : ' . $password . ' : ' . $cgu . ' : ' . $inform . ' : ' . $company . ' : ' . $siret . ' : ' . $headoffice . ' : ' . $pc_adress . ' : ' . $pc_zipcode . ' : ' . $pc_country;
 
 }

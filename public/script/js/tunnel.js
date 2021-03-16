@@ -89,6 +89,7 @@
 					let password1 = $('.step-2 form input[name=password-1]').val(),
 					 	password2 = $('.step-2 form input[name=password-2]').val();
 					if( password1 != password2 || password1.length <= 0|| password2.length <= 0 ) {
+						returnF = false;
 						$(this).parent().addClass('style-error');
 					}
 					else {
@@ -212,3 +213,20 @@
 	});
 
 /* END STEP 3 */
+
+var stripe = Stripe("pk_test_51ITTz8FhVHJZbiNtVMX7yRBoHXfr6EBdEr2Rxc4irOVrbyVTMWNu6iPdjdY4gNloIqNCHO7b1Jun2zsHhHlOfCDP00McJPnNjo");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

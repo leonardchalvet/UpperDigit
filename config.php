@@ -31,3 +31,16 @@ define("DB_HOST","localhost");
 define("DB_BASE","upperdigit");
 define("BD_USER","root");
 define("BD_PASSWORD","root");
+
+/*
+ * DB ALWAYS DATA
+ *
+define("DB_HOST","mysql-agence-me.alwaysdata.net");
+define("DB_BASE","agence-me_upperdigit");
+define("BD_USER","agence-me");
+define("BD_PASSWORD","BrunoxUpper"); */
+
+/* 
+ * STRIPE
+ */
+define("STRIPE", "sk_test_51ITTz8FhVHJZbiNtRXPJV5sjeURaaezfgu5b1EkTEEDC6rdu40ePchl5D7ziDfRqsfUdaqkJAOejz5InhuIkZhUk00meP0tJwv");

@@ -1,6 +1,25 @@
 <?php 
 use Prismic\Dom\RichText;
 $document = $WPGLOBAL['document']->data;
+
+function checkThisUrl($el) {
+    $url = getUrl();
+
+    if($el->url) return $el->url;
+    else {
+        if($el->type == "home") return $url;
+        else return $url.$el->uid;
+    }
+}
+
+$email = isset($_SESSION['user_email']) ? $_SESSION['user_email'] : null ;
+
+if($email != null) {
+  header('Location: ' . checkThisUrl($document->content_redirect) );
+  exit();
+}
+
+
 ?>
 <html>
   <head>
@@ -26,6 +45,8 @@ $document = $WPGLOBAL['document']->data;
     <?php include('common-header.php') ?>
 
     <main>
+
+      <div id="redirection"><?php checkUrl($document->content_redirect); ?></div>
       
       <section class="section-signin">
         <div class="wrapper">

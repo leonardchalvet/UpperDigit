@@ -3,7 +3,8 @@
   "version": "1.0",
   "require": {
     "slim/slim": "3.*",
-    "prismic/php-sdk": "4.0.0-beta"
+    "prismic/php-sdk": "4.0.0-beta",
+    "stripe/stripe-php": "^7.75"
     },
   "require-dev": {
     "there4/slim-test-helpers": "dev-master",

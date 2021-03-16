@@ -1,5 +1,8 @@
 // @codekit-prepend 'common.js'
 
+let redirection = $('#redirection').text();
+$('#redirection').remove();
+
 $('.section-signin form button').on('click', function() {
 
 	let returnF = true;
@@ -31,9 +34,8 @@ $('.section-signin form button').on('click', function() {
 			success : function(code, statut){
 				if(code == 'true') {
 					$('.section-signin form .input').removeClass('style-error');
-					alert('Connexion effectué, dashboard en préparation');
+					document.location.href = redirection;
 				} else {
-					alert('Mauvais identifiant');
 					$('.section-signin form .input').addClass('style-error');
 				}
 			}

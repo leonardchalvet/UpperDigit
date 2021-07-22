@@ -17,6 +17,8 @@
 
 		<main>
 
+			<?php include('common-devtools.php') ?>
+
 
 			<section class="section-tunnel">
 				

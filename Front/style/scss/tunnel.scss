@@ -96,9 +96,9 @@
 
 						&.style-active{
 							.num{
-								border-color: $colorMain_3;
+								background-color: $colorMain_4;
 								span{
-									color: $colorMain_3;
+									color: #FFF;
 								}
 							}
 							.text{
@@ -120,7 +120,7 @@
 						height: 100%;
 						background-color: $colorMain_1;
 						transform: translateX(-100%);
-
+						transition: all 0.25s ease;
 						@for $i from 1 to 4 {
 							&.style-active-#{$i}{
 								transform: translateX(calc((-100%) + ((100% / 4) * #{$i} )));

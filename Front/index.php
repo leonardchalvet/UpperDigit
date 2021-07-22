@@ -19,6 +19,8 @@
 	
 	<body>
 
+		<?php include('common-devtools.php') ?>
+
 		<div class="container-cookies">
 			<div class="cdr">
 				<p>

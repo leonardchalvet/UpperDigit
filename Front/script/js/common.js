@@ -1,5 +1,7 @@
 // @codekit-prepend 'jQuery.3.3.1.js'
 
+// @codekit-prepend 'devtools.js'
+
 function isEmpty(el){
 	return !$.trim(el.val());
 }

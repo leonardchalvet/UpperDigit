@@ -10,10 +10,12 @@
 		$('.sidebar .container-illu img:nth-child(' + index +')').removeClass('style-hide-right style-hide-left').addClass('style-show');
 
 		$('.header .container-tab .tab.style-active').removeClass('style-active');
-		$('.header .container-tab .tab:nth-child(' + index +')').addClass('style-show').prevAll().addClass('style-show');
+		$('.header .container-tab .tab:nth-child(' + index +')').addClass('style-active').prevAll().addClass('style-active');
 
 		$('.container-step .step.style-show').removeClass('style-show');
 		$('.container-step .step:nth-child(' + index +')').addClass('style-show');
+
+		$('.section-tunnel .wrapper .content .header .container-line .line').removeClass('style-active-1 style-active-2 style-active-3 style-active-4').addClass('style-active-' + index);
 	}
 
 	function init(){
@@ -21,6 +23,7 @@
 		$('.header .container-tab .tab:nth-child(' + index + ')').addClass('style-active');
 		$('.container-step .step:nth-child(' + index + ')').addClass('style-show');
 		$('.step-2 .btn-next').removeClass('style-disable');
+		$('.section-tunnel .wrapper .content .header .container-line .line').removeClass('style-active-1 style-active-2 style-active-3 style-active-4').addClass('style-active-' + index);
 	}
 	init();
 

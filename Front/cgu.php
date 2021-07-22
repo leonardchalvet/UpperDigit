@@ -17,6 +17,8 @@
 
 		<?php include('common-header.php') ?>
 
+		<?php include('common-devtools.php') ?>
+
 		<main>
 
 

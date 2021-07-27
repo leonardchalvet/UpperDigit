@@ -461,6 +461,84 @@
 
 @include styleCommon_SectionStart("2");
 
+@media screen and (min-width: $breakPoint_mobile) and (max-width: $breakPoint_tablet){
+	.section-answer{
+		.container-answer{
+			flex: 1;
+			margin-right: 50px;
+		}
+	}
+}
+@media screen and (min-width: $breakPoint_mobile) and (max-width: $breakPoint_tablet) and (orientation: portrait){
+	.section-search{
+		.container-search{
+			width: 100%;
+		}
+	}
+	.section-answer{
+		.wrapper{
+			display: block;
+		}
+
+		.container-answer{
+			width: 100%;
+			margin-right: 0px;
+		}
+		.container-questions{
+			width: 100%;
+			margin-top: 50px;
+		}
+	}
+}
+@media screen and (max-width: $breakPoint_mobile){
+	.container-lightbox {
+		.lightbox{
+			width: 100%;
+			height: 100%;
+			border-radius: 0px;
+			top: 0px;
+			left: 0px;
+			padding: 100px 25px 50px 25px;
+			transform: none;
+			.cross{
+				right: 25px;
+				top: 25px;
+			}
+
+			&.style-show{
+				transform: none;
+			}
+		}
+	}
+	.section-search{
+		.container-search{
+			width: 100%;
+		}
+	}
+
+	.section-answer{
+		padding-bottom: 72px;
+		.container-answer{
+			width: 100%;
+			.container-informations{
+				h3{
+					margin-right: 0px;
+				}
+				.container-action{
+					margin-top: 7px;
+					width: 100%;
+				}
+			}
+
+		}
+		.container-questions{
+			position: initial;
+			width: 100%;
+			margin-top: 40px;
+		}
+	}
+}
+
 /*======================================
 =            END PAGE ANSWER           =
 ======================================*/

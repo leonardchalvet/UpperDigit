@@ -47,3 +47,9 @@ header{
 		
 	}
 }
+
+@media screen and (max-width: $breakPoint_mobile){
+	header{
+		display: none;
+	}
+}

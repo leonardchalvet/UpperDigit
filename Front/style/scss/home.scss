@@ -640,7 +640,7 @@
 					width: 28px;
 				}
 
-				&.style-progress{
+				&.style-load{
 					.circle{
 						transition: all 4.95s linear;
 						stroke-dashoffset: 0;
@@ -672,6 +672,250 @@
 }
 
 @include styleCommon_SectionStart("1");
+
+
+@media screen and (min-width: $breakPoint_mobile) and (max-width: $breakPoint_tablet){
+	.section-why{
+		.container-el{
+			.el{
+				width: 30%;
+			}
+		}
+	}
+	.section-ftr{
+		.container-ftr{
+			.container-video{
+				height: 300px;
+				width: 450px;
+			}
+			.container-text{
+				flex: 1;
+				margin-left: 50px;
+			}
+		}
+	}
+	.section-quote{
+		.container{
+			margin-top: 50px;
+			.container-quote{
+				.quote{
+					.author{
+						margin-bottom: 25px;
+						width: 100%;
+					}
+				}
+			}
+		}
+		.container-logo{
+			height: 120px;
+			margin-top: 60px;
+		}
+	}
+}
+@media screen and (min-width: $breakPoint_mobile) and (max-width: $breakPoint_tablet) and (orientation: portrait){
+	.section-search{
+		.container-text{
+			width: 100%;
+		}
+		.container-search{
+			width: 100%;
+		}
+	}
+
+	.section-why{
+		.container-el{
+			.el{
+				width: 45%;
+			}
+		}
+	}
+
+	.section-problem{
+		.container-problem{
+			.illu{
+				width: 300px;
+				margin-right: 25px;
+			}
+			ul{
+				flex: 1;
+			}
+		}
+	}
+	.section-ftr{
+		.container-title{
+			h2{
+				width: 100%;
+				text-align: left;
+			}
+			.container-text{
+				width: 100%;
+				margin-top: 25px;
+			}
+		}
+		.container-ftr{
+			margin-top: 40px;
+			.container-video{
+				width: 100%;
+				height: calc(66vw - 50px);
+			}
+			.container-text{
+				margin-top: 140px;
+				width: 100%;
+				padding-left: 30px;
+				margin-left: 0px;
+			}
+		}
+	}
+
+}
+@media screen and (max-width: $breakPoint_mobile){
+	.section-search{
+		padding-top: 135px;
+		.container-text{
+			width: 100%;
+		}
+		.container-search{
+
+			width: 100%;
+			.container-input{
+				.input{
+					height: 66px;
+					padding-right: 60px;
+					.container-action{
+						position: absolute;
+						right: 8px;
+						top: 50%;
+						transform: translateY(-50%);
+						height: initial;
+						button{
+							padding: 15px;
+							.btn-text{
+								display: none;
+							}
+							.btn-arrow{
+								margin-left: 0px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.section-why{
+		padding-bottom: 80px;
+		.container-title{
+			width: 100%;
+			h2{
+				text-align: left;
+			}
+			h3{
+				text-align: left;
+			}
+			.sep{
+				width: 10px;
+			}
+		}
+		.container-el{
+			.el{
+				width: 100%;
+				&:not(:last-child){
+					margin-bottom: 44px;
+				}
+			}
+		}
+	}
+	.section-problem{
+		padding-top: 80px;
+		.container-title{
+			text-align: left;
+		}
+		.container-problem{
+			width: 100%;
+			.illu{
+				width: 80%;
+			}
+			ul{
+				margin-top: 44px;
+				width: 100%;
+			}
+		}
+	}
+	.section-ftr{
+		.wrapper{
+			padding-top: 80px;
+		}
+		.container-title{
+			h2{
+				text-align: left;
+			}
+			.container-text{
+				margin-top: 37px;
+			}
+		}
+		.container-ftr{
+			margin-top: 40px;
+			.container-video{
+				width: 100%;
+				height: calc(66vw - 50px);
+			}
+			.container-text{
+				margin-top: 140px;
+				width: 100%;
+				padding-left: 30px;
+			}
+		}
+	}
+	.section-quote{
+		padding: 75px 0px 75px 0px;
+		.container{
+			height: initial;
+			.container-quote{
+				width: 100%;
+				height: 450px;
+				.quote{
+					transform: none;
+					top: 40px;
+					width: 100%;
+					.author{
+						width: 100%;
+						margin-right: 0px;
+						display: flex;
+						flex-wrap: wrap;
+						align-items: center;
+						.pp{
+							margin-bottom: 0px;
+							margin-right: 16px;
+						}
+						.info{
+							flex: 1;
+						}
+					}
+					q{
+						margin-top: 24px;
+					}
+				}
+			}
+			.container-btn{
+				.btn{
+					height: 55px;
+					width: 55px;
+					.arrow{
+						width: 18px;
+					}
+				}
+			}
+		}
+		.container-logo{
+			padding-top: 40px;
+			margin-top: 60px;
+			height: initial;
+			.logo{
+				height: 60px;
+			}
+		}
+	}
+}
 
 /*====================================
 =            END PAGE HOME           =

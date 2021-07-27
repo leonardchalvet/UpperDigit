@@ -347,14 +347,16 @@
 					</div>
 					<div class="container">
 						<div class="container-quote">
-							<div class="quote">
+							<div class="quote style-active">
 								<div class="author">
 									<img class="pp" src="img/img-test/user.jpg" alt="">
-									<div class="name">
-										Theresa Webb1
-									</div>
-									<div class="job">
-										Ceo of Company name
+									<div class="info">
+										<div class="name">
+											Theresa Webb1
+										</div>
+										<div class="job">
+											Ceo of Company name
+										</div>
 									</div>
 								</div>
 								<q>
@@ -364,11 +366,13 @@
 							<div class="quote">
 								<div class="author">
 									<img class="pp" src="img/img-test/user.jpg" alt="">
-									<div class="name">
-										Theresa Webb2
-									</div>
-									<div class="job">
-										Ceo of Company name
+									<div class="info">
+										<div class="name">
+											Theresa Webb2
+										</div>
+										<div class="job">
+											Ceo of Company name
+										</div>
 									</div>
 								</div>
 								<q>
@@ -378,11 +382,13 @@
 							<div class="quote">
 								<div class="author">
 									<img class="pp" src="img/img-test/user.jpg" alt="">
-									<div class="name">
-										Theresa Webb3
-									</div>
-									<div class="job">
-										Ceo of Company name
+									<div class="info">
+										<div class="name">
+											Theresa Webb3
+										</div>
+										<div class="job">
+											Ceo of Company name
+										</div>
 									</div>
 								</div>
 								<q>
@@ -391,7 +397,7 @@
 							</div>
 						</div>
 						<div class="container-btn">
-							<div class="btn">
+							<div class="btn style-next">
 								<svg class="circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 105 105" >
 									<use xlink:href="img/home/section-quote/circle.svg#content"></use>
 								</svg>

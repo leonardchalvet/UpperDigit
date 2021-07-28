@@ -606,6 +606,57 @@
 }
 
 
+@media screen and (max-width: 1400px){
+	.section-tunnel{
+		.wrapper{
+			.content{
+				padding: 0px 25px 0px 25px;
+				.container-step{
+					.step-1{
+						.container-el{
+							.el{
+								width: 270px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $breakPoint_tablet){
+	.section-tunnel{
+		.wrapper{
+			.content{
+				.container-step{
+					.step-1{
+						width: calc(100% + 50px);
+						margin-left: -25px;
+						.container-text{
+							padding: 0px 25px 0px 25px;
+						}
+						.container-el{
+							padding: 25px 25px 0px 25px;
+							flex-flow: initial;
+							flex-wrap: nowrap;
+							overflow: auto;
+							-webkit-overflow-scrolling: touch;
+							.el{
+								flex: 0 0 auto;
+								&:not(:last-child){
+									margin-right: 25px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
 
 /*======================================
 =            END PAGE TUNNEL           =

@@ -36,6 +36,18 @@
 	}
 }
 
+
+@media screen and (max-width: $breakPoint_mobile){
+	.section-404{
+		.wrapper{
+			@include styleGrid1;
+		}
+		.illu{
+			width: 90%;
+		}
+	}
+}
+
 /*===================================
 =            END PAGE 404           =
 ===================================*/

@@ -216,6 +216,16 @@
       "q" : 100,
       "rq" : 75
     },
+    "\/img\/dashboard\/icn-download.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 0,
+      "oAP" : "\/img\/dashboard\/icn-download.svg",
+      "oF" : 1,
+      "opt" : 1,
+      "plM" : 4010962575359,
+      "prP" : 0
+    },
     "\/img\/header\/icn-user.svg" : {
       "ft" : 2097152,
       "miP" : 0,

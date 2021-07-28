@@ -359,6 +359,7 @@
 									<div class="month">Facture - Janvier</div>
 									<div class="date">12/02/21</div>
 									<a href="" class="link">
+										<img class="link-icn" src="img/dashboard/icn-download.svg" alt="">
 										<span class="link-text">Télécharger</span>
 									</a>
 								</li>
@@ -367,6 +368,7 @@
 									<div class="month">Facture - Janvier</div>
 									<div class="date">12/02/21</div>
 									<a href="" class="link">
+										<img class="link-icn" src="img/dashboard/icn-download.svg" alt="">
 										<span class="link-text">Télécharger</span>
 									</a>
 								</li>
@@ -375,6 +377,7 @@
 									<div class="month">Facture - Janvier</div>
 									<div class="date">12/02/21</div>
 									<a href="" class="link">
+										<img class="link-icn" src="img/dashboard/icn-download.svg" alt="">
 										<span class="link-text">Télécharger</span>
 									</a>
 								</li>
@@ -383,6 +386,7 @@
 									<div class="month">Facture - Janvier</div>
 									<div class="date">12/02/21</div>
 									<a href="" class="link">
+										<img class="link-icn" src="img/dashboard/icn-download.svg" alt="">
 										<span class="link-text">Télécharger</span>
 									</a>
 								</li>
@@ -391,6 +395,7 @@
 									<div class="month">Facture - Janvier</div>
 									<div class="date">12/02/21</div>
 									<a href="" class="link">
+										<img class="link-icn" src="img/dashboard/icn-download.svg" alt="">
 										<span class="link-text">Télécharger</span>
 									</a>
 								</li>

@@ -96,7 +96,8 @@
 
 						&.style-active{
 							.num{
-								background-color: $colorMain_4;
+								background-color: $colorMain_1;
+								border-color: $colorMain_1;
 								span{
 									color: #FFF;
 								}
@@ -120,7 +121,7 @@
 						height: 100%;
 						background-color: $colorMain_1;
 						transform: translateX(-100%);
-						transition: all 0.25s ease;
+						transition: all 0.5s ease;
 						@for $i from 1 to 4 {
 							&.style-active-#{$i}{
 								transform: translateX(calc((-100%) + ((100% / 4) * #{$i} )));
@@ -647,6 +648,91 @@
 								&:not(:last-child){
 									margin-right: 25px;
 								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+@media screen and (max-width: $breakPoint_mobile){
+	body{
+		overflow: hidden;
+	}
+	.section-tunnel{
+		height: 100vh;
+		padding-top: 104px;
+		overflow: hidden;
+		.wrapper{
+			.sidebar{
+				display: none;
+			}
+			.content{
+				height: 100%;
+				.header{
+					.container-tab{
+						.tab{
+							display: none;
+							&.style-active{
+								display: flex;
+							}
+						}
+					}
+				}
+				.container-step{
+					.step{
+						padding-bottom: 0px;
+						.content-step{
+							padding-bottom: 220px;
+						}
+						.container-nav{
+							position: fixed;
+							background-color: #FFF;
+							margin-top: 0px;
+							left: 0px;
+							bottom: 0px;
+							padding: 25px;
+						}
+					}
+
+					.step-1{
+						.container-el{
+							margin-top: 25px;
+							padding-bottom: 0px;
+						}
+					}
+					.step-2{
+						.container-form{
+							form{
+								.container-col{
+									.col{
+										width: 100%;
+										margin-bottom: 0px;
+										&:not(:last-child){
+											margin-bottom: 50px;
+										}
+										.title{
+											margin-bottom: 0px;
+										}
+									}
+								}
+							}
+						}
+					}
+					.step-3{
+						.container-col{
+							.col-pay{
+								.container-services{
+									.service{
+										width: calc(50% - 20px);
+									}
+								}
+							}
+							.col-recap{
+								margin-top: 50px;
 							}
 						}
 					}

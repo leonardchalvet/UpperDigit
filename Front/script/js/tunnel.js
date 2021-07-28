@@ -11,7 +11,7 @@
 
 		$('.header .container-tab .tab.style-active').removeClass('style-active');
 		
-		if (window.matchMedia("(min-width: 700px)").matches) {
+		if (window.matchMedia("(min-width: 1250px)").matches) {
 			$('.header .container-tab .tab:nth-child(' + index +')').addClass('style-active').prevAll().addClass('style-active');
 		} else {
 			$('.header .container-tab .tab:nth-child(' + index +')').addClass('style-active');

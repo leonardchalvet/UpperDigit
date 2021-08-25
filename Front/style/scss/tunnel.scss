@@ -54,6 +54,8 @@
 		.content{
 			flex: 1;
 			padding: 0px 63px 0px 63px;
+			max-width: 1500px;
+    		margin: auto;
 			.header{
 				width: 100%;
 				transition: all 500ms cubic-bezier(0.520, 0.000, 0.220, 1.000);
@@ -94,7 +96,8 @@
 
 						&.style-active{
 							.num{
-								background-color: $colorMain_4;
+								background-color: $colorMain_1;
+								border-color: $colorMain_1;
 								span{
 									color: #FFF;
 								}
@@ -118,7 +121,7 @@
 						height: 100%;
 						background-color: $colorMain_1;
 						transform: translateX(-100%);
-						transition: all 0.25s ease;
+						transition: all 0.5s ease;
 						@for $i from 1 to 4 {
 							&.style-active-#{$i}{
 								transform: translateX(calc((-100%) + ((100% / 4) * #{$i} )));
@@ -630,7 +633,6 @@
 		}
 	}
 }
-
 @media screen and (max-width: $breakPoint_tablet){
 	.section-tunnel{
 		.wrapper{
@@ -653,6 +655,322 @@
 								&:not(:last-child){
 									margin-right: 25px;
 								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: $breakPoint_mobile) and (max-width: $breakPoint_tablet){
+	.section-tunnel{
+		.wrapper{
+			.content{
+				height: 100%;
+				.header{
+					.container-tab{
+						justify-content: center;
+						.tab{
+							display: none;
+							&.style-active{
+								display: flex;
+							}
+						}
+					}
+				}
+				.container-step{
+					.step{
+						padding-bottom: 0px;
+						width: calc(100% + 50px);
+						margin-left: -25px;
+
+						.content-step{
+							padding-bottom: 220px;
+							
+						}
+						.container-nav{
+							bottom: 0px;
+							padding-bottom: 25px;
+							background-color: #FFF;
+						}
+					}
+
+					.step-1{
+						.content-step{
+							padding-left: 25px;
+							padding-right: 25px;
+						}
+						.container-text{
+							padding: 0px 25px 0px 25px;
+						}
+						.container-el{
+							padding: 25px 25px 0px 25px;
+							flex-flow: initial;
+							flex-wrap: nowrap;
+							overflow: auto;
+							-webkit-overflow-scrolling: touch;
+							.el{
+								flex: 0 0 auto;
+								&:not(:last-child){
+									margin-right: 25px;
+								}
+							}
+						}
+					}
+					.step-2{
+						.content-step{
+							padding-left: 25px;
+							padding-right: 25px;
+						}
+						.container-form{
+							form{
+								.container-col{
+									.col{
+										width: 100%;
+										margin-bottom: 0px;
+										&:not(:last-child){
+											margin-bottom: 50px;
+										}
+										.title{
+											margin-bottom: 0px;
+										}
+									}
+								}
+							}
+						}
+					}
+					.step-3{
+						.content-step{
+							padding-left: 25px;
+							padding-right: 25px;
+						}
+						.container-col{
+							.col-pay{
+								width: 100%;
+								.container-services{
+									.service{
+										width: calc(50% - 20px);
+									}
+								}
+							}
+							.col-recap{
+								width: 100%;
+								margin-top: 50px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+/*
+@media screen and (min-width: $breakPoint_mobile) and (max-width: $breakPoint_tablet){
+	.section-tunnel{
+		.wrapper{
+			.content{
+				.container-step{
+					.step-2{
+						.container-form{
+							form{
+								.container-col{
+									.col{
+										width: 100%;
+									}
+								}
+							}
+						}
+					}
+					.step-3{
+						.container-col{
+							.col-pay,
+							.col-recap{
+								width: 100%;
+							}
+							.col-pay{
+								margin-bottom: 50px;
+							}
+						}
+					}
+				}
+				.header{
+					.container-tab{
+						justify-content: center;
+						.tab{
+							display: none;
+							&.style-active{
+								display: flex;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}*/
+
+@media screen and (min-width: $breakPoint_mobile) and (max-width: $breakPoint_tablet) and (orientation: portrait){
+	body{
+		overflow: hidden;
+	}
+	.section-tunnel{
+		height: 100vh;
+		padding-top: 104px;
+		overflow: hidden;
+		.wrapper{
+			.sidebar{
+				display: none;
+			}
+			.content{
+				height: 100%;
+				.header{
+					.container-tab{
+						.tab{
+							display: none;
+							&.style-active{
+								display: flex;
+							}
+						}
+					}
+				}
+				.container-step{
+					.step{
+						padding-bottom: 0px;
+						.content-step{
+							padding-bottom: 220px;
+						}
+						.container-nav{
+							position: fixed;
+							background-color: #FFF;
+							margin-top: 0px;
+							left: 0px;
+							bottom: 0px;
+							padding: 25px;
+						}
+						
+					}
+
+					.step-1{
+						.container-el{
+							margin-top: 25px;
+							padding-bottom: 0px;
+						}
+					}
+					.step-2{
+						.container-form{
+							form{
+								.container-col{
+									.col{
+										width: 100%;
+										margin-bottom: 0px;
+										&:not(:last-child){
+											margin-bottom: 50px;
+										}
+										.title{
+											margin-bottom: 0px;
+										}
+									}
+								}
+							}
+						}
+					}
+					.step-3{
+						.container-col{
+							.col-pay{
+								.container-services{
+									.service{
+										width: calc(50% - 20px);
+									}
+								}
+							}
+							.col-recap{
+								margin-top: 50px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $breakPoint_mobile){
+	body{
+		overflow: hidden;
+	}
+	.section-tunnel{
+		height: 100vh;
+		padding-top: 104px;
+		overflow: hidden;
+		.wrapper{
+			.sidebar{
+				display: none;
+			}
+			.content{
+				height: 100%;
+				.header{
+					.container-tab{
+						.tab{
+							display: none;
+							&.style-active{
+								display: flex;
+							}
+						}
+					}
+				}
+				.container-step{
+					.step{
+						padding-bottom: 0px;
+						.content-step{
+							padding-bottom: 220px;
+						}
+						.container-nav{
+							position: fixed;
+							background-color: #FFF;
+							margin-top: 0px;
+							left: 0px;
+							bottom: 0px;
+							padding: 25px;
+						}
+					}
+
+					.step-1{
+						.container-el{
+							margin-top: 25px;
+							padding-bottom: 0px;
+						}
+					}
+					.step-2{
+						.container-form{
+							form{
+								.container-col{
+									.col{
+										width: 100%;
+										margin-bottom: 0px;
+										&:not(:last-child){
+											margin-bottom: 50px;
+										}
+										.title{
+											margin-bottom: 0px;
+										}
+									}
+								}
+							}
+						}
+					}
+					.step-3{
+						.container-col{
+							.col-pay{
+								.container-services{
+									.service{
+										width: calc(50% - 20px);
+									}
+								}
+							}
+							.col-recap{
+								margin-top: 50px;
 							}
 						}
 					}

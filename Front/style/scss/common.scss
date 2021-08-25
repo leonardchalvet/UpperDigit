@@ -39,6 +39,9 @@ body.block
 	overflow:hidden;
 }
 
+
+
+
 /* ------------------------------------------------------------- */
 /* ********************* CONTAINER GENERAL ********************* */
 /* ------------------------------------------------------------- */
@@ -360,7 +363,7 @@ main
 		@mixin styleButton($style, $arrow){
 			border: none;
 			cursor: pointer;
-		  	padding: 15px 24px 15px 24px;
+		  	
 		  	border-radius: 70px;
 		  	display: inline-flex;
 		  	align-items: center;
@@ -368,8 +371,24 @@ main
 		  	border: 1px solid transparent;
 		  	text-decoration: none;
 		  	transition: all 0.25s ease;
+		  	@media screen and (min-width: $breakPoint_mobile){
+		  		padding: 15px 24px 15px 24px;
+
+		  		.btn-text{
+					@include styleParagraphBig;
+					
+				}
+			}
+		  	@media screen and (max-width: $breakPoint_mobile){
+		  		padding: 10px 15px 10px 15px;
+
+		  		.btn-text{
+					@include styleParagraphNormal;
+					
+				}
+			}
+			
 			.btn-text{
-				@include styleParagraphBig;
 				font-family: $font_2_bold;
 				transition: all 0.25s ease;
 			}

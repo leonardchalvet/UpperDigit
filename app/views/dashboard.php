@@ -44,13 +44,11 @@ $st = $dbh->prepare($query);
 $st->execute(array(':id_customers' => $customers['id']));
 $professional_information = $st->fetch();
 
-// empty($professional_information);
-
 $stripe = new \Stripe\StripeClient(STRIPE);
 $customer = $stripe->customers->all(['limit' => 1, 'email' => $email])->data[0];
 $invoice = $stripe->invoices->all(['customer' => $customer['id']]);
-$card = $stripe->customers->allSources($customer['id'], ['object' => 'card'])->data[0];
-print_r($card);
+$card = $stripe->customers->allSources($customer['id'], ['object' => 'card']);
+print_r( $card );
 ?>
 <html>
   <head>
@@ -158,6 +156,7 @@ print_r($card);
 											</li>
 										</ul>
 									</div>
+									<?php if( !empty($professional_information) ) { ?>
 									<div class="el">
 										<ul>
 											<li>
@@ -186,6 +185,7 @@ print_r($card);
 											</li>
 										</ul>
 									</div>
+									<?php } ?>
 								</div>
 							</div>
 							<div class="content-edit">
@@ -279,6 +279,7 @@ print_r($card);
 											</div>
 										</div>
 									</div>
+									<?php if( !empty($professional_information) ) { ?>
 									<div class="el" data-info="pro">
 										<div class="title"><?= RichText::asText($document->informations_title4); ?></div>
 										<div class="container-input">
@@ -318,6 +319,7 @@ print_r($card);
 											</div>
 										</div>
 									</div>
+									<?php } ?>
 								</div>
 							</div>
 						</div>

@@ -1104,8 +1104,8 @@
     "creationDate" : 561315058.37998199,
     "displayValue" : "Upperdigit",
     "displayValueWasSetByUser" : 1,
-    "iconImageName" : "meme-obama",
-    "iconImageWasSetByUser" : 1
+    "iconImageName" : "meme-ariel",
+    "iconImageWasSetByUser" : 0
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,

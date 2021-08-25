@@ -137,6 +137,7 @@ $document = $WPGLOBAL['document']->data;
                   </div>
                   <div class="container-form">
                     <form onSubmit="return false;">
+                      <input name="intent" type="text" value="0" style="display:none">
                       <div class="container-col">
                         <div class="col">
                           <div class="title">
@@ -283,16 +284,19 @@ $document = $WPGLOBAL['document']->data;
                         <div class="container-steps"></div>
                         <div class="container-input">
                           <div class="input">
-                            <input type="text" placeholder="<?= RichText::asText($document->payment_lc_name); ?>">
+                            <input class="cardholderName" type="text" placeholder="<?= RichText::asText($document->payment_lc_name); ?>">
                           </div>
-                          <div class="input">
-                            <input type="text" placeholder="<?= RichText::asText($document->payment_lc_number); ?>">
+                          <div class="container-input-stripe input">
+                            <div id="cardNumber-element"></div>
+                            <div class="placeholder"><?= RichText::asText($document->payment_lc_number); ?></div>
                           </div>
-                          <div class="input">
-                            <input type="text" placeholder="<?= RichText::asText($document->payment_lc_date); ?>">
+                          <div class="container-input-stripe input">
+                            <div id="cardExpiry-element"></div>
+                            <div class="placeholder"><?= RichText::asText($document->payment_lc_date); ?></div>
                           </div>
-                          <div class="input">
-                            <input type="text" placeholder="<?= RichText::asText($document->payment_lc_cvv); ?>">
+                          <div class="container-input-stripe input">
+                            <div id="cardCvc-element"></div>
+                            <div class="placeholder"><?= RichText::asText($document->payment_lc_cvv); ?></div>
                           </div>
                         </div>
                       </form>
@@ -377,3 +381,11 @@ $document = $WPGLOBAL['document']->data;
     <script type="text/javascript" src="/script/minify/tunnel-min.js"></script>
   </body>
 </html>
+
+<script>
+//$('.step-1').removeClass('style-show');
+//$('.step-3').addClass('style-show');
+</script>
+
+
+

@@ -92,6 +92,7 @@
 					let password1 = $('.step-2 form input[name=password-1]').val(),
 					 	password2 = $('.step-2 form input[name=password-2]').val();
 					if( password1 != password2 || password1.length <= 0|| password2.length <= 0 ) {
+						returnF = false;
 						$(this).parent().addClass('style-error');
 					}
 					else {
@@ -165,43 +166,143 @@
 
 /* STEP 3 */
 
+	stripe = Stripe("pk_test_51ITTz8FhVHJZbiNtVMX7yRBoHXfr6EBdEr2Rxc4irOVrbyVTMWNu6iPdjdY4gNloIqNCHO7b1Jun2zsHhHlOfCDP00McJPnNjo");
+
+	let idCardNumber = "#cardNumber-element";
+	let idCardExpiry = "#cardExpiry-element";
+	let idCardCvc = "#cardCvc-element";
+
+	let elementStyles = {
+	base: {
+		color: '#535353',
+		fontSize: '14px',
+		fontSmoothing: 'antialiased',
+		fontFamily: 'Mulish',
+
+		'::placeholder': {
+		color: '#535353',
+		},
+		':focus': {
+		color: '#535353',
+		},
+	},
+	invalid: {
+		color: '#FF4351',
+
+		'::placeholder': {
+		color: '#FF4351',
+		},
+	},
+	};
+
+	let elements = stripe.elements({ fonts: [ { cssSrc: 'https://fonts.googleapis.com/css2?family=Mulish&display=swap', }, ], });
+
+	let cardNumberPlaceholder = $(idCardNumber).parent().find('.placeholder').text();
+	$(idCardNumber).parent().find('.placeholder').remove();
+	let cardNumber = elements.create('cardNumber', {
+	style: elementStyles,
+	showIcon: true,
+	placeholder: cardNumberPlaceholder
+	});
+	cardNumber.mount(idCardNumber);
+
+	let cardExpiryPlaceholder = $(idCardExpiry).parent().find('.placeholder').text();
+	$(idCardExpiry).parent().find('.placeholder').remove();
+	let cardExpiry = elements.create('cardExpiry', {
+	style: elementStyles,
+	placeholder: cardExpiryPlaceholder
+	});
+	cardExpiry.mount(idCardExpiry);
+
+	let cardCvcPlaceholder = $(idCardCvc).parent().find('.placeholder').text();
+	$(idCardCvc).parent().find('.placeholder').remove();
+	let cardCvc = elements.create('cardCvc', {
+	style: elementStyles,
+	placeholder: cardCvcPlaceholder
+	});
+	cardCvc.mount(idCardCvc);
+
+	$('.__PrivateStripeElement').attr('style', "");
+
+	let allElements = [cardNumber, cardExpiry, cardCvc];
+
 	$('.step-3 .btn-next').click(function(){
 
-		let returnF = true;
-		$('.step-3 form').find('input').each(function(){
+	let returnF = true;
+	$('.step-3 form').find('input').each(function(){
 
-			if( isEmpty($(this)) ) {
-				returnF = false;
-				$(this).parent().addClass('style-error');
-			}
-			else {
-				$(this).parent().removeClass('style-error');
-			}
+		if(!$(this).parent().hasClass('__PrivateStripeElement')) {
+		if( isEmpty($(this)) ) {
+			returnF = false;
+			$(this).parent().addClass('style-error');
+		}
+		else {
+			$(this).parent().removeClass('style-error');
+		}
+		}
 
-		});
+	});
 
-		if(returnF) {
-			setTimeout(function(){
-				let form = $('.step-3 form');
-				$.ajax({
-					url : '/php/form.php',
-					type : 'POST',
-					data : form.serialize(),
-					success : function(code, statut){
-						console.log(code, statut);
-						if(code == 'true') {
-							$('.section-tunnel .header').addClass('style-hide');
-							index++;
-							direction = 'style-hide-left';
-							refresh();
-						} else {
-							/* AJOUTER UNE ERREUR */
-							alert('Probleme');
-						}
+	if( $('#cardNumber-element').hasClass('StripeElement--invalid') || $('#cardNumber-element').hasClass('StripeElement--empty') ) {
+		returnF = false;
+		$('#cardNumber-element').parent().addClass('style-error');
+	} else $('#cardNumber-element').parent().removeClass('style-error');
+
+	if( $('#cardExpiry-element').hasClass('StripeElement--invalid') || $('#cardExpiry-element').hasClass('StripeElement--empty') ) {
+		returnF = false;
+		$('#cardExpiry-element').parent().addClass('style-error');
+	} else $('#cardExpiry-element').parent().removeClass('style-error');
+
+	if( $('#cardCvc-element').hasClass('StripeElement--invalid') || $('#cardCvc-element').hasClass('StripeElement--empty') ) {
+		returnF = false;
+		$('#cardCvc-element').parent().addClass('style-error');
+	} else $('#cardCvc-element').parent().removeClass('style-error');
+
+	if(returnF) {
+
+		$.ajax({
+			url : '/php/intent.php',
+			type : 'POST',
+			success : function(code, statut){
+				$('input[name=intent]').attr('value', code.split('|')[0]);
+				let clientSecret = code.split('|')[1];
+
+				stripe.confirmCardSetup(clientSecret, {
+					payment_method: {
+						card: cardNumber,
+						billing_details: {
+							name: $('.cardholderName').val(),
+						},
+					},
+				})
+				.then(function(result) {
+					if (result.error) {} else {
+						setTimeout(function(){
+							let form = $('.step-3 form');
+							$.ajax({
+								url : '/php/form.php',
+								type : 'POST',
+								data : form.serialize(),
+								success : function(code, statut){
+									console.log(code, statut);
+									if(code == 'mail') {
+										alert('Adresse email déjà utilisé');
+									} else {
+										/*
+										$('.section-tunnel .header').addClass('style-hide');
+										index++;
+										direction = 'style-hide-left';
+										refresh();
+										*/
+									}
+								}
+							});
+						}, 250);
 					}
 				});
-			}, 250)
-		}
+			}
+		});
+	}
 	});
 
 	$('.step-3 .btn-prev').click(function(){
@@ -215,3 +316,18 @@
 	});
 
 /* END STEP 3 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

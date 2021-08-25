@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.devtools-menu{
+	display: none;
+	position: fixed;
+	z-index: 3000;
+	
+	bottom: 30px;
+	right: 30px;
+	
+	
+	
+	.container-el{
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		.el{
+			border-radius: 10px;
+			padding: 15px 20px 15px 20px;
+			background-color: rgba(0, 0, 0, 0.3);
+			backdrop-filter: invert(.05) blur(10px);
+			cursor: pointer;
+			font-size: 16px;
+			font-family: 'Roboto', sans-serif;
+			color: #FFF;
+			transition: all 0.5s ease;
+
+			&:not(:last-child){
+				margin-right: 10px;
+			}
+			&:hover{
+				backdrop-filter: invert(0.7) blur(10px);
+			}
+			&.style-active{
+				background-color: rgba(blue, 0.4);
+			}
+		}
+	}
+
+	@media screen and (max-width: $breakPoint_tablet){
+		right: 0px;
+		padding: 0px 25px 0px 25px;
+		bottom: 10px;
+		flex-wrap: nowrap;
+		width: 100%;
+		overflow: auto;
+		-webkit-overflow-scrolling: touch;
+		.container-el{
+			flex-wrap: nowrap;
+			.el{
+				white-space: nowrap;
+			}
+		}
+	}
+
+	&.mode-active{
+		display: block;
+	}
+}
+
+.devtools-containerLink{
+	display: none;
+	position: fixed;
+	z-index: 3000;
+	
+	bottom: 30px;
+	left: 30px;
+
+	&.mode-active{
+		display: block;
+	}
+	.btn{
+		text-decoration: none;
+		display: block;
+		border-radius: 10px;
+		padding: 15px 20px 15px 20px;
+		background-color: rgba(0, 0, 0, 0.3);
+		backdrop-filter: invert(.05) blur(10px);
+		cursor: pointer;
+		font-size: 16px;
+		font-family: 'Roboto', sans-serif;
+		color: #FFF;
+		transition: all 0.5s ease;
+		&:hover{
+			backdrop-filter: invert(0.7) blur(10px);
+		}
+		&.style-active{
+			background-color: rgba(blue, 0.4);
+		}
+	}
+
+	.container-el{
+		display: none;
+		position: absolute;
+		left: 0px;
+		bottom: calc(100% + 30px);
+		height: 380px;
+		overflow: auto;
+		padding: 0px;
+		border-radius: 20px;
+		backdrop-filter: invert(.05) blur(10px);
+		background-color: rgba(255, 255, 255, 0.3);
+		.el{
+			text-decoration: none;
+			display: block;
+			padding: 15px 20px 15px 20px;
+			background-color: rgba(0, 0, 0, 0.3);
+			backdrop-filter: invert(.05) blur(10px);
+			cursor: pointer;
+			font-size: 16px;
+			font-family: 'Roboto', sans-serif;
+			color: #FFF;
+			transition: all 0.5s ease;
+			white-space: nowrap;
+
+			&:not(:last-child){
+				border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+			}
+			&:hover{
+				backdrop-filter: invert(0.7) blur(10px);
+			}
+			&.style-active{
+				background-color: rgba(blue, 0.4);
+			}
+		}
+
+		&.style-active{
+			display: block;
+		}
+	}
+
+	@media screen and (max-width: $breakPoint_tablet){
+		bottom: 80px;
+		left: 25px;
+	}
+}
+.devtools-grid{
+	display: none;
+	position: fixed;
+	z-index: 2000;
+	height: 100vh;
+	width: 100%;
+
+	user-select: none;
+	pointer-events: none;
+
+	.container-grid{
+		position: absolute;
+		top: 0px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 1200px;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		height: 100%;
+		.grid{
+			width: calc((100% / 12) - 20px);
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.1);
+			backdrop-filter: invert(0.1);
+		}
+	}
+
+	&.mode-active{
+		display: block;
+	}
+}
+
+.devtools-text{
+	position: fixed;
+	z-index: 300000;
+	height: 100%;
+	width: 100%;
+	user-select: none;
+	pointer-events: none;
+	visibility: hidden;
+
+	.container-text{
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		left: 0px;
+		width: 100%;
+		text-align: center;
+	}
+	.text{
+		display: inline-flex;
+		border-radius: 100px;
+		padding: 15px 100px 15px 100px;
+		background-color: rgba(0, 0, 0, 0.3);
+		backdrop-filter: invert(.05) blur(10px);
+		cursor: pointer;
+		span{
+			font-size: 40px;
+			font-family: 'Roboto', sans-serif;
+			color: #FFF;
+			em{
+				color: #47E5BC;
+				font-style: normal;
+			}
+		}
+	}
+
+	
+
+	&.style-active{
+		@keyframes wave {
+			from {
+				transform: scale(0.95);
+				opacity: 0;
+				visibility: visible;
+			}
+			to {
+				transform: scale(1);
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+		animation-name: wave;
+		animation-duration: 0.5s;
+		animation-direction: alternate;
+		animation-iteration-count: 2;
+		animation-timing-function:  cubic-bezier(0.000, 0.970, 0.580, 1.000);
+	}
+}
+
+.devtools-size{
+	position: fixed;
+	right: 0px;
+	top: 0px;
+
+	background-color: rgba(0, 0, 0, 0.3);
+	backdrop-filter: invert(.05) blur(10px);
+	cursor: pointer;
+	font-size: 16px;
+	font-family: 'Roboto', sans-serif;
+	color: #FFF;
+	visibility: hidden;
+	padding: 10px;
+	z-index: 100;
+	user-select: none;
+	pointer-events: none;
+
+	&.style-active{
+		visibility: visible;
+	}
+}
+
+.devtools-scrollposition{
+	position: fixed;
+	right: 0px;
+	top: 39px;
+
+	background-color: rgba(0, 0, 0, 0.3);
+	backdrop-filter: invert(.05) blur(10px);
+	cursor: pointer;
+	font-size: 16px;
+	font-family: 'Roboto', sans-serif;
+	color: #FFF;
+	visibility: hidden;
+	padding: 10px;
+	z-index: 100;
+	user-select: none;
+	pointer-events: none;
+
+	&.style-active{
+		visibility: visible;
+	}
+}
+
+html{
+	&.mode-element{
+		*{
+			outline-style: solid;
+			outline-color: red;
+			outline-width: 1px;
+		}
+		svg{
+			border: 1px solid red;
+		}
+	}
+
+	&.mode-section{
+		section{
+			outline-style: double;
+			outline-color: red;
+			outline-width: 10px;
+		}
+	}
+}

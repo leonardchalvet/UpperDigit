@@ -152,8 +152,42 @@
 	}
 }
 
+@media screen and (min-width: $breakPoint_mobile) and (max-width: $breakPoint_tablet) and (orientation: portrait){
+	.section-cgu{
+		.content{
+			margin-right: 0px;
+			width: 100%;
+			flex: initial;
+		}
+		aside{
+			width: 100%;
+			position: initial;
+			.container-el{
+				display: flex;
+				flex-wrap: wrap;
+				.el{
+					width: 50%;
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: $breakPoint_mobile){
+	.section-cgu{
+		.container-cgu{
+			margin-top: 40px;
+		}
+		.content{
+			width: 100%;
+			margin-right: 0px;
+		}
 
-
+		aside{
+			width: 100%;
+			position: initial;
+		}
+	}
+}
 /*===================================
 =            END PAGE CGU           =
 ===================================*/

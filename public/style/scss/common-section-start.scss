@@ -54,3 +54,34 @@
 	}
 	
 }
+
+@media screen and (min-width: $breakPoint_mobile) and (max-width: $breakPoint_tablet) and (orientation: portrait){
+	.common-section-start{
+		.container-text{
+			flex: 1;
+			margin-right: 50px;
+		}
+	}
+}
+@media screen and (max-width: $breakPoint_mobile){
+	.common-section-start{
+		padding: 64px 0px 64px 0px;
+		.container-text{
+			width: 100%;
+			h2{
+				em{
+					&:after{
+						bottom: -26px;
+					}
+				}
+			}
+			p{
+				margin-top: 12px;
+			}
+		}
+		.container-btn{
+			width: 100%;
+			margin-top: 24px;
+		}
+	}
+}

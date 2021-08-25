@@ -219,10 +219,10 @@
     "\/img\/dashboard\/icn-download.svg" : {
       "ft" : 2097152,
       "miP" : 0,
-      "oA" : 0,
+      "oA" : 2,
       "oAP" : "\/img\/dashboard\/icn-download.svg",
-      "oF" : 1,
-      "opt" : 1,
+      "oF" : 0,
+      "opt" : 0,
       "plM" : 4010962575359,
       "prP" : 0
     },

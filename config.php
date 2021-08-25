@@ -43,4 +43,5 @@ define("BD_PASSWORD","BrunoxUpper"); */
 /* 
  * STRIPE
  */
+define("STRIPE_TVA", "txr_1JIZJxFhVHJZbiNtCoDYvxa3");
 define("STRIPE", "sk_test_51ITTz8FhVHJZbiNtRXPJV5sjeURaaezfgu5b1EkTEEDC6rdu40ePchl5D7ziDfRqsfUdaqkJAOejz5InhuIkZhUk00meP0tJwv");

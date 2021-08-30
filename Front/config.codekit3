@@ -216,6 +216,16 @@
       "q" : 100,
       "rq" : 75
     },
+    "\/img\/dashboard\/cross.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/img\/dashboard\/cross.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 4010962575359,
+      "prP" : 0
+    },
     "\/img\/dashboard\/icn-download.svg" : {
       "ft" : 2097152,
       "miP" : 0,
@@ -390,6 +400,16 @@
       "ou" : "lpckwebp-none",
       "q" : 100,
       "rq" : 75
+    },
+    "\/img\/signin\/check.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/img\/signin\/check.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 4010962575359,
+      "prP" : 0
     },
     "\/img\/signin\/illu-1.svg" : {
       "ft" : 2097152,

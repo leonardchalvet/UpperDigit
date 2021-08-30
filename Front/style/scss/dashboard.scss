@@ -5,6 +5,73 @@
 =            PAGE DASHBOARD           =
 =====================================*/
 
+.container-lightbox {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	z-index: 10;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	transition: all 1s ease;
+	form {
+		display: none;
+	}
+	&:not(.style-block) {
+		display: none;
+	}
+	&.style-visible {
+		background: rgba(0, 0, 0, 0.5);
+	}
+	.wrapper {
+		width: 588px;
+		background: #FFFFFF;
+		border-radius: 24px;
+		.lightbox {
+			position:relative;
+			padding: 72px 64px;
+			.cross {
+				cursor: pointer;
+				position: absolute;
+				top: 32px;
+				right: 31px;
+				width: 14px;
+				height: 16px;
+				transition: all 0.5s ease;
+				&:hover {
+					opacity: .5;
+				}
+			}
+			h3 {
+				@include styleH3;
+				text-align: center;
+			}
+			p {
+				margin-top: 9px;
+				@include styleParagraphNormal;
+				text-align: center;
+			}
+			.container-button {
+				margin-top: 24px;
+				.btn {
+					&:first-child {
+						@include styleButton('3', 'right');
+						margin-right: 8px;
+					}
+					&:last-child {
+						@include styleButton('6', 'right');
+					}
+				}
+			}
+			&:not(.style-active) {
+				display: none;
+			}
+		}
+	}
+}
 
 .section-dashboard{
 	padding-top: 150px;
@@ -59,7 +126,10 @@
 					@include styleH3;
 				}
 				.container-btn{
-					.btn{
+					.btn {
+						&:not(.style-active) {
+							display: none !important;
+						}
 						&:nth-child(1){
 							@include styleButton("3", "none" );
 						}
@@ -77,6 +147,9 @@
 		.section-informations{
 			.container-content{
 				.content-save{
+					&:not(.style-active) {
+						display: none;
+					}
 					.container-el{
 						.el{
 							padding-top: 25px;
@@ -108,6 +181,9 @@
 				}
 			}
 			.content-edit{
+				&:not(.style-active) {
+					display: none;
+				}
 				.container-el{
 					.el{
 						padding: 48px 0px 48px 0px;
@@ -129,7 +205,8 @@
 								display: flex;
 								flex-flow: row wrap;
 								align-items: center;
-								input{
+								input,
+								#cardNumber-element, #cardExpiry-element, #cardCvc-element {
 									padding: 0px 25px 0px 25px;
 									width: 100%;
 									height: 50px;
@@ -146,6 +223,13 @@
 										border-color: $colorMain_4;
 									}
 								}
+								#cardNumber-element, #cardExpiry-element, #cardCvc-element {
+									.__PrivateStripeElement {
+										display: flex;
+										align-items: center;
+										height: 100%;
+									}
+								}
 								.error{
 									visibility: hidden;
 									position: absolute;
@@ -157,7 +241,7 @@
 								}
 
 								&.style-error{
-									input{
+									input, #cardNumber-element, #cardExpiry-element, #cardCvc-element {
 										border-color: $colorMain_8;
 									}
 									.error{
@@ -216,7 +300,6 @@
 			}
 		}
 		.section-bill{
-			padding-bottom: 120px;
 			ul{
 				li{
 					padding: 16px 0px 16px 0px;
@@ -251,6 +334,57 @@
 				}
 			}
 		}
+		.section-subscribe{
+			ul{
+				li{
+					padding: 16px 0px 16px 0px;
+					display: flex;
+					flex-flow: row wrap;
+					align-items: center;
+					justify-content: space-between;
+					border-bottom: 1px solid $colorMain_5;
+					.type,
+					.date,
+					.month,
+					.price{
+						@include styleParagraphNormal;
+						color: $colorMain_3;
+					}
+					.link{
+						cursor: pointer;
+						@include styleLink("1");
+						.link-text {
+							color: $colorMain_8;
+						}
+					}
+				}
+			}
+		}
+		.section-account{
+			padding-bottom: 72px;
+			ul{
+				li{
+					padding: 16px 0px 16px 0px;
+					display: flex;
+					flex-flow: row wrap;
+					align-items: center;
+					justify-content: space-between;
+					border-bottom: 1px solid $colorMain_5;
+					.name,
+					.email{
+						@include styleParagraphNormal;
+						color: $colorMain_3;
+					}
+					.link{
+						cursor: pointer;
+						@include styleLink("1");
+						.link-text {
+							color: $colorMain_8;
+						}
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -269,6 +403,25 @@
 	}
 }
 @media screen and (max-width: $breakPoint_mobile){
+	.container-lightbox {
+		.wrapper {
+			width: calc(100% - 50px);
+			.lightbox {
+				padding: 56px 25px;
+				.container-button {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					.btn {
+						&:first-child {
+							margin-right: 0;
+							margin-bottom: 12px;
+						}
+					}
+				}
+			}
+		}
+	}
 	.section-dashboard{
 		.container-sidebar{
 			display: none;
@@ -327,6 +480,42 @@
 							.link-text{
 								display: none;
 							}
+						}
+					}
+				}
+			}
+			.section-subscribe{
+				ul{
+					
+					li{
+						flex-direction: column;
+						align-items: flex-start;	
+						.type,
+						.date,
+						.month,
+						.price{
+							margin-bottom: 8px;	
+						}
+						.link{
+							width: 100%;
+							text-align: right;
+						}
+					}
+				}
+			}
+			.section-account{
+				
+				ul{
+					li{
+						flex-direction: column;
+						align-items: flex-start;
+						.name,
+						.email{
+							margin-bottom: 8px;
+						}
+						.link{
+							width: 100%;
+							text-align: right;
 						}
 					}
 				}

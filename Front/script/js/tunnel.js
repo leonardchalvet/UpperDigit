@@ -293,12 +293,10 @@
 									if(code == 'mail') {
 										alert('Adresse email déjà utilisé');
 									} else {
-										/*
 										$('.section-tunnel .header').addClass('style-hide');
 										index++;
 										direction = 'style-hide-left';
 										refresh();
-										*/
 									}
 								}
 							});

@@ -21,6 +21,37 @@
 
 			<?php include('common-devtools.php') ?>
 
+			<div class="container-lightbox">
+				<div class="wrapper">
+					<div class="lightbox input-email">
+						<img src="img/dashboard/cross.svg" alt="cross" class="cross">
+						<h3>Vous avez oublié votre mot de passe ?</h3>
+						<p>Pour réinitialiser votre mot de passe, saisissez l’adresse e-mail que vous utilisez pour vous connecter, afin que nous puissions vous envoyer un lien de réinitialisation.</p>
+						<form>
+							<div class="input">
+								<input required type="text" placeholder="Email*" name="mail">
+								<div class="error">Error</div>
+							</div>
+						</form>
+						<div class="container-button">
+							<div class="btn">
+								<div class="btn-text">
+									Envoyer
+								</div>
+								<svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16" >
+									<use xlink:href="img/common/icn-arrow.svg#content"></use>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="lightbox send-email">
+						<img src="img/dashboard/cross.svg" alt="cross" class="cross">
+						<img src="img/signin/check.svg" alt="check" class="check">
+						<h3>E-mail de réinitialisation de mot de passe envoyé !</h3>
+						<p>Un e-mail pour réinitialiser votre mot de passe vient d’être envoyé à l’adresse que vous avez saisie. </p>
+					</div>
+				</div>
+			</div>
 
 			<section class="section-signin">
 				<div class="wrapper">
@@ -42,7 +73,7 @@
 								<div class="error">Error</div>
 							</div>
 							<div class="password-forg">
-								<a href="">Mot de passe oublié ?</a>
+								<a>Mot de passe oublié ?</a>
 							</div>
 							<div class="container-btn">
 								<button>

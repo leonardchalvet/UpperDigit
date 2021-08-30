@@ -487,6 +487,24 @@ main
 						stroke: $colorMain_3;
 					}
 				}
+			} @else if $style == "6" {
+				background-color: $colorMain_8; // RED
+				;
+				.btn-text{
+					color: #FFF;
+				}
+				.btn-arrow{
+					stroke: #FFF;
+				}
+				&:hover{
+					background-color: $colorMain_3;
+					.btn-text{
+						color: #FFF;
+					}
+					.btn-arrow{
+						stroke: #FFF;
+					}
+				}
 			}
 
 

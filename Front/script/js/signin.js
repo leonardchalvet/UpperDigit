@@ -87,11 +87,13 @@ $('.container-lightbox .wrapper .lightbox.input-email .container-button .btn').c
 
 		let form = $('.container-lightbox .wrapper .lightbox.input-email form');
 		$.ajax({
-            url : '/php/signin/sendpassword.php',
+            url : '/php/sendpassword.php',
             type : 'POST',
             data : form.serialize(),
             success : function(code, statut){
-				closeLightbox();
+				console.log(code, statut);
+				$('.container-lightbox .wrapper .lightbox.input-email').removeClass('style-active');
+				$('.container-lightbox .wrapper .lightbox.send-email').addClass('style-active');
 			}
         });
 

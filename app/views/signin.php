@@ -47,6 +47,38 @@ if($email != null) {
     <main>
 
       <div id="redirection"><?php checkUrl($document->content_redirect); ?></div>
+
+      <div class="container-lightbox">
+				<div class="wrapper">
+					<div class="lightbox input-email">
+						<img src="/img/dashboard/cross.svg" alt="cross" class="cross">
+						<h3><?= RichText::asText($document->lightbox_ftitle); ?></h3>
+						<p><?= RichText::asText($document->lightbox_ftext); ?></p>
+						<form>
+							<div class="input">
+								<input required type="text" placeholder="<?= RichText::asText($document->lightbox_fplaceholder); ?>" name="mail">
+								<div class="error"><?= RichText::asText($document->content_error); ?></div>
+							</div>
+						</form>
+						<div class="container-button">
+							<div class="btn">
+								<div class="btn-text">
+                  <?= RichText::asText($document->lightbox_fbtntxt); ?>
+								</div>
+								<svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16" >
+									<use xlink:href="/img/common/icn-arrow.svg#content"></use>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="lightbox send-email">
+						<img src="/img/dashboard/cross.svg" alt="cross" class="cross">
+						<img src="/img/signin/check.svg" alt="check" class="check">
+						<h3><?= RichText::asText($document->lightbox_stitle); ?></h3>
+						<p><?= RichText::asText($document->lightbox_stext); ?></p>
+					</div>
+				</div>
+			</div>
       
       <section class="section-signin">
         <div class="wrapper">
@@ -66,7 +98,7 @@ if($email != null) {
                 <div class="error"><?= RichText::asText($document->content_error); ?></div>
               </div>
               <div class="password-forg">
-                <a href="<?= checkUrl($document->content_forgetlink); ?>"><?= RichText::asText($document->content_forgettext); ?></a>
+                <a><?= RichText::asText($document->content_forgettext); ?></a>
               </div>
               <div class="container-btn">
                 <button>
@@ -76,7 +108,10 @@ if($email != null) {
                 </button>
               </div>
               <div class="signup">
-                <?= RichText::asHtml($document->content_subscribe); ?>
+                <?= RichText::asText($document->content_subscribe); ?>
+                <a href="<?php checkUrl($document->content_link); ?>">
+                  <?= RichText::asText($document->content_linktext); ?>
+                </a>
               </div>
             </form>
           </div>

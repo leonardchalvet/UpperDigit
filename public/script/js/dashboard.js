@@ -67,7 +67,6 @@ $('.section-dashboard .container-informations section .head .container-btn .btn:
     $('.section-dashboard .container-informations .section-informations .content-save').removeClass('style-active');
     $('.section-dashboard .container-informations .section-informations .content-edit').addClass('style-active');
 });
-$('.section-dashboard .container-informations section .head .container-btn .btn:nth-child(1)').click();
 
 $('.section-dashboard .container-informations section .head .container-btn .btn:nth-child(2)').click(function(){
     

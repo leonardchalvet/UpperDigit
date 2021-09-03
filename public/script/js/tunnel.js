@@ -55,6 +55,8 @@
 		} else {
 			$('.step-2 .container-form .col:nth-child(3)').removeClass('style-show');
 		}
+
+		$('.step-2 input[name=product]').attr('value', $(this).data('stripe'));
 	});
 
 	$('.step-1 .btn-prev').click(function(){
@@ -84,13 +86,27 @@
 
 			if( $(this).parent().parent().index() !== 2 
 				|| ( $(this).parent().parent().index() === 2 && $(this).parent().parent().hasClass('style-show') ) ) {
-				if($(this).attr('type') == "checkbox") {
-					if($(this).is(':checked')) {
-						$(this).parent().removeClass('style-error');
+				if($(this).attr('type') == "checkbox" || $(this).attr('type') == "number") {
+					if( $(this).attr('type') != "number" ) {
+
+						let modifiedThis = "";
+						if($(this).attr('name') == "cgu1") modifiedThis = "cgu2";
+						if($(this).attr('name') == "inform1") modifiedThis = "inform2";
+
+						if( $(this).is(':checked') ) {
+							$('.step-2 .checkbox input[name='+modifiedThis+']').attr('value', 1);
+						} else {
+							$('.step-2 .checkbox input[name='+modifiedThis+']').attr('value', 0);
+						}
 					}
-					else {
-						returnF = false;
-						$(this).parent().addClass('style-error');
+					if( $(this).attr('name') == 'cgu1' ) {
+						if($(this).is(':checked')) {
+							$(this).parent().removeClass('style-error');
+						}
+						else {
+							returnF = false;
+							$(this).parent().addClass('style-error');
+						}
 					}
 				}
 				else if($(this).attr('type') == "password" ) {
@@ -265,6 +281,10 @@
 
 	if(returnF) {
 
+		$('.step-3 .container-nav .btn-next .btn-text').addClass('style-none');
+		$('.step-3 .container-nav .btn-next .btn-arrow').addClass('style-none');
+		$('.step-3 .container-nav .btn-next .btn-load').removeClass('style-none');
+
 		$.ajax({
 			url : '/php/intent.php',
 			type : 'POST',
@@ -289,9 +309,13 @@
 								type : 'POST',
 								data : form.serialize(),
 								success : function(code, statut){
-									console.log(code, statut);
 									if(code == 'mail') {
 										alert('Adresse email déjà utilisé');
+
+										$('.step-3 .container-nav .btn-next .btn-text').removeClass('style-none');
+										$('.step-3 .container-nav .btn-next .btn-arrow').removeClass('style-none');
+										$('.step-3 .container-nav .btn-next .btn-load').addClass('style-none');
+
 									} else {
 										$('.section-tunnel .header').addClass('style-hide');
 										index++;

@@ -11,8 +11,8 @@ $zipcode    = isset($_POST['zipcode'])     ?  trim($_POST['zipcode'])    : null 
 $country    = isset($_POST['country'])     ?  trim($_POST['country'])    : null ;
 $mail       = isset($_POST['mail'])        ?  trim($_POST['mail'])       : null ;
 $password   = isset($_POST['password-1'])  ?  trim($_POST['password-1']) : null ;
-$cgu        = isset($_POST['cgu'])         ?  trim($_POST['cgu'])        : null ;
-$inform     = isset($_POST['inform'])      ?  trim($_POST['inform'])     : null ;
+$cgu        = isset($_POST['cgu2'])        ?  trim($_POST['cgu2'])       : null ;
+$inform     = isset($_POST['inform2'])     ?  trim($_POST['inform2'])    : null ;
 $company    = isset($_POST['company'])     ?  trim($_POST['company'])    : null ;
 $siret      = isset($_POST['siret'])       ?  trim($_POST['siret'])      : null ;
 $headoffice = isset($_POST['headoffice'])  ?  trim($_POST['headoffice']) : null ;
@@ -20,8 +20,7 @@ $pc_adress  = isset($_POST['pc_adress'])   ?  trim($_POST['pc_adress'])  : null 
 $pc_zipcode = isset($_POST['pc_zipcode'])  ?  trim($_POST['pc_zipcode']) : null ;
 $pc_country = isset($_POST['pc_country'])  ?  trim($_POST['pc_country']) : null ;
 $intent     = isset($_POST['intent'])      ?  trim($_POST['intent'])     : null ;
-
-$product = "prod_JxsvEKD9BcS4ak";
+$product    = isset($_POST['product'])     ?  trim($_POST['product'])    : null ;
 
 if( $lastname != null
 	&& $firstname != null
@@ -42,7 +41,7 @@ if( $lastname != null
 
 	\Stripe\Stripe::setApiKey(STRIPE);
 
-	$response = \Stripe\Customer::all(["limit" => 1, "email" => $email]);
+	$response = \Stripe\Customer::all(["limit" => 1, "email" => $mail]);
 
 	if( !empty($response['data']) ) {
 		echo "mail";
@@ -69,8 +68,8 @@ if( $lastname != null
 		$st->execute(array(
 			':email' => $mail,
 			':password' => $user_password,
-			':cgu' => 1,
-			':want_news' => 1,
+			':cgu' => $cgu,
+			':want_news' => $inform,
 		));
 
 		$query = 'SELECT * FROM `customers` WHERE `email` = :email;';
@@ -122,18 +121,18 @@ if( $lastname != null
 
 		$content =  "Votre compte est actif";
 
-		mail("alexis@callbruno.com", 'Création de compte', $content, $headers);
+		mail($mail, 'Création de compte', $content, $headers);
 		/* END SEND MAIL */
 
 		/* SEND MAIL TO UPPERDIGIT */
 		$headers = array(
-		    'From' => 'Upperdit',
+		    'From' => 'Upperdigit',
 		    'X-Mailer' => 'PHP/' . phpversion()
 		);
 
 		$content =  "Vous avez un nouvel abonné : ".$mail;
 
-		mail("alexis@callbruno.com", 'Nouvel utilisateur', $content, $headers);
+		mail("alexis@callbruno.com", 'Nouvel utilisateur', $content, $headers); // CHANGER MAIL POUR UPPERDIGIT
 		/* END SEND MAIL */
 
 		$intent = \Stripe\SetupIntent::retrieve($intent);

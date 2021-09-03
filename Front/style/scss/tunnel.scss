@@ -228,6 +228,12 @@
 						}
 						.btn-next{
 							@include styleButton("4", "right" );
+
+							.btn-text, .btn-arrow, .btn-load {
+								&.style-none {
+									display: none;
+								}
+							}
 						}
 					}
 				}
@@ -386,6 +392,11 @@
 											@include styleParagraphSmall;
 											a{
 												color: $colorMain_4;
+											}
+										}
+										&.style-error {
+											.text {
+												color: $colorMain_8;
 											}
 										}
 									}

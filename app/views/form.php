@@ -71,7 +71,7 @@ $document = $WPGLOBAL['document']->data;
                   </div>
                   <div class="container-el">
                     <?php $i=1; foreach ($document->body as $slice) { ?>
-                      <div class="el" data-subscription="<?php echo $i; ?>" data-stripe="ID-<?php echo $i; ?>">
+                      <div class="el" data-subscription="<?php echo $i; ?>" data-stripe="<?= RichText::asText($slice->primary->stripe); ?>">
                         <?php if(strlen($slice->primary->tag[0]->text) > 0) { ?>
                           <div class="bdg">
                             <span><?= RichText::asText($slice->primary->tag); ?></span>
@@ -138,6 +138,7 @@ $document = $WPGLOBAL['document']->data;
                   <div class="container-form">
                     <form onSubmit="return false;">
                       <input name="intent" type="text" value="0" style="display:none">
+                      <input name="product" type="text" value="0" style="display:none">
                       <div class="container-col">
                         <div class="col">
                           <div class="title">
@@ -185,13 +186,15 @@ $document = $WPGLOBAL['document']->data;
                             <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="checkbox">
-                            <input required name="cgu" type="checkbox">
+                            <input name="cgu1" type="checkbox">
+                            <input name="cgu2" type="number" style="display:none;">
                             <div class="text">
                               <?= RichText::asHtml($document->informations_rc_checkboxcgu); ?>
                             </div>
                           </div>
                           <div class="checkbox">
-                            <input type="checkbox" name="inform">
+                            <input type="checkbox" name="inform1">
+                            <input type="number" name="inform2" style="display:none;">
                             <div class="text">
                               <?= RichText::asText($document->informations_rc_checkboxinform); ?>
                             </div>
@@ -257,22 +260,6 @@ $document = $WPGLOBAL['document']->data;
                   <div class="container-col">
                     <div class="col-pay">
                       <div class="title"><?= RichText::asText($document->payment_lt_title); ?></div>
-                      <div class="container-services">
-                        <!-- VOIR AVEC STRIPE -->
-                        <div class="service">
-                          <img src="/img/tunnel/gg-pay.svg" alt="">
-                        </div>
-                        <div class="service">
-                          <img src="/img/tunnel/apple-pay.svg" alt="">
-                        </div>
-                      </div>
-                      <div class="container-sep">
-                        <div class="line"></div>
-                        <div class="text">
-                          <?= RichText::asText($document->payment_lc_subtitle); ?>
-                        </div>
-                        <div class="line"></div>
-                      </div>
                       <div class="container-cb">
                         <div class="container-img">
                           <?php foreach ($document->payment_lc_logos as $l) { ?>
@@ -343,6 +330,11 @@ $document = $WPGLOBAL['document']->data;
                     </div>
                     <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16" >
                       <use xlink:href="/img/common/icn-arrow.svg#content"></use>
+                    </svg>
+                    <svg class="btn-load style-none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; display: block;" width="25px" height="25px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                      <path d="M10 50A40 40 0 0 0 90 50A40 42.5 0 0 1 12 50" fill="#212121" stroke="none">
+                        <animateTransform attributeName="transform" type="rotate" dur="0.9900990099009901s" repeatCount="indefinite" keyTimes="0;1" values="0 50 51.25;360 50 51.25"></animateTransform>
+                      </path>
                     </svg>
                   </div>
                 </div>  

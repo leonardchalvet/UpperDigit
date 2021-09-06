@@ -1,6 +1,9 @@
 <?php 
 use Prismic\Dom\RichText;
 $document = $WPGLOBAL['document']->data;
+
+$email = isset($_SESSION['user_email']) ? $_SESSION['user_email'] : null ;
+
 ?>
 <html>
   <head>

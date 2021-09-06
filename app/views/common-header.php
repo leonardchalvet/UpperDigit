@@ -28,7 +28,7 @@ $header = $WPGLOBAL['header']->data;
 		<?php } else { ?>
 			<div class="container-account">
 				<div class="name">
-					<span>Alexis</span>
+					<span><?php echo $_SESSION['name']; ?></span>
 					<img src="/img/header/arrow.svg" alt="">
 				</div>
 				<ul class="dropdown">

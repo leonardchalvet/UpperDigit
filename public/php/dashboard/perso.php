@@ -1,5 +1,7 @@
 <?php 
 
+session_start();
+
 require_once '../../../config.php';
 require_once '../../../vendor/autoload.php';
 
@@ -10,7 +12,7 @@ $adress     = isset($_POST['adress'])      ?  trim($_POST['adress'])     : null 
 $zipcode    = isset($_POST['zipcode'])     ?  trim($_POST['zipcode'])    : null ;
 $country    = isset($_POST['country'])     ?  trim($_POST['country'])    : null ;
 
-$mail       = isset($_POST['mail'])        ?  trim($_POST['mail'])       : null ;
+$mail = $_SESSION['user_email'];
 
 if( $lastname != null
 	&& $firstname != null
@@ -30,16 +32,7 @@ if( $lastname != null
     $rep = $st->fetch();
     $id_user = $rep['id'];
 
-    $query = 'UPDATE `personal_information` (`first_name`, `last_name`, `phone`, `adress`, `zip_code`, `country`) VALUES (:first_name, :last_name, :phone, :adress, :zip_code, :country) WHERE `id_customers` = :id_customers;';
+    $query = 'UPDATE personal_information SET first_name=?, last_name=?, phone=?, adress=?, zip_code=?, country=? WHERE id_customers=?';
     $st = $dbh->prepare($query);
-    $st->execute(array(
-        ':id_customers' => $id_user,
-        ':first_name' => $firstname,
-        ':last_name' => $lastname,
-        ':phone' => $phone,
-        ':adress' => $adress,
-        ':zip_code' => $zipcode,
-        ':country' => $country
-    ));
-
+    $st->execute([$firstname, $lastname, $phone, $adress, $zipcode, $country, $id_user]);
 }

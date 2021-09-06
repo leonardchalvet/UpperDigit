@@ -135,7 +135,9 @@ $('.section-dashboard .container-informations section .head .container-btn .btn:
             url : '/php/dashboard/securite.php',
             type : 'POST',
             data : form.serialize(),
-            success : function(code, statut){}
+            success : function(code, statut){
+                $('form input[name=mail]').attr('value',$('form[data-info="securite"] input[name=email]'));
+            }
         });
     } else returnToEdit = false;
 
@@ -185,7 +187,9 @@ $('.section-dashboard .container-informations section .head .container-btn .btn:
                                 url : '/php/dashboard/paiement.php',
                                 type : 'POST',
                                 data : form.serialize(),
-                                success : function(code, statut){}
+                                success : function(code, statut){
+                                    console.log(code, statut);
+                                }
                             });
                         }, 250);
                     }
@@ -221,11 +225,7 @@ $('.section-dashboard .container-informations section .head .container-btn .btn:
 
     
     if(returnToEdit) {
-        $(this).removeClass('style-active');
-        $('.section-dashboard .container-informations section .head .container-btn .btn:nth-child(1)').addClass('style-active');
-
-        $('.section-dashboard .container-informations .section-informations .content-save').addClass('style-active');
-        $('.section-dashboard .container-informations .section-informations .content-edit').removeClass('style-active');
+        location.reload();
     }
 
 });
@@ -297,7 +297,9 @@ $('.container-lightbox .wrapper .lightbox.account .container-button .btn:last-ch
         url : '/php/dashboard/unaccount.php',
         type : 'POST',
         data : form.serialize(),
-        success : function(code, statut){}
+        success : function(code, statut){
+            location.reload();
+        }
     });
 });
 

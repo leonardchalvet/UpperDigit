@@ -1,51 +1,43 @@
 <?php 
 
+session_start();
+
 require_once '../../../config.php';
 require_once '../../../vendor/autoload.php';
 
-$mail       = isset($_POST['mail'])        ?  trim($_POST['mail'])       : null ;
-$password   = isset($_POST['password-1'])  ?  trim($_POST['password-1']) : null ;
+$email      = isset($_POST['email'])       ?  trim($_POST['email'])      : null ;
+$password   = isset($_POST['password1'])  ?  trim($_POST['password1']) : null ;
 
-if( $mail != null
-	&& $password != null ) {
+$mail = $_SESSION['user_email'];
 
-	try { 
-		$dbh = new PDO("mysql:dbname=".DB_BASE.";host=".DB_HOST, BD_USER, BD_PASSWORD);
-	} catch ( PDOException $e ) { }
+try { 
+    $dbh = new PDO("mysql:dbname=".DB_BASE.";host=".DB_HOST, BD_USER, BD_PASSWORD);
+} catch ( PDOException $e ) { }
+
+if( $email != null
+    && $mail != null ) {
+
+    $query = 'UPDATE customers SET email=? WHERE email=?;';
+    $st = $dbh->prepare($query);
+    $st->execute([$email, $mail]);
+
+    $_SESSION['user_email'] = $email;
+
+    $stripe = new \Stripe\StripeClient(STRIPE);
+    $customer = $stripe->customers->all(['limit' => 1, 'email' => $mail])->data[0];
+
+    $stripe->customers->update(
+        $customer['id'],
+        ['email' => $email]
+    );
+
+}
+
+if( $password != null ) {
 
     $user_password = password_hash($password, PASSWORD_DEFAULT);
 
-    $query = 'SELECT * FROM `customers` WHERE `email` = :email;';
+    $query = 'UPDATE customers SET password=? WHERE email=?;';
     $st = $dbh->prepare($query);
-    $st->execute(array(':email' => $mail));
-    $rep = $st->fetch();
-    $id_user = $rep['id'];
-
-    $query = 'UPDATE `customers` (`email`, `password`) VALUES (:email, :password);';
-    $st = $dbh->prepare($query);
-    $st->execute(array(
-        ':email' => $email,
-        ':password' => $password
-    ));
-
-    if( $company != null
-        && $siret != null
-        && $headoffice != null
-        && $pc_adress != null
-        && $pc_zipcode != null
-        && $pc_country != null ) {
-
-        $query = 'INSERT INTO `professional_information` (`id_customers`, `name`, `siret`, `head_office`, `adress`, `zip_code`, `country`) VALUES (:id_customers, :name, :siret, :head_office, :adress, :zip_code, :country);';
-        $st = $dbh->prepare($query);
-        $st->execute(array(
-            ':id_customers' => $id_user,
-            ':name' => $company,
-            ':siret' => $siret,
-            ':head_office' => $headoffice,
-            ':adress' => $pc_adress,
-            ':zip_code' => $pc_zipcode,
-            ':country' => $pc_country
-        ));
-    }
-
+    $st->execute([$user_password, $email]);
 }

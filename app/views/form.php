@@ -222,7 +222,7 @@ $email = isset($_SESSION['user_email']) ? $_SESSION['user_email'] : null ;
                             <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">
-                            <input required naùe="pc_zipcode" type="text" placeholder="<?= RichText::asText($document->informations_pc_zipcode); ?>">
+                            <input required name="pc_zipcode" type="text" placeholder="<?= RichText::asText($document->informations_pc_zipcode); ?>">
                             <div class="error"><?= RichText::asText($document->common_error); ?></div>
                           </div>
                           <div class="input">

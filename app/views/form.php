@@ -1,6 +1,9 @@
 <?php 
 use Prismic\Dom\RichText;
 $document = $WPGLOBAL['document']->data;
+
+$email = isset($_SESSION['user_email']) ? $_SESSION['user_email'] : null ;
+
 ?>
 <html>
   <head>
@@ -331,7 +334,7 @@ $document = $WPGLOBAL['document']->data;
                     <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16" >
                       <use xlink:href="/img/common/icn-arrow.svg#content"></use>
                     </svg>
-                    <svg class="btn-load style-none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; display: block;" width="25px" height="25px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                    <svg class="btn-load style-none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;" width="25px" height="25px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
                       <path d="M10 50A40 40 0 0 0 90 50A40 42.5 0 0 1 12 50" fill="#212121" stroke="none">
                         <animateTransform attributeName="transform" type="rotate" dur="0.9900990099009901s" repeatCount="indefinite" keyTimes="0;1" values="0 50 51.25;360 50 51.25"></animateTransform>
                       </path>

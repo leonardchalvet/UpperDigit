@@ -285,7 +285,7 @@ $('.container-lightbox .wrapper .lightbox.subscribe .container-button .btn:last-
         type : 'POST',
         data : form.serialize(),
         success : function(code, statut){
-            closeLightbox();
+            location.reload();
         }
     });
 });
@@ -298,8 +298,12 @@ $('.container-lightbox .wrapper .lightbox.account .container-button .btn:last-ch
         type : 'POST',
         data : form.serialize(),
         success : function(code, statut){
-            closeLightbox();
-            window.location.href = "/";
+            location.reload();
         }
     });
 });
+
+$('.section-dashboard .container-sidebar .container-tab .tab').click(function(){
+    $('.section-dashboard .container-sidebar .container-tab .tab').removeClass('style-active');
+    $(this).addClass('style-active');
+})

@@ -99,7 +99,8 @@
 				&:not(:last-child){
 					margin-bottom: 6px;
 				}
-				span{
+				a{
+					text-decoration: none;
 					@include styleParagraphNormal;
 					color: $colorMain_3;
 				}

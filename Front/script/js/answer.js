@@ -132,6 +132,12 @@ $(window).on('load', function() {
 		}
 	});
 
+	let showAnswer = false;
+	if( $('main').hasClass('style-show') ) {
+		showAnswer = true;
+		$('main').removeClass('style-show');
+	}
+
 	function showLg1() {
 		setTimeout(function(){
 			$('.container-lightbox').addClass('style-show');
@@ -139,26 +145,30 @@ $(window).on('load', function() {
 		}, 10000);
 	}
 
-	if(!getCookie('answer')) {
-		setCookie('answer', "1");
-		showLg1();
-	}
-	else {
-		let answerCookie = getCookieAndValue('answer');
-		if(answerCookie[1] == "1") {
-			setCookie('answer', "2");
-		}
-		else if(answerCookie[1] == "2") {
-			setCookie('answer', "3");
-		} else if(answerCookie[1] == "3") {
-			$('.container-lightbox').addClass('style-show');
-			$('.container-lightbox .lightbox-2').addClass('style-show');
-			$('.section-answer .container-answer').addClass('style-blur');
-		}
+	if( !showAnswer ) {
 
-		if(answerCookie[1] != "3") {
+		if(!getCookie('answer')) {
+			setCookie('answer', "1");
 			showLg1();
 		}
+		else {
+			let answerCookie = getCookieAndValue('answer');
+			if(answerCookie[1] == "1") {
+				setCookie('answer', "2");
+			}
+			else if(answerCookie[1] == "2") {
+				setCookie('answer', "3");
+			} else if(answerCookie[1] == "3") {
+				$('.container-lightbox').addClass('style-show');
+				$('.container-lightbox .lightbox-2').addClass('style-show');
+				$('.section-answer .container-answer').addClass('style-blur');
+			}
+
+			if(answerCookie[1] != "3") {
+				showLg1();
+			}
+		}
+		
 	}
 
 	/* END LIGHTBOX */

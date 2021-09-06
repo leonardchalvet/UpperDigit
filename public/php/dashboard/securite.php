@@ -1,7 +1,7 @@
 <?php 
 
-require_once '../../config.php';
-require_once '../../vendor/autoload.php';
+require_once '../../../config.php';
+require_once '../../../vendor/autoload.php';
 
 $mail       = isset($_POST['mail'])        ?  trim($_POST['mail'])       : null ;
 $password   = isset($_POST['password-1'])  ?  trim($_POST['password-1']) : null ;

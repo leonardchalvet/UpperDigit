@@ -153,7 +153,7 @@ if( $lastname != null
 				[
 					'items' => [
 						[
-							'price' => 'price_1JJx9qFhVHJZbiNtUF0q2iHp',
+							'price' => $product,
 							'quantity' => 1,
 						],
 					]

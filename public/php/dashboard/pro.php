@@ -1,7 +1,7 @@
 <?php 
 
-require_once '../../config.php';
-require_once '../../vendor/autoload.php';
+require_once '../../../config.php';
+require_once '../../../vendor/autoload.php';
 
 $mail       = isset($_POST['mail'])        ?  trim($_POST['mail'])       : null ;
 $company    = isset($_POST['company'])     ?  trim($_POST['company'])    : null ;

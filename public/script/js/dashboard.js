@@ -285,7 +285,7 @@ $('.container-lightbox .wrapper .lightbox.subscribe .container-button .btn:last-
         type : 'POST',
         data : form.serialize(),
         success : function(code, statut){
-            closeLightbox();
+            location.reload();
         }
     });
 });
@@ -297,9 +297,11 @@ $('.container-lightbox .wrapper .lightbox.account .container-button .btn:last-ch
         url : '/php/dashboard/unaccount.php',
         type : 'POST',
         data : form.serialize(),
-        success : function(code, statut){
-            closeLightbox();
-            window.location.href = "/";
-        }
+        success : function(code, statut){}
     });
 });
+
+$('.section-dashboard .container-sidebar .container-tab .tab').click(function(){
+    $('.section-dashboard .container-sidebar .container-tab .tab').removeClass('style-active');
+    $(this).addClass('style-active');
+})

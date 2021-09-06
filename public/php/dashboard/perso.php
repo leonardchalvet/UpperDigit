@@ -1,7 +1,7 @@
 <?php 
 
-require_once '../../config.php';
-require_once '../../vendor/autoload.php';
+require_once '../../../config.php';
+require_once '../../../vendor/autoload.php';
 
 $lastname   = isset($_POST['lastname'])    ?  trim($_POST['lastname'])   : null ;
 $firstname  = isset($_POST['firstname'])   ?  trim($_POST['firstname'])  : null ;

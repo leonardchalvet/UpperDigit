@@ -42,9 +42,47 @@ header{
 			@include styleButton("5", "right" );
 		}
 	}
-
-	&.style-scroll{
-		
+	.container-account {
+		position: relative;
+		.name {
+			display: flex;
+			align-items: center;
+			span {
+				@include styleH5;
+				color: $colorMain_7;
+			}
+			img {
+				margin-left: 8px;
+				width: 9px;
+				height: 5px;
+			}
+		}
+		.dropdown {
+			display: none;
+			&:hover {
+				display: block;
+			}
+			position: absolute;
+			left: -20px;
+			padding: 20px;
+			background-color: $colorMain_2;
+			li {
+				list-style: none;
+				&:not(:last-child) {
+					margin-bottom: 10px;
+				}
+				a {
+					text-decoration: none;
+					@include styleParagraphNormal;
+					color: $colorMain_7;
+				}
+			}
+		}
+		.name:hover {
+			&+ .dropdown {
+				display: block;
+			}
+		}
 	}
 }
 

@@ -40,7 +40,7 @@ $email = isset($_SESSION['user_email']) ? $_SESSION['user_email'] : null ;
           </div>
           <?= RichText::asHtml($document->lightbox_title); ?>
           <div class="container-btn">
-            <a href="<?= checkUrl($document->lightbox_btnlink); ?>" class="btn">
+            <a href="/" class="btn">
               <div class="btn-text">
                 <?= RichText::asText($document->lightbox_btntext); ?>
               </div>

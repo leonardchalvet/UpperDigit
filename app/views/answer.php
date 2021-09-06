@@ -12,6 +12,8 @@ if($question == null) {
 
 $urlt = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
+$email = isset($_SESSION['user_email']) ? $_SESSION['user_email'] : null ;
+
 ?>
 <html>
   <head>
@@ -38,7 +40,7 @@ $urlt = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "htt
 
     <?php include('common-header.php') ?>
 
-    <main>
+    <main <?php if($email != null) { echo 'class="style-show"'; } ?>>
       
       <div class="container-lightbox">
         <div class="lightbox lightbox-1">
@@ -75,7 +77,7 @@ $urlt = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "htt
               </svg>
             </a>
           </div>
-          <?= RichText::asHtml($document->lightbox2_textunder); ?>
+          <p><?= RichText::asText($document->lightbox2_textunder); ?><a href="<?php checkUrl($document->lightbox2_lnklnk); ?>"><?= RichText::asText($document->lightbox2_lnktxt); ?></a><p>
         </div>
       </div>
 

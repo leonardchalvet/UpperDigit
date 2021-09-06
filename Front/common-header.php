@@ -20,5 +20,17 @@
 				</svg>
 			</a>
 		</div>
+		
+		<div class="container-account">
+			<div class="name">
+				<span>Alexis</span>
+				<img src="img/header/arrow.svg" alt="">
+			</div>
+			<ul class="dropdown">
+				<li><a href="">dashboard</a></li>
+				<li><a href="">deconnexion</a></li>
+			</ul>
+		</div>
+		
 	</div>
 </header>

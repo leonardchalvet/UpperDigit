@@ -142,6 +142,7 @@ $('.section-dashboard .container-informations section .head .container-btn .btn:
     } else returnToEdit = false;
 
     returnF = true;
+    let skipReturn = false;
     $('form[data-info="paiement"] input').each(function(){
         
         if(!$(this).parent().hasClass('__PrivateStripeElement')) {
@@ -153,11 +154,15 @@ $('.section-dashboard .container-informations section .head .container-btn .btn:
                 $(this).parent().removeClass('style-error');
             }
         } else {
-            if( $(this).parent().parent().hasClass('StripeElement--invalid') ) {
-                returnF = false;
-                $(this).parent().parent().parent().parent().addClass('style-error');
+            if( !$(this).parent().parent().hasClass('StripeElement--empty') ) {
+                if( $(this).parent().parent().hasClass('StripeElement--invalid') ) {
+                    returnF = false;
+                    $(this).parent().parent().parent().parent().addClass('style-error');
+                } else {
+                    $(this).parent().parent().parent().parent().removeClass('style-error');
+                }
             } else {
-                $(this).parent().parent().parent().parent().removeClass('style-error');
+                skipReturn = true;
             }
         }
 
@@ -187,16 +192,17 @@ $('.section-dashboard .container-informations section .head .container-btn .btn:
                                 url : '/php/dashboard/paiement.php',
                                 type : 'POST',
                                 data : form.serialize(),
-                                success : function(code, statut){
-                                    console.log(code, statut);
-                                }
+                                success : function(code, statut){}
                             });
                         }, 250);
                     }
                 });
             }
         });
-    } else returnToEdit = false;
+    } else {
+        if(!skipReturn)
+            returnToEdit = false;
+    }
     
     returnF = true;
     if( $('form[data-info="pro"]') ) {

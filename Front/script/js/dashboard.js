@@ -135,11 +135,14 @@ $('.section-dashboard .container-informations section .head .container-btn .btn:
             url : '/php/dashboard/securite.php',
             type : 'POST',
             data : form.serialize(),
-            success : function(code, statut){}
+            success : function(code, statut){
+                $('form input[name=mail]').attr('value',$('form[data-info="securite"] input[name=email]'));
+            }
         });
     } else returnToEdit = false;
 
     returnF = true;
+    let skipReturn = false;
     $('form[data-info="paiement"] input').each(function(){
         
         if(!$(this).parent().hasClass('__PrivateStripeElement')) {
@@ -151,11 +154,15 @@ $('.section-dashboard .container-informations section .head .container-btn .btn:
                 $(this).parent().removeClass('style-error');
             }
         } else {
-            if( $(this).parent().parent().hasClass('StripeElement--invalid') ) {
-                returnF = false;
-                $(this).parent().parent().parent().parent().addClass('style-error');
+            if( !$(this).parent().parent().hasClass('StripeElement--empty') ) {
+                if( $(this).parent().parent().hasClass('StripeElement--invalid') ) {
+                    returnF = false;
+                    $(this).parent().parent().parent().parent().addClass('style-error');
+                } else {
+                    $(this).parent().parent().parent().parent().removeClass('style-error');
+                }
             } else {
-                $(this).parent().parent().parent().parent().removeClass('style-error');
+                skipReturn = true;
             }
         }
 
@@ -192,7 +199,10 @@ $('.section-dashboard .container-informations section .head .container-btn .btn:
                 });
             }
         });
-    } else returnToEdit = false;
+    } else {
+        if(!skipReturn)
+            returnToEdit = false;
+    }
     
     returnF = true;
     if( $('form[data-info="pro"]') ) {
@@ -221,11 +231,7 @@ $('.section-dashboard .container-informations section .head .container-btn .btn:
 
     
     if(returnToEdit) {
-        $(this).removeClass('style-active');
-        $('.section-dashboard .container-informations section .head .container-btn .btn:nth-child(1)').addClass('style-active');
-
-        $('.section-dashboard .container-informations .section-informations .content-save').addClass('style-active');
-        $('.section-dashboard .container-informations .section-informations .content-edit').removeClass('style-active');
+        location.reload();
     }
 
 });

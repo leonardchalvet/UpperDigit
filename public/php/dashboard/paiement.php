@@ -11,17 +11,19 @@ $intent = isset($_POST['intent'])  ?  trim($_POST['intent']) : null ;
 if( $name != null 
     && $intent != null ) {
 
-    $_SESSION['user_email'] = $email;
+    \Stripe\Stripe::setApiKey(STRIPE);
 
     $stripe = new \Stripe\StripeClient(STRIPE);
-    $customer = $stripe->customers->all(['limit' => 1, 'email' => $mail])->data[0];
+    $customer = $stripe->customers->all(['limit' => 1, 'email' => $_SESSION['user_email']])->data[0];
 
-    echo $intent;
+    $intent = Stripe\SetupIntent::retrieve($intent);
+    $payment_method = \Stripe\PaymentMethod::retrieve($intent->payment_method);
 
-    /*$stripe->customers->updateSource(
+    $payment_method->attach(['customer' => $customer['id']]);
+
+    \Stripe\Customer::update(
         $customer['id'],
-        'card_1JWhQeFhVHJZbiNt8COz3rxV',
-        ['name' => $name]
-    );*/
+        ['invoice_settings' => ['default_payment_method' => $payment_method]]
+    );
 
 }

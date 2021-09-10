@@ -1,5 +1,7 @@
 <?php 
 
+session_start();
+
 function monthInFrench($m) {
 	if($m == 1) return 'Janvier';
 	else if($m == 2) return 'Février';
@@ -291,6 +293,7 @@ try {
 										</div>
 									</form>
 									<form class="el" data-info="securite">
+										<input required type="text" value="<?php echo($email); ?>" name="mail" style="display:none;">
 										<div class="title"><?= RichText::asText($document->informations_title2); ?></div>
 										<div class="container-input">
 											<div class="wrap-input">
@@ -315,11 +318,12 @@ try {
 									</form>
 									<form class="el" data-info="paiement">
 										<input required type="text" value="<?php echo($email); ?>" name="mail" style="display:none;">
+										<input required type="text" value="0" name="intent" style="display:none;">
 										<div class="title"><?= RichText::asText($document->informations_title3); ?></div>
 										<div class="container-input">
 											<div class="wrap-input">
 												<div class="input">
-													<input required type="text" name="name" value="<?php echo $personal_information['last_name']; ?>">
+													<input class="cardholderName" required type="text" name="name" value="<?php echo $personal_information['last_name']; ?>">
 													<div class="error">Error</div>
 												</div>
 											</div>
@@ -354,35 +358,35 @@ try {
 										<div class="container-input">
 											<div class="wrap-input">
 												<div class="input">
-													<input required type="text" value="<?php echo $professional_information['name']; ?>">
+													<input name="company" required type="text" value="<?php echo $professional_information['name']; ?>">
 													<div class="error">Error</div>
 												</div>
 											</div>
 											<div class="wrap-input">
 												<div class="input">
-													<input required type="text" value="<?php echo $professional_information['siret']; ?>">
+													<input name="siret" required type="text" value="<?php echo $professional_information['siret']; ?>">
 													<div class="error">Error</div>
 												</div>
 											</div>
 											<div class="wrap-input">
 												<div class="input">
-													<input required type="text" value="<?php echo $professional_information['head_office']; ?>">
+													<input name="headoffice" required type="text" value="<?php echo $professional_information['head_office']; ?>">
 													<div class="error">Error</div>
 												</div>
 											</div>
 											<div class="wrap-input">
 												<div class="input">
-													<input required type="text" value="<?php echo $professional_information['adress']; ?>">
+													<input name="pc_adress" required type="text" value="<?php echo $professional_information['adress']; ?>">
 													<div class="error">Error</div>
 												</div>
 											</div>
 											<div class="wrap-input">
 												<div class="input">
-													<input required type="text" value="<?php echo $professional_information['zip_code']; ?>">
+													<input name="pc_zipcode" required type="text" value="<?php echo $professional_information['zip_code']; ?>">
 													<div class="error">Error</div>
 												</div>
 												<div class="input">
-													<input required type="text" value="<?php echo $professional_information['country']; ?>">
+													<input name="pc_country" required type="text" value="<?php echo $professional_information['country']; ?>">
 													<div class="error">Error</div>
 												</div>
 											</div>

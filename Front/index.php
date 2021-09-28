@@ -235,7 +235,7 @@
 						</ul>
 					</div>
 					<div class="container-btn">
-						<a class="btn">
+						<a class="btn" id="go-cover">
 							<div class="btn-text">Tester dès maintenant</div>
 							<svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16" >
 								<use xlink:href="img/common/icn-arrow.svg#content"></use>

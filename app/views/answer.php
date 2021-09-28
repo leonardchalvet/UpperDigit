@@ -13,6 +13,14 @@ if($question == null) {
 $urlt = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 $email = isset($_SESSION['user_email']) ? $_SESSION['user_email'] : null ;
+$emailclass = $email;
+
+if( $email != null ) { 
+  $unsubscribe = DateTime::createFromFormat('d/m/Y',$_SESSION['unsubscribe'])->modify('-1 month');
+  if( $unsubscribe->format('d/m/Y') > date('d/m/Y') ) {
+    $emailclass = null;
+  }
+}
 
 ?>
 <html>
@@ -40,8 +48,16 @@ $email = isset($_SESSION['user_email']) ? $_SESSION['user_email'] : null ;
 
     <?php include('common-header.php') ?>
 
-    <main <?php if($email != null) { echo 'class="style-show"'; } ?>>
+    <main <?php if($emailclass != null) { echo 'class="style-show"'; } ?>>
       
+      <div class="yesno" style="display:none;">
+				<form method="POST" onSubmit="return false;" id="yesno">
+					<input type="text" name="question" value="<?php echo($question); ?>">
+					<input type="text" name="answer" value="<?php echo($answer); ?>">
+					<input type="text" name="yesno" value="">
+				</form>
+			</div>
+
       <div class="container-lightbox">
         <div class="lightbox lightbox-1">
           <div class="cross">

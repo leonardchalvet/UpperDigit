@@ -445,7 +445,7 @@ try {
 						</ul>
 						<div id="sectionAccount"></div>
 					</section>
-					<?php } ?>
+					<?php } ?>
 					<section class="section-account">
 						<div class="head">
 							<div class="title"><?= RichText::asText($document->account_title); ?></div>

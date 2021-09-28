@@ -13,6 +13,23 @@ if( $mail != null ) {
 
     if(!empty($invoice['data'][0]['subscription'])) {
         $stripe->subscriptions->cancel($invoice['data'][0]['subscription'],[]);
+
+        try { 
+            $dbh = new PDO("mysql:dbname=".DB_BASE.";host=".DB_HOST, BD_USER, BD_PASSWORD);
+        } catch ( PDOException $e ) { }
+
+        $query = 'SELECT * FROM `customers` WHERE `email` = :email;';
+        $st = $dbh->prepare($query);
+        $st->execute(array(':email' => $mail));
+        $rep = $st->fetch();
+        $id_user = $rep['id'];
+
+        $unsubscribe = date("d/m/Y");
+        $query = 'UPDATE customers SET unsubscribe=? WHERE id=?;';
+        $st = $dbh->prepare($query);
+        $st->execute([$unsubscribe, $id_user]);
+
+        $_SESSION['unsubscribe'] = $unsubscribe;
     }
 
 }

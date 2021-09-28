@@ -195,8 +195,8 @@ $email = isset($_SESSION['user_email']) ? $_SESSION['user_email'] : null ;
           </div>
           <div class="container">
             <div class="container-quote">
-              <?php foreach ($document->quote_allq as $el) { ?>
-                <div class="quote">
+              <?php $i=1; foreach ($document->quote_allq as $el) { ?>
+                <div class="quote <?php if($i==1) { echo('style-active'); } ?>">
                   <div class="author">
                     <img class="pp" src="<?= $el->img->url; ?>" alt="<?= $el->img->alt; ?>">
                     <div class="name">
@@ -210,10 +210,10 @@ $email = isset($_SESSION['user_email']) ? $_SESSION['user_email'] : null ;
                     <?= RichText::asText($el->text); ?>
                   </q>
                 </div>
-              <?php } ?>
+              <?php $i++; } ?>
             </div>
             <div class="container-btn">
-              <div class="btn">
+              <div class="btn style-next">
                 <svg class="circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 105 105" >
                   <use xlink:href="/img/home/section-quote/circle.svg#content"></use>
                 </svg>

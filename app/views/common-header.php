@@ -36,7 +36,7 @@ $header = $WPGLOBAL['header']->data;
 					<li><a href="/php/deconnexion.php"><?= RichText::asText($header->account_deconnexiontext); ?></a></li>
 				</ul>
 			</div>
-		<?php } ?>
+		<?php } ?>
 	</div>
 </header>
 

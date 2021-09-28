@@ -114,8 +114,7 @@ if( $lastname != null
 
 		/* SEND MAIL TO USER */
 		$headers = array(
-		    'From' => $mail,
-		    'Reply-To' => $mail,
+		    'From' => 'Upperdigit',
 		    'X-Mailer' => 'PHP/' . phpversion()
 		);
 

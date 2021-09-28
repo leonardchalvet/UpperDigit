@@ -2,8 +2,36 @@
 
 $(window).on('load', function() {
 
+	function yesnoBDD(index) {
+		$('#yesno input[name="yesno"]').attr('value', index);
+		let form = $("#yesno");
+		$.ajax({
+			url : '/php/yesno.php',
+			type : 'POST',
+			data : form.serialize(),
+			success : function(code, statut){}
+		});
+	}
+
+	$('.section-answer .container-answer .container-informations .container-action .btn').click(function(){
+		if(!$('.section-answer .container-answer .container-informations .container-action .btn').hasClass('style-active')) {
+			$(this).addClass('style-active');
+			yesnoBDD($(this).index());
+		}
+	});
+
+	$('.container-lightbox .lightbox-1 .container-action .btn').click(function(){
+		if(!$('.container-lightbox .lightbox-1 .container-action .btn').hasClass('style-active')) {
+			$(this).addClass('style-active');
+			yesnoBDD($(this).index());
+		}
+
+		$('.container-lightbox .lightbox').removeClass('style-show');
+		$('.container-lightbox').removeClass('style-show');
+	});
+
 	let clickOutOfInput = true;
-	$(document).click(function(){
+	$(document).click(function(event){
 		if (!$(event.target).closest('.section-search .container-search .container-input .dropdown').length) {
 			clickOutOfInput = false;
 		}
@@ -126,7 +154,7 @@ $(window).on('load', function() {
 		$('.container-lightbox').removeClass('style-show');
 	});
 
-	$(document).click(function(){
+	$(document).click(function(event){
 		if (!$(event.target).closest('.container-lightbox .lightbox').length) {
 			$('.container-lightbox .lightbox .cross').click();
 		}

@@ -23,6 +23,13 @@
 
 		<main>
 
+			<div class="yesno" style="display:none;">
+				<form method="POST" onSubmit="return false;" id="yesno">
+					<input type="text" name="question" value="Quelles sont les différentes méthodes d'amortissement autorisées ?">
+					<input type="text" name="answer" value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo eaque, placeat, neque facere consequatur ipsum et id, dolorem necessitatibus hic, dolore minus tenetur commodi eveniet in corrupti dolorum adipisci aut?">
+					<input type="text" name="yesno" value="">
+				</form>
+			</div>
 
 			<div class="container-lightbox">
 				<div class="lightbox lightbox-1">

@@ -3,8 +3,13 @@
 
 $(window).on('load', function() {
 
+	$('#go-cover').click(function(){
+		$('html, body').animate( { scrollTop: $('.section-search').offset().top }, 750 ); // Go
+		$('.section-search .container-search .container-input .input input').focusin();
+	});
+
 	let clickOutOfInput = true;
-	$(document).click(function(){
+	$(document).click(function(event){
 		if (!$(event.target).closest('.section-search .container-search .container-input .dropdown').length) {
 			clickOutOfInput = false;
 		}
@@ -303,7 +308,6 @@ function carousel(section, nav, el, delay){
 			}
 			interval = setInterval(function() {
 				$(nav + '.style-prev').click();
-		    	console.log('step-prev');
 		    }, delay);
 		} else if ($(this).hasClass('style-next')) {
 			setTimeout(function(){
@@ -317,14 +321,12 @@ function carousel(section, nav, el, delay){
 			}
 			interval = setInterval(function() {
 				$(nav + '.style-next').click();
-		    	console.log('step-next');
 		    }, delay);
 		}
 	})
 
 	
 	var interval = setInterval(function() {
-    	console.log('step-next');
     	$(nav + '.style-next').click();
     	
     }, delay);

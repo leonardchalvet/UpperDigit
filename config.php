@@ -38,7 +38,7 @@ define("BD_PASSWORD","root");
 define("DB_HOST","mysql-agence-me.alwaysdata.net");
 define("DB_BASE","agence-me_upperdigit");
 define("BD_USER","agence-me");
-define("BD_PASSWORD","BrunoxUpper"); */
+define("BD_PASSWORD","BrunoxUpper");*/
 
 /* 
  * STRIPE

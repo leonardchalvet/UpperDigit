@@ -112,7 +112,7 @@
 				else if($(this).attr('type') == "password" ) {
 					let password1 = $('.step-2 form input[name=password-1]').val(),
 					 	password2 = $('.step-2 form input[name=password-2]').val();
-					if( password1 != password2 || password1.length <= 0|| password2.length <= 0 ) {
+					if( password1 != password2 || password1.length <= 6|| password2.length <= 6 ) {
 						returnF = false;
 						$(this).parent().addClass('style-error');
 					}
@@ -248,97 +248,100 @@
 	let allElements = [cardNumber, cardExpiry, cardCvc];
 
 	$('.step-3 .btn-next').click(function(){
+		if( !$('.step-3 .container-nav .btn-next .btn-text').hasClass('style-none') ) {
+			let returnF = true;
+			$('.step-3 form').find('input').each(function(){
 
-	let returnF = true;
-	$('.step-3 form').find('input').each(function(){
+				if(!$(this).parent().hasClass('__PrivateStripeElement')) {
+				if( isEmpty($(this)) ) {
+					returnF = false;
+					$(this).parent().addClass('style-error');
+				}
+				else {
+					$(this).parent().removeClass('style-error');
+				}
+				}
 
-		if(!$(this).parent().hasClass('__PrivateStripeElement')) {
-		if( isEmpty($(this)) ) {
-			returnF = false;
-			$(this).parent().addClass('style-error');
-		}
-		else {
-			$(this).parent().removeClass('style-error');
-		}
-		}
+			});
 
-	});
+			if( $('#cardNumber-element').hasClass('StripeElement--invalid') || $('#cardNumber-element').hasClass('StripeElement--empty') ) {
+				returnF = false;
+				$('#cardNumber-element').parent().addClass('style-error');
+			} else $('#cardNumber-element').parent().removeClass('style-error');
 
-	if( $('#cardNumber-element').hasClass('StripeElement--invalid') || $('#cardNumber-element').hasClass('StripeElement--empty') ) {
-		returnF = false;
-		$('#cardNumber-element').parent().addClass('style-error');
-	} else $('#cardNumber-element').parent().removeClass('style-error');
+			if( $('#cardExpiry-element').hasClass('StripeElement--invalid') || $('#cardExpiry-element').hasClass('StripeElement--empty') ) {
+				returnF = false;
+				$('#cardExpiry-element').parent().addClass('style-error');
+			} else $('#cardExpiry-element').parent().removeClass('style-error');
 
-	if( $('#cardExpiry-element').hasClass('StripeElement--invalid') || $('#cardExpiry-element').hasClass('StripeElement--empty') ) {
-		returnF = false;
-		$('#cardExpiry-element').parent().addClass('style-error');
-	} else $('#cardExpiry-element').parent().removeClass('style-error');
+			if( $('#cardCvc-element').hasClass('StripeElement--invalid') || $('#cardCvc-element').hasClass('StripeElement--empty') ) {
+				returnF = false;
+				$('#cardCvc-element').parent().addClass('style-error');
+			} else $('#cardCvc-element').parent().removeClass('style-error');
 
-	if( $('#cardCvc-element').hasClass('StripeElement--invalid') || $('#cardCvc-element').hasClass('StripeElement--empty') ) {
-		returnF = false;
-		$('#cardCvc-element').parent().addClass('style-error');
-	} else $('#cardCvc-element').parent().removeClass('style-error');
+			if(returnF) {
 
-	if(returnF) {
+				$('.step-3 .container-nav .btn-next .btn-text').addClass('style-none');
+				$('.step-3 .container-nav .btn-next .btn-arrow').addClass('style-none');
+				$('.step-3 .container-nav .btn-next .btn-load').removeClass('style-none');
 
-		$('.step-3 .container-nav .btn-next .btn-text').addClass('style-none');
-		$('.step-3 .container-nav .btn-next .btn-arrow').addClass('style-none');
-		$('.step-3 .container-nav .btn-next .btn-load').removeClass('style-none');
+				$.ajax({
+					url : '/php/intent.php',
+					type : 'POST',
+					success : function(code, statut){
+						$('input[name=intent]').attr('value', code.split('|')[0]);
+						let clientSecret = code.split('|')[1];
 
-		$.ajax({
-			url : '/php/intent.php',
-			type : 'POST',
-			success : function(code, statut){
-				$('input[name=intent]').attr('value', code.split('|')[0]);
-				let clientSecret = code.split('|')[1];
+						stripe.confirmCardSetup(clientSecret, {
+							payment_method: {
+								card: cardNumber,
+								billing_details: {
+									name: $('.cardholderName').val(),
+								},
+							},
+						})
+						.then(function(result) {
+							if (result.error) {} else {
+								setTimeout(function(){
+									let form = $('.step-3 form');
+									$.ajax({
+										url : '/php/form.php',
+										type : 'POST',
+										data : form.serialize(),
+										success : function(code, statut){
+											if(code == 'mail') {
+												alert('Adresse email déjà utilisé');
 
-				stripe.confirmCardSetup(clientSecret, {
-					payment_method: {
-						card: cardNumber,
-						billing_details: {
-							name: $('.cardholderName').val(),
-						},
-					},
-				})
-				.then(function(result) {
-					if (result.error) {} else {
-						setTimeout(function(){
-							let form = $('.step-3 form');
-							$.ajax({
-								url : '/php/form.php',
-								type : 'POST',
-								data : form.serialize(),
-								success : function(code, statut){
-									if(code == 'mail') {
-										alert('Adresse email déjà utilisé');
+												$('.step-3 .container-nav .btn-next .btn-text').removeClass('style-none');
+												$('.step-3 .container-nav .btn-next .btn-arrow').removeClass('style-none');
+												$('.step-3 .container-nav .btn-next .btn-load').addClass('style-none');
 
-										$('.step-3 .container-nav .btn-next .btn-text').removeClass('style-none');
-										$('.step-3 .container-nav .btn-next .btn-arrow').removeClass('style-none');
-										$('.step-3 .container-nav .btn-next .btn-load').addClass('style-none');
-
-									} else {
-										$('.section-tunnel .header').addClass('style-hide');
-										index++;
-										direction = 'style-hide-left';
-										refresh();
-									}
-								}
-							});
-						}, 250);
+											} else {
+												$('.section-tunnel .header').addClass('style-hide');
+												index++;
+												direction = 'style-hide-left';
+												refresh();
+											}
+										}
+									});
+								}, 250);
+							}
+						});
 					}
 				});
 			}
-		});
-	}
+		}
 	});
 
 	$('.step-3 .btn-prev').click(function(){
-		if (index > 1) {
-			index--;
-			direction = 'style-hide-right';
-			refresh();
+		if( !$('.step-3 .container-nav .btn-next .btn-text').hasClass('style-none') ) {
+			if (index > 1) {
+				index--;
+				direction = 'style-hide-right';
+				refresh();
 
-			$('.step-3 .container-steps input').remove();
+				$('.step-3 .container-steps input').remove();
+			}
 		}
 	});
 

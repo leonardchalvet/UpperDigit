@@ -16,9 +16,11 @@ $email = isset($_SESSION['user_email']) ? $_SESSION['user_email'] : null ;
 $emailclass = $email;
 
 if( $email != null ) { 
-  $unsubscribe = DateTime::createFromFormat('d/m/Y',$_SESSION['unsubscribe'])->modify('-1 month');
-  if( $unsubscribe->format('d/m/Y') > date('d/m/Y') ) {
-    $emailclass = null;
+  if(!empty($_SESSION['unsubscribe'])) {
+    $unsubscribe = DateTime::createFromFormat('d/m/Y',$_SESSION['unsubscribe'])->modify('1 month');
+    if( $unsubscribe->format('d/m/Y') > date('d/m/Y') ) {
+      $emailclass = null;
+    }
   }
 }
 
